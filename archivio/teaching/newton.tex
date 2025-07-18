@@ -1,0 +1,171 @@
+\documentclass[pre,aps,12pt]{revtex4} 
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\spazio}{\vspace{.5cm}}
+
+\begin{document}
+
+\section{Il metodo di Newton}
+
+\noindent
+Il metodo di Newton consente di calcolare molto rapidamente con un calcolatore
+uno zero di una funzione assegnata $f(x) \in C^2$, cio\`e un punto $\bar{x}$ tale
+che $f(\bar{x})=0$.
+Perch\'e il metodo sia applicabile,
+\`e necessario per\'o che esista un intervallo $[a,b]$
+tale che: \\
+1) $\bar{x} \in [a,b]$; \\
+2) $f'(x) \neq 0$, $f''(x) \neq 0$ \ $\forall x \in [a,b]$. \\
+Una condizione necessaria e sufficiente perch\'e l'intervallo esista \`e che
+$f'(\bar{x}) \neq 0$ e $f''(\bar{x}) \neq 0$. Infatti, se $f(x) \in C^2$,
+se le derivate prima e seconda sono diverse da zero in $x=\bar{x}$ sono
+necessariamente diverse da zero in un intorno di $\bar{x}$.
+
+\spazio
+
+Per utilizzare praticamente il metodo, il primo problema \`e quindi individuare
+un intervallo $[a,b]$ in cui lo zero di $f(x)$ sia contenuto con certezza e 
+le derivate prima e seconda di $f(x)$ non si annullino. Questo problema va
+risolto caso per caso studiando la funzione $f(x)$, e costituisce il limite
+principale del metodo. Supponiamo adesso di averlo risolto, cio\`e di aver
+trovato un intervallo $[a,b]$ che verifica le propriet\`a richieste.
+
+\spazio
+
+Prendiamo un punto a caso $x_0 \in [a,b]$ e calcoliamo $f(x_0)$. Pu\`o
+succedere che $f(x_0)=0$; in questo caso (fortunato!) il problema \`e risolto,
+$\bar{x}=x_0$ e l'algoritmo si arresta. Se invece (come \`e pi\`u probabile)
+$f(x_0) \neq 0$, sviluppiamo $f(x)$ in serie di Taylor intorno ad $x_0$:
+\beq
+\nonumber
+f(x) \sim f(x_0) + f'(x_0) (x-x_0)
+\eeq
+Ora possiamo risolvere l'equazione $f(x)=0$, e chiamiamo $x_1$ la soluzione:
+\beq
+\nonumber
+f(x)=f(x_0) + f'(x_0) (x-x_0)= 0 \hspace{1cm} \Rightarrow\hspace{1cm}
+x_1=x_0 + \frac{f(x_0)}{f'(x_0)}
+\eeq
+In generale, $x_1 \neq \bar{x}$ perch\'e abbiamo sviluppato $f(x)$
+al primo ordine trascurando i termini successivi in $(x-x_0)$. 
+Se per fortuna $x_1 = \bar{x}$, cio\`e se $f(x_1)=0$, di nuovo l'algoritmo
+si arresta. Se invece $f(x_1) \neq 0$, ripetiamo la procedura e definiamo un nuovo valore
+\beq
+\nonumber
+x_2=x_1 + \frac{f(x_1)}{f'(x_1)}
+\eeq
+Otteniamo cos\`i una successione $\{ x_n \}$ definita dalla regola
+\beq
+\label{regola}
+x_{n+1}=x_n + \frac{f(x_n)}{f'(x_n)}
+\eeq
+Se per caso a un certo punto $x_n$ coincide esattamente con $\bar{x}$, cio\`e
+se per qualche $n$ si ha $f(x_n)=0$, l'algoritmo si arresta; tuttavia, nelle
+applicazioni pratiche questo caso si verifica molto raramente,
+semplicemente per il fatto che il computer lavora con un numero finito
+di cifre nella rappresentazione decimale dei numeri reali.
+
+\spazio
+
+Riassumendo, abbiamo definito un metodo per cercare uno zero di una funzione
+assegnata $f(x) \in C^2$, con il seguente algoritmo: \\
+1) Individuiamo un intervallo $[a,b]$ che verifichi le propriet\`a necessarie; \\
+2) Partiamo da un punto a caso $x_0 \in [a,b]$; \\
+3) Calcoliamo una successione $\{x_n\}$ con la regola ricorsiva (\ref{regola}); \\
+4) Se per caso per un certo $n$ troviamo $f(x_n)=0$, l'algoritmo si arresta e il risultato \`e $\bar{x}=x_n$; altrimenti, continuiamo a calcolare $x_n$ fino a
+che $|x_{n+1} - x_n | < \epsilon$, dove $\epsilon$ \`e la precisione che
+desideriamo. \\
+Ovviamente, l'ultima affermazione ha senso solo se la successione $\{x_n\}$
+converge effettivamente a $\bar{x}$, cio\`e se
+\beq
+\lim_{n \rightarrow \infty} x_n = \bar{x} \ .
+\eeq
+Verifichiamo quindi questa affermazione, e cerchiamo di stimare la velocit\`a
+di convergenza della successione.
+
+\spazio
+
+{\bf Esercizio:} date una interpretazione grafica del metodo di Newton. \\
+{\it Suggerimento: disegnate la funzione $f(x)$ (ricordate le ipotesi
+di applicabilit\`a del metodo), considerate un punto $x_0$
+e disegnate la retta tangente a $f(x)$ in $x_0$. Dove interseca l'asse $x$?}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Convergenza del metodo di Newton}
+
+Per discutere la convergenza del metodo di Newton, sviluppiamo $f(x)$ in
+serie di Taylor intorno al suo zero $\bar{x}$ (attenzione a non confondere
+questo sviluppo intorno a $\bar{x}$, che \`e l'incognita del problema,
+con lo sviluppo intorno a $x_0$, un valore noto, che abbiamo fatto nel
+paragrafo precedente):
+\beq
+\label{funzione}
+\begin{split}
+&f(x)=f_1 (x-\bar{x})+ f_2 (x-\bar{x})^2 \\
+&f_1=f'(\bar{x}) \hspace{1cm} f_2=f''(\bar{x})/2
+\end{split}
+\eeq
+Supponiamo che l'intorno $[a,b]$ sia abbastanza piccolo da poter trascurare
+i termini successivi nello sviluppo di Taylor di $f(x)$.
+Costruiamo la successione $\{x_n\}$ con la regola (\ref{regola}) e 
+definiamo $\delta x_n = x_n - \bar{x}$. 
+Sostituiamo l'espressione (\ref{funzione}) nella formula (\ref{regola}):
+\beq
+\nonumber
+\delta x_{n+1} = \delta x_n - \frac{ f_1 \delta x_n + f_2 (\delta x_n )^2 }{f_1 + 2f_2 \delta x_n} =
+\frac{A (\delta x_n)^2}{1 + 2A \delta x_n} 
+\eeq
+dove abbiamo definito $A=f_2/f_1$ per comodit\`a.
+Per $|A \ \delta x_n| \ll 1$ possiamo sviluppare in serie il denominatore
+dell'equazione precedente:
+\beq
+\label{sviluppo}
+\delta x_{n+1} \sim A (\delta x_n)^2 \left[ 1 + O(\delta x_n) \right] =
+A (\delta x_n)^2 + O((\delta x_n)^3)
+\eeq
+Trascurando gli ordini successivi e moltiplicando entrambi i membri per $A$, l'equazione diventa
+\beq
+\nonumber
+A \delta x_{n+1} = (A \delta x_n)^2
+\eeq
+la cui soluzione \`e
+\beq
+\label{finale}
+A \delta x_n = (A \delta x_0)^{2^n}
+\eeq
+Osserviamo quindi che se $|A \ \delta x_0| \ll 1$,  si ha anche $|A \ \delta x_n| \ll 1$ per ogni $n$,
+e quindi gli sviluppi in serie (\ref{funzione}) e (\ref{sviluppo}) sono possibili per ogni $n$.
+Dalla formula (\ref{finale}) si vede che
+\beq
+\nonumber
+\lim_{n \rightarrow \infty} \delta x_n = 0  \hspace{1cm} \Rightarrow\hspace{1cm}
+\lim_{n \rightarrow \infty} x_n = \bar{x} \ ,
+\eeq
+e quindi l'algoritmo effettivamente converge allo zero di $f(x)$. Osserviamo che la convergenza
+\`e molto rapida, dal momento che $n$ compare in un doppio esponente.
+
+\spazio
+
+Per concludere \`e importante ricordare che la scelta del punto di partenza $x_0$ \`e molto delicata
+perch\`e se $x_0$ \`e troppo distante da $\bar{x}$ (cio\`e se \`e fuori dall'intervallo $[a,b]$ in
+cui le ipotesi di applicabilit\`a del metodo sono verificate) la successione pu\`o convergere a uno 
+zero diverso da quello cercato o pu\`o divergere.
+
+\spazio
+
+{\bf Esercizio:} Verificare graficamente che il metodo di Newton converge allo zero $\bar{x}$ per
+qualunque dato iniziale $x_0$ tale che $|2 A \delta x_0| < 1$ nel caso in cui $f(x)$ \`e data esattamente
+dall'espressione (\ref{funzione}).
+
+
+\end{document}

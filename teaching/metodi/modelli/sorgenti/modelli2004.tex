@@ -1,0 +1,1764 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[italian]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\linea}{\vskip14pt \noindent}
+
+% This fixes the margins and page sizes
+\setlength{\hoffset}{0pt} \setlength{\voffset}{0pt} \setlength{\topmargin}{-20pt}
+\setlength{\headsep}{30pt} \addtolength{\headsep}{-\headheight}
+\setlength{\textheight}{9in} \addtolength{\textheight}{-40pt}
+\setlength{\footskip}{30pt} \setlength{\oddsidemargin}{0pt}
+\setlength{\textwidth}{6.5in}
+
+\begin{document}
+
+\title{MODELLI E METODI MATEMATICI DELLA
+FISICA
+\\A.A. 2003\ -\ 2004}
+\author{Prof. A. Degasperis \\ Esercitazioni a cura del Dr. F. Zamponi}
+
+\maketitle
+\begin{itemize}
+\item{\underline{Argomenti trattati nel corso}}
+\begin{enumerate}
+\item Spazi lineari con dimensione finita ed infinita
+\item Funzioni generalizzate (distribuzioni)
+\item Applicazioni 
+\end{enumerate}
+\item{\underline{Contenuto di queste note}}
+\begin{enumerate}
+\item Programma del corso
+\item Riferimenti bibliografici
+\item Richiami sugli spazi vettoriali (F. Zamponi)
+\item Contenuto delle lezioni 
+\item Raccolta degli esercizi distribuiti con soluzioni e dei compiti di esonero e d'esame
+\end{enumerate}
+\end{itemize}
+
+\newpage
+
+
+
+\centerline{\textbf{PROGRAMMA DEL CORSO}} 
+\vskip 12 pt
+\noindent
+\textbf{SPAZI LINEARI CON DIMENSIONE FINITA ED INFINITA}\\
+Lo spazio lineare astratto e le sue strutture: algebrica, geometrica ed analitica. Spazio di Banach e spazio di Hilbert. Rappresentazioni di spazi lineari con vari esempi. Gli spazi $V_N$, $l_2$ ed $L_2(a,b)$. Dipendenza ed indipendenza lineare di $p$ vettori. Ortonormalizzazione di $p$ vettori. Definizione di base. Sottospazi finito-dimensionali ed infinito-dimensionali. Disuguaglianza di Bessel. Limite forte e limite debole di una successione di vettori e loro proprieta'. Rappresentazione di un vettore dello spazio di Hilbert in una base ortonormale. Ortonormalizzazione delle potenze $\{x^n\}^{\infty}_{n=0}$ in $L_2(-1,1)$ e polinomi di Legendre. Trasformazioni lineari tra spazi lineari. Dominio di definizione di una trasformazione lineare, nucleo ed invertibilita'. Funzionali lineari e forme in $V_N$. Spazio lineare duale. Base duale. Funzionali lineari limitati su uno spazio di Hilbert. Teorema di Fisher--Ritz (senza dimostrazione). Esempi di funzionali non limitati in $L_2$. Operatori lineari. Commutatori, regole di calcolo di commutatori ed identita' di Jacobi. Operatori integrali, di moltiplicazione e differenziali. Operatore Hermitiano coniugato. Operatori limitati Hermitiani. Operatori non limitati Hermitiani ed operatori autoaggiunti (con esempi). Operatori di Sturm--Liouville. Esempi di problemi di Sturm--Liouville e esempi di basi ortonormali in $L_2(-1,1)$, $L_2(0,+\infty)$ e $L_2(-\infty,+\infty)$. Proprieta' dei polinomi di Legendre, Laguerre ed Hermite. Base di Fourier in $L_2(a,b)$ e suo limite per $a\rightarrow -\infty$ e $b\rightarrow +\infty$. Trasformata di Fourier e sue proprieta'. Trasformazione di Fourier di operatori lineari.
+\vskip 12pt
+\noindent
+\textbf{FUNZIONI GENERALIZZATE ( DISTRIBUZIONI )}\\
+Funzionali lineari nello spazio di Schwartz. Funzionali lineari non regolari con esempi in fisica. Limite di successioni di funzionali lineari e definizione di distribuzione. Distribuzione di Dirac e sue proprieta'. Derivate della distribuzione di Dirac. Distribuzione di Heaviside. Trasformata di Fourier di una distribuzione. Trasformata di Fourier della distribuzione di Heaviside. Formule di Plemelij.
+\vskip 12pt
+\noindent
+\textbf{APPLICAZIONI}\\
+L'oscillatore armonico forzato: funzione di Green ritardata e soluzione del problema del transiente.
+Moto di una particella in un potenziale sulla retta:
+i) meccanica classica: equazioni di Hamilton, parentesi di Poisson ed analisi qualitativa;
+ii) meccanica quantistica: equazione di Schr\"{o}dinger, soluzioni stazionarie, coefficienti di riflessione e di trasmissione e loro calcolo nell' approssimazione di Bohr.
+\newpage
+\centerline{\textbf{RIFERIMENTI BIBLIOGRAFICI}} 
+\vskip 12 pt
+\noindent
+\underline{Attenzione}: non esiste il ''libro di testo''. Gli argomenti  del corso sono trattati in numerosi libri. Qui di seguito sono elencati alcuni testi tra i tanti adatti alla consultazione ed allo studio di parti del programma.
+\begin{enumerate}
+\item Bernardini C , Ragnisco O ,Santini P M \,\,''Metodi Matematici della Fisica''\,\,La Nuova Italia Scientifica, Roma 1993.
+\item Dennery P , Krzywicki A\,\,''Mathematics for Physicists''\,\,Harper\&Row 1967.
+\item Halmos P R \,\,''Finite dimensional Vector Spaces'' \,\,Van Nostrand Comp. 1958.
+\item Hirsch M W , Smale S\,\,''Differential Equations, Dynamical Systems and Linear Algebra''\,\,Academic Press 1974.
+\item Ince E L\,\,''Ordinary Differential Equations''\,\,Dover Publ., New York 1956.
+\item Rossetti C\,\,''Metodi Matematici per la Fisica''\,\,Libreria Ed.Univ. Levrotto\&Bella, Torino 2000.
+\item Shilov G E\,\,''An Introduction to the Theory of Linear Spaces''\,\,Prentice--Hall 1961.
+\item  Smirnov V I \,\,''Corso di Matematica Superiore''\,\, Editori Riuniti, Roma 1978.
+\item Taylor A E \,\,''Introduction to Functional Analysis''\,\, John--Wiley\&Sons 1958.
+\item Vladimirov V\,\,''Distributions en Physique Math\`ematique''\,\,MIR, Moscou 1979.
+\end{enumerate}
+\noindent
+Per le funzioni elementari e speciali, il calcolo di serie e di integrali consultare
+\begin{enumerate}
+\item Abramowitz M , Stegun I A \,\,''Handbook of Mathematical Functions''\,\, Dover Publ., New York 1968.
+\item Gradshstein I S, Ryzhik I M\,\,''Table of Integrals, Series and Products''\,\,Academic Press, New York 1965.
+\end {enumerate}
+
+
+\newpage
+
+\centerline{\LARGE \bf Spazi vettoriali}
+
+\linea
+Queste note sono tratte da:
+A.N.Kolmogorov, S.V.Fomin, {\it Elementi di teoria delle funzioni e di analisi funzionale},
+MIR, 1980, Capitolo III, par. 1 e 4 e Capitolo IV, par. 5.
+
+\linea
+\centerline{\bf Spazi vettoriali (o lineari) complessi}
+
+\linea
+Uno spazio vettoriale \`e un insieme $V$ sul quale sono definite una operazione di somma e una
+operazione di prodotto per un numero 
+complesso\footnote{E' possibile definire uno spazio vettoriale su un campo $K$ qualunque.
+Noi consideriamo solo il caso $K=\mathbb{C}$ per semplicit\`a.}
+tali che, $\forall x,y,z \in V$ e 
+$\forall \lambda, \mu \in \mathbb{C}$:
+\begin{eqnarray}
+&x+y=y+x \\
+&(x+y)+z=x+(y+z) \\
+&\exists 0 \in V : x + 0 = x \\
+&\exists -x \in V : x + (-x) = 0 \\
+&\lambda (\mu x) = \mu (\lambda x) \\
+&1 \cdot x = x \\
+&(\lambda+ \mu) x = \lambda x + \mu x\\
+&\lambda(x+y) = \lambda x + \lambda y
+\end{eqnarray}
+
+\linea
+{\bf Esercizio:} verificare che gli spazi seguenti sono spazi vettoriali definendo opportunamente
+la somma di due vettori e il prodotto di un vettore per un numero complesso.
+
+\begin{enumerate}
+\item Spazio dei vettori complessi n-dimensionali $\mathbb{C}^n$: $x=(x_1,\cdots,x_n)$, $x_i \in \mathbb{C}$.
+\item Spazio delle matrici $m \times n$ complesse ${\cal M}(m,n)$: $x = \left(
+\begin{array}{ccc}
+a_{11} & \cdots & a_{1n} \\
+a_{21} & \cdots & a_{2n} \\
+\hdotsfor[1.5]{3} \\
+a_{m1} & \cdots & a_{mn} \\
+\end{array}
+\right)$, $a_{ij} \in \mathbb{C}$.
+\item Spazio delle funzioni $f(x):[a,b] \rightarrow \mathbb{C}$ continue.
+\item Spazio delle funzioni $f(z)$ analitiche in un dominio ${\cal D}$ del piano complesso $z$.
+\item Spazio $l_2$ delle successioni $\{x_n\}_{n=1}^\infty$, $x_n \in \mathbb{C}$, tali che
+$\sum_{n=1}^\infty |x_n|^2 <\infty$.
+\item Spazio $L_2[a,b]$ delle funzioni $f(x):[a,b] \rightarrow \mathbb{C}$ tali che
+$\int_a^b dx |f(x)|^2 < \infty$.
+\end{enumerate}
+
+\linea
+{\bf Indipendenza lineare e dimensione di uno spazio vettoriale:} $n$ vettori 
+$\{ x^1,\cdots,x^n \}$\footnote{Indichiamo sempre con un indice alto insiemi di vettori,
+mentre un indice basso
+indica la componente di un vettore.}
+si dicono {\it linearmente indipendenti} se, $\forall \{\lambda_1,\cdots,\lambda_n\}$,
+$\lambda_i \in \mathbb{C}$,
+\begin{equation}
+\sum_{i=1}^n \lambda_i x^i = 0 \hspace{10pt}  \Rightarrow  \hspace{10pt} \lambda_i = 0 \ \  \forall i
+\end{equation}
+La {\it dimensione di uno spazio vettoriale} \`e il massimo numero di vettori linearmente
+indipendenti che si possono trovare nello spazio stesso. Ovvero, se in uno spazio vettoriale si
+possono trovare al massimo $n$ vettori linearmente indipendenti, lo spazio ha dimensione $n$.
+Se per qualunque $n \in \mathbb{N}$ \`e possibile trovare un insieme di $n$ vettori linearmente 
+indipendenti si dice che lo spazio ha dimensione infinita.
+
+\linea
+{\bf Base di uno spazio vettoriale:} Se uno spazio vettoriale ha dimensione $n$ \`e possibile
+trovare un insieme di vettori $\{e^1,\cdots,e^n\}$ (detti {\it vettori di base}) 
+tali che ogni vettore $x$ dello spazio \`e una combinazione lineare dei vettori della base,
+ovvero, $\forall x \in V$, $x=\sum_{i=1}^n x_i e^i$, $x_i \in \mathbb{C}$.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Dimostrare che lo spazio $\mathbb{C}^n$ ha dimensione $n$.
+\item Scrivere una base per lo spazio ${\cal M}(m,n)$.
+\item Dimostrare che lo spazio dei polinomi di grado $N$ di variabile complessa, 
+$P_N(z) = c_N z^N + c_{N-1} z^{N-1} + \cdots + c_0$, ha dimensione $N+1$.
+\item Dimostrare che lo spazio delle funzioni $f(z)$ analitiche nel cerchio di centro 0 e 
+raggio 1 ha dimensione infinita (suggerimento: utilizzare il risultato dell'esercizio precedente).
+\item Dimostrare che lo spazio $l_2$ ha dimensione infinita (suggerimento: provare a costruire
+esplicitamente $n$ vettori linearmente indipendenti per ogni intero $n$).
+\end{enumerate}
+
+\linea
+{\bf Prodotto scalare:} un prodotto scalare su uno spazio vettoriale complesso $V$ \`e una
+funzione $\cdot : V \times V \rightarrow \mathbb{C}$ che verifica le seguenti propriet\`a (notazione: se $\lambda$ \`e un numero complesso, $\overline{\lambda}$ \`e il suo complesso coniugato):
+\begin{eqnarray}
+\label{PS1}
+&x \cdot y = \overline{y \cdot x} \\
+\label{PS2}
+&x \cdot (\lambda y) = \lambda (x\cdot y) \\
+&x \cdot (y + z) = x \cdot y + x \cdot z \\
+\label{PS4}
+& x \cdot x \geq 0, \hspace{10pt} =0 \Leftrightarrow x=0
+\end{eqnarray}
+Osserviamo che $x \cdot y$ in generale \`e un numero complesso; tuttavia, dalla (\ref{PS1})
+segue che $x\cdot x \in \mathbb{R}$ per cui la disuguaglianza (\ref{PS4}) \`e ben 
+definita\footnote{Ricordiamo che le disuguaglianze fra numeri complessi non sono definite, per cui
+non avrebbe senso chiedersi se $x\cdot x \geq 0$ se $x\cdot x$ fosse complesso.}.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Dimostrare che $(\lambda x) \cdot y = \overline{\lambda} x\cdot y$.
+\item Dimostrare la {\it disuguaglianza di Cauchy-Bunjakovskij}: $|x\cdot y| \leq |x| |y|$, dove
+$|x| = \sqrt{x\cdot x}$ (suggerimento: calcolare $|x + \mu y|^2$ per $\mu = - (y\cdot x) / |y|^2$).
+\item Verificare che $x \cdot y = \sum_{i=1}^n \overline{x}_i y_i \equiv x^\dag y$ \`e un prodotto
+scalare\footnote{D'ora in poi useremo sempre la notazione $x^\dag y$ per il prodotto scalare su
+$\mathbb{C}^n$. Si usa questa notazione perch\'e se $x$ \`e un vettore colonna di componenti
+$x_i$, $x^\dag$ indica il vettore riga di componenti $\overline{x}_i$ ({\it hermitiano coniugato}
+di $x$). Allora $x^\dag y$ indica il normale prodotto righe per colonne.}
+su $\mathbb{C}^n$.
+\item Verificare che $x \cdot y = \sum_{i=2}^n \overline{x}_i y_i$ non \`e un prodotto
+scalare su $\mathbb{C}^n$.
+\item Verificare che $x \cdot y = \sum_{i=1}^n x_i y_i$ non \`e un prodotto
+scalare su $\mathbb{C}^n$.
+\item Verificare che $A \cdot B = \text{Tr} A^\dag B$ \`e un prodotto 
+scalare\footnote{La matrice $A^\dag$ \`e definita da $(A^\dag)_{ij} = \overline{A_{ji}}$.}
+su ${\cal M}(n,n)$.
+\item Verificare che $f \cdot g = \frac{1}{b-a} \int_a^b dx \overline{f(x)} g(x)$ \`e un
+prodotto scalare su $L_2[a,b]$.
+\end{enumerate}
+
+\newpage
+
+\centerline{\bf Basi ortonormali, isomorfismo fra spazi vettoriali e cambiamenti di base}
+
+\linea
+{\bf Base ortonormale:} una base $e^i$, $i=1,\cdots,n$, \`e detta ortonormale se
+$e^i \cdot e^j = \delta_{ij}$. 
+
+\linea
+{\bf Esercizio:} verificare che se $e^i \cdot e^j = \delta_{ij}$ i vettori $e^i$ sono linearmente indipendenti
+(suggerimento: calcolare $e^k \cdot \sum_i \lambda_i e^i$). 
+
+\linea
+{\bf In ogni spazio vettoriale $V$ di dimensione finita esiste una base ortonormale.}
+\vskip5pt
+\noindent
+Infatti sia $f^k$, $k=1,\cdots,n$ una base per lo spazio $V$. Per costruire una base {\it ortogonale}
+si procede nel modo seguente ({\it metodo di ortogonalizzazione di Gram-Schmidt}):
+\begin{equation*}
+\begin{split}
+&e^1=f^1   \\
+&e^2=f^2 - \frac{e^1 \cdot f^2}{e^1 \cdot e^1} e^1 \\
+&e^3=f^3 - \frac{e^1 \cdot f^3}{e^1 \cdot e^1} e^1- \frac{e^2 \cdot f^3}{e^2 \cdot e^2} e^2 \\
+&\cdots \cdots \cdots \cdots \cdots  \\
+&e^k=f^k - \sum_{i=1}^{k-1} \frac{e^i \cdot f^k}{e^i \cdot e^i} e^i \\
+\end{split} 
+\end{equation*}
+{\bf Esercizi:}
+\begin{enumerate}
+\item Verificare che i vettori $e^k$ sono tra loro ortogonali.
+\item (facoltativo) Verificare che $|e^k|\neq 0$ se i vettori $f^k$ sono linearmente indipendenti.
+\end{enumerate}
+Per ottenere una base ortonormale \`e sufficiente alla fine dividere ogni vettore $e^k$ per il suo modulo.
+Dalla formula esplicita si vede che i vettori della nuova base $e^k$ sono combinazioni lineari dei
+vettori $f^k$: dunque, se per ogni vettore $x$ dello spazio si aveva $x=\sum_k x_k f^k$, si avr\`a anche
+$x=\sum_k x_k'e^k$, per cui i vettori $e^k$ sono una base ortonormale dello spazio.
+
+\linea
+{\bf Ogni spazio vettoriale $V$ di dimensione $n$ \`e isomorfo a $\mathbb{C}^n$.}
+\vskip5pt
+\noindent
+Due spazi vettoriali $U$,$V$ si dicono isomorfi se esiste una corrispondenza biunivoca tra vettori di
+$U$ e vettori di $V$ in modo che, se $x,y \in U$ corrispondono rispettivamente a $x',y' \in V$, 
+si abbia che $x+y$ 
+corrisponde a $x'+y'$ e $\lambda x$ corrisponde a $\lambda x'$ per ogni numero complesso $\lambda$.
+Se due spazi sono isomorfi essi possono essere pensati come rappresentazioni diverse di uno stesso
+spazio, perch\`e tutte le propriet\`a di uno spazio vettoriale sono determinate dalle operazioni di
+somma e prodotto scalare su di esso definite.
+\vskip5pt
+\noindent
+Costruiamo una base ortonormale $e^k$ dello spazio $V$. Ogni vettore $x$ \`e rappresentabile come
+\begin{equation}
+x=\sum_{k=1}^n x_k e^k \hspace{10pt} \Rightarrow \hspace{10pt} x \leftrightarrow \{x_k\}_{k=1}^n
+\end{equation}
+cio\`e ad ogni vettore corrisponde l'insieme delle sue 
+coordinate\footnote{Ricordate che dal momento che lo spazio vettoriale \`e complesso, le coordinate saranno
+in generale numeri complessi.}
+nella base $e^k$, che \`e proprio un vettore di $\mathbb{C}^n$.
+Si verifica facilmente che alla somma di due vettori corrisponde la somma delle loro coordinate e che il
+vettore $\lambda x$ ha coordinate $\{\lambda x_k\}_{k=1}^n$. Dunque, ogni spazio vettoriale $V$ \`e
+isomorfo a $\mathbb{C}^n$ ovvero, in pratica, {\it ogni spazio vettoriale di dimensione $n$ pu\`o
+essere pensato come una rappresentazione di $\mathbb{C}^n$}.
+
+\linea
+Il prodotto scalare di due vettori si rappresenta in termini delle loro coordinate nel modo seguente.
+Per ogni coppia di vettori $x,y \in V$ si ha (ricordando che 
+$(\lambda x) \cdot y = \overline{\lambda} (x\cdot y)$):
+\begin{equation}
+x \cdot y = \left(\sum_{i=1}^n x_i e^i \right) \cdot \left( \sum_{k=1}^n y_k e^k \right) =
+\sum_{i,k}^{1,n} \overline{x}_i y_k \ e^i \cdot e^k = \sum_{i,k}^{1,n} \overline{x}_i y_k \delta_{ik} =
+\sum_{k=1}^n \overline{x}_k y_k \equiv x^\dag y
+\end{equation}
+Dunque, in termini delle coordinate, il prodotto scalare di due vettori $x,y \in V$ \`e proprio il prodotto
+scalare $x^\dag y$ che abbiamo precedentemente introdotto in $\mathbb{C}^n$. Riassumendo, {\it ogni spazio
+vettoriale $V$ di dimensione $n$ con un qualunque prodotto scalare pu\`o essere pensato come una
+rappresentazione di $\mathbb{C}^n$ con il prodotto scalare  $x^\dag y$}.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Verificare che le coordinate $x_i$ di un vettore $x \in V$ rispetto a una base ortonormale $e^i$ 
+sono date da $x_i = e^i \cdot x$.
+\item Costruire una base ortonormale per lo spazio ${\cal M}(2,2)$ col prodotto scalare 
+$A\cdot B = \text{Tr} A^\dag B$.
+\item Costruire una base ortonormale per lo spazio dei polinomi $P_N(\cos \theta,\sin \theta)$, 
+$\theta \in [0,2\pi]$ (serie di Fourier troncate all'ordine $N$)
+col prodotto scalare $P \cdot Q = (2\pi)^{-1} \int_0^{2\pi} d\theta \overline{P(\theta)} Q(\theta)$. \\
+Suggerimento: \`e sempre possibile scrivere
+\begin{equation} \nonumber
+P_N(\cos\theta,\sin \theta)= f_0 + \sum_{n=1}^N (a_n \cos n\theta + b_n \sin n \theta\,\,)
+\end{equation}
+\item Dimostrare che, se $e^i$ e $f^i$ sono due basi ortonormali, si ha
+\begin{equation} \nonumber
+f^i = \sum_{j=1}^n \overline{U_{ij}} e^j
+\end{equation}
+e $U_{ij} = f^i \cdot e^j$ \`e una matrice unitaria, cio\`e tale che $U^\dag U = 1$. \\
+(Nota: il coniugato nella formula \`e stato messo perch\'e sar\`a utile in seguito.)
+\end{enumerate}
+
+\linea
+{\bf Trasformazioni di coordinate tra basi ortonormali}\footnote{Come al solito,
+ci restringiamo alle basi ortonormali
+per semplicit\`a, ma formule analoghe possono essere derivate per basi qualsiasi.}: consideriamo due basi
+ortonormali, $e^i$ e $f^i$. Abbiamo appena dimostrato che
+$f^i = \sum_{j=1}^n \overline{U_{ij}} e^j$ con 
+$U_{ij} = f^i \cdot e^j$. Inoltre
+$U$ \`e una matrice unitaria, $U^\dag U = 1$. Vediamo ora come
+si trasformano le coordinate di un vettore $x$. Nella base $e^i$ si ha $x=\sum_i x_i e^i$ con
+$x_i = e^i \cdot x$. Nella base $f^i$ si avr\`a $x= \sum_i x'_i f^i$ e
+\begin{equation}
+x'_i = f^i \cdot x = \left( \sum_{j=1}^n \overline{U_{ij}} e^j \right) \cdot x = 
+\sum_{j=1}^n U_{ij} ( e^j \cdot x ) = \sum_{j=1}^n U_{ij} x_j 
+\hspace{10pt} \Rightarrow \hspace{10pt} x' = U x
+\end{equation}
+Dunque le coordinate nella nuova base si ottengono applicando alle coordinate nella vecchia base la 
+trasformazione unitaria $U$.
+
+\linea
+{\bf Esercizio:} verificare che il prodotto scalare di due vettori espresso in termini delle loro coordinate,
+$x^\dag y$, non dipende dalla scelta della base, purch\`e ortonormale.
+
+
+\newpage
+
+\centerline {\bf Operatori lineari e matrici}
+
+\linea
+Un operatore lineare su uno spazio vettoriale\footnote{Consideriamo solo operatori lineari da uno
+spazio $V$ in s\'e stesso per semplicit\`a.}
+$V$ \`e una funzione $A : V \rightarrow V$ tale che,
+$\forall x,y \in V$ e $\forall \lambda \in \mathbb{C}$:
+\begin{eqnarray} \nonumber
+&A ( x + y ) = A(x)+ A(y) \\
+&A(\lambda x) = \lambda A(x) \nonumber
+\end{eqnarray}
+D'ora in poi utilizziamo la notazione $A x$ invece di $A(x)$ per semplicit\`a.
+
+\linea
+Dati due operatori lineari $A$ e $B$ e un numero complesso $\lambda$, possiamo 
+definire\footnote{Un operatore \`e definito dalla sua azione su un generico vettore $x$: cio\`e, se per
+ogni vettore $x$ sappiamo costruire il vettore $Ax$, l'operatore $A$ \`e completamente determinato.}
+gli operatori $A + B$ e $\lambda A$ come
+\begin{eqnarray} \nonumber
+&(A + B)x \equiv Ax+Bx \\
+&(\lambda A)x \equiv \lambda (Ax) \nonumber
+\end{eqnarray} 
+Possiamo inoltre definire l'operatore prodotto $A B$ come $A B x = A(Bx)$; quindi possiamo definire
+l'operatore $A^2 = AA$ e per iterazione l'operatore $A^n = A A^{n-1}$.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Verificare che $I x=x$ e $Ox=0$, $\forall x\in V$, sono operatori lineari 
+per qualunque spazio vettoriale $V$.
+\item Verificare che gli operatori $A+B$, $\lambda A$ e $AB$ sono effettivamente operatori lineari.
+\item Verificare che l'insieme degli operatori $A$ su uno spazio vettoriale $V$ con le operazioni di somma
+e prodotto per un numero complesso definite sopra \`e uno spazio vettoriale complesso 
+(suggerimento: utilizzare come operatore nullo l'operatore $O$ definito nell'esercizio 1). 
+\end{enumerate}
+
+\linea
+{\bf Esercizio} (banale): verificare che i seguenti operatori sono operatori lineari.
+\begin{enumerate}
+\item $y=Ax$ con $y_i=\sum_{j=1}^n A_{ij} x_j$, dove $A_{ij}$ \`e una matrice complessa $n\times n$ e $x \in \mathbb{C}^n$.
+\item ${\cal P}_y x = \frac{y \cdot x}{y \cdot y} y$ dove $y \in V$ \`e un vettore fissato 
+(${\cal P}_y$ \`e detto proiettore su $y$).
+\item $(Df)(z) = \frac{d}{dz} f(z)$, $f(z) \in V$ dove $V$ \`e lo spazio delle funzioni analitiche in un dominio
+${\cal D}$ del piano complesso. 
+\item $(Kf)(x) = \int_a^b dy K(x,y) f(y)$ dove $K(x,y)$ \`e una funzione continua e $f \in V = C[a,b]$.
+\end{enumerate}
+
+\linea
+Abbiamo appena visto che una matrice complessa $n\times n$ pu\`o essere pensata come un operatore
+lineare sullo spazio vettoriale $\mathbb{C}^n$. Sappiamo anche che lo spazio delle matrici 
+complesse $n\times n$ \`e uno spazio vettoriale.
+Mostriamo ora che lo spazio (vettoriale) degli operatori lineari che agiscono
+su uno spazio vettoriale complesso di dimensione $n$ \`e isomorfo allo spazio delle matrici complesse
+$n\times n$ ovvero, in termini pi\`u semplici, che
+\vskip5pt
+\noindent
+{\bf ogni operatore lineare su uno spazio V di dimensione $n$ \`e rappresentato da una matrice
+sullo spazio $\mathbb{C}^n$ delle coordinate dei vettori di V.}
+\vskip5pt
+\noindent
+Infatti, consideriamo una base ortonormale\footnote{Il ragionamento pu\`o essere ripetuto
+per una base qualunque di $V$, ma \`e leggermente pi\`u complicato.
+Per comodit\`a consideriamo direttamente una base ortonormale
+(tanto esiste sempre!).}
+$e^i$ di $V$. Per ogni $x\in V$ si ha
+\begin{equation} \nonumber
+y = Ax = A \sum_{i=1}^n x_i e^i = \sum_{i=1}^n x_i \ Ae^i
+\end{equation}
+Decomponendo $y$ nelle sue componenti $y_i = e^i \cdot y$, si ha
+\begin{equation}
+y_i = e^i \cdot  \sum_{j=1}^n x_j \ Ae^j =  \sum_{j=1}^n x_j \ e^i \cdot Ae^j
+\end{equation}
+Definiamo la matrice $A_{ij} = e^i \cdot Ae^j$. Allora l'azione dell'operatore $A$ su un vettore $x\in V$ si
+rappresenta, in termini di coordinate, come
+\begin{equation}
+y_i = \sum_{j=1}^n A_{ij} x_j
+\end{equation}
+Dunque, {\it ad ogni operatore lineare $A$ su uno spazio vettoriale $V$ corrisponde la matrice
+$A_{ij}= e^i \cdot Ae^j$ che agisce sullo spazio $\mathbb{C}^n$ delle coordinate dei vettori di $V$},
+come volevamo dimostrare.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Mostrare che all'operatore $A+B$ corrisponde la matrice $A_{ij}+B_{ij}$.
+\item Mostrare che all'operatore $\lambda A$ corrisponde la matrice $\lambda A_{ij}$.
+\item Mostrare che all'operatore $AB$ corrisponde la matrice prodotto righe per colonne di $A_{ij}$ e $B_{ij}$.
+\item Sia $e^i$ una base ortonormale dello spazio $V$ e ${\cal P}_i \equiv {\cal P}_{e^i}$ 
+il proiettore sul vettore $e^i$ della base.
+Scrivere esplicitamente la matrice che rappresenta ${\cal P}_i$.
+\end{enumerate}
+
+\linea
+{\bf Trasformazioni tra basi ortonormali:}
+vediamo come si trasforma la matrice che rappresenta l'operatore $A$ nel passaggio tra due basi
+ortonormali $e^i$ e $f^i = \sum_{j=1}^n \overline{U_{ij}} e^j$. 
+Abbiamo gi\`a visto che le coordinate dei vettori si trasformano con la matrice $U$, ovvero, se 
+$x'$ sono le coordinate nella base $f^i$ e $x$ quelle nella base $e^i$, $x'=Ux$.
+Nella base $e^i$, la matrice che rappresenta $A$ \`e data
+da\footnote{Attenzione: se la base {\bf non} \`e ortonormale, questa espressione
+non \`e corretta.} $A_{ij}=e^i \cdot Ae^j$.
+La matrice $A'_{ij}$ che rappresenta $A$ nella base $f^i$ \`e quindi data da
+\begin{equation}
+A'_{ij}=f^i \cdot A f^j = 
+\left( \sum_{k=1}^n \overline{U_{ik}} e^k \right) \cdot A \left( \sum_{l=1}^n \overline{U_{jl}} e^l \right)
+= \sum_{k,l}^{1,n} U_{ik} (e^k \cdot A e^l) \overline{U_{jl}} 
+= \sum_{k,l}^{1,n} U_{ik} A_{kl} U^\dag_{lj}
+\end{equation}
+ovvero $A'=UAU^\dag$.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Ricordando che nel cambiamento di base si ha $x'=Ux$ e $A'=UAU^\dag$, verificare che $y = Ax$ si
+trasforma in $y'=Uy$.
+\item Verificare che $\forall x,y \in V$ la quantit\`a $y \cdot Ax$ (detta {\it elemento di matrice}
+dell'operatore $A$ tra i vettori $x$ e $y$) non cambia nel cambiamento di base, ovvero che, in
+coordinate, $y^\dag A x={y'}^\dag A' x'$.
+\end{enumerate}
+
+\newpage
+
+\linea
+{\bf Operatore aggiunto:} dato un operatore $A$, si definisce l'operatore aggiunto $A^\dag$ imponendo
+che, per ogni coppia di vettori $x,y \in V$, si abbia, dato un prodotto scalare su $V$,
+\begin{equation}
+x \cdot Ay = A^\dag x \cdot y
+\end{equation}
+Verifichiamo che l'operatore $A^\dag$ \`e rappresentato dalla matrice $(A^\dag)_{ij}$. Infatti, la matrice
+$B_{ij}$ che rappresenta l'operatore $A^\dag$ \`e data da
+\begin{equation}
+B_{ij} = e^i \cdot A^\dag e^j = \overline{A^\dag e^j \cdot e^i} = \overline{e^j \cdot A e^i} = 
+\overline{A_{ji}} = (A^\dag)_{ij}
+\end{equation}
+
+\linea
+{\bf Operatore inverso:} sia dato un operatore $A$ tale che l'equazione $y=Ax$ ammette una ed una sola
+soluzione. Allora l'operatore $A$ \`e detto invertibile e si definisce l'operatore inverso $A^{-1}$
+in modo che
+\begin{equation}
+A^{-1}A = I
+\end{equation}
+dove $I$ \`e l'operatore unit\`a tale che $Ix=x$, $\forall x \in V$. Dal momento che l'operatore $I$ 
+\`e rappresentato dalla matrice $1$ e che il prodotto di due operatori \`e rappresentato dal prodotto
+delle matrici corrispondenti, \`e evidente che $A^{-1}$ \`e rappresentato dalla matrice inversa di $A$.
+
+\linea
+{\bf Operatori hermitiani e unitari:} un operatore hermitiano \`e definito dalla condizione $A^\dag=A$
+ed \`e rappresentato da una matrice hermitiana. Un operatore unitario \`e definito dalla condizione
+$U^\dag = U^{-1}$ ed \`e rappresentato da una matrice unitaria.
+
+\linea
+{\bf Esercizi:} (ricordare che $\det AB=\det A\det B$ e $\text{Tr} ABC = \text{Tr} BCA$)
+\begin{enumerate}
+\item Mostrare che una matrice unitaria ha $|\det U| = 1$ e una matrice hermitiana ha $\det A \in \mathbb{R}$.
+\item Mostrare che se $U$ \`e unitaria si ha $\text{Tr} ( U^\dag A U ) = \text{Tr} A$.
+\item Mostrare che l'operatore ${\cal P}_i$ \`e hermitiano e non \`e invertibile.
+\end{enumerate}
+
+
+
+
+
+\newpage
+
+\centerline{\bf Autovalori ed autovettori di un operatore}
+
+\linea
+Un numero complesso $\lambda$ \`e detto autovalore dell'operatore $A$ se l'equazione
+\begin{equation}
+Ax=\lambda x
+\end{equation}
+ha delle soluzioni $x \in V$ diverse da 0. L'insieme degli autovalori di un operatore $A$ \`e detto
+{\it spettro} dell'operatore. Se $\lambda$ \`e un autovalore di $A$, un vettore $x \neq 0$ tale che
+$Ax=\lambda x$ \`e detto autovettore corrispondente all'autovalore $\lambda$.
+\vskip5pt
+\noindent
+Dal momento che ogni operatore \`e rappresentato da una matrice complessa, d'ora in poi considereremo
+direttamente la rappresentazione matriciale degli operatori supponendo di aver fissato una 
+base\footnote{Osserviamo ancora che per rappresentare gli operatori come matrici non \`e necessario
+considerare una base ortonormale, e dunque non \`e necessario neanche introdurre un prodotto scalare
+sullo spazio $V$. Tuttavia, salvo diversamente specificato, considereremo sempre una base ortonormale per
+semplicit\`a.} nello spazio $V$.
+
+\linea
+{\bf Autovalori:} l'equazione $Ax=\lambda x$ pu\`o essere riscritta come $(A-\lambda I)x=0$.
+Questa equazione ha una soluzione
+$x$ non nulla se e solo se $\det (A-\lambda 1) = 0$. Gli autovalori sono quindi le soluzioni dell'equazione
+$P(\lambda)=\det (A-\lambda 1) = 0$. $P(\lambda)$ \`e un polinomio di grado $n$ ed \`e detto 
+{\it polinomio caratteristico} della matrice $A$. L'equazione $P(\lambda)=0$ ammette
+sempre $n$ soluzioni complesse: dunque, un operatore $A$ che agisce su uno spazio di dimensione $n$ ha
+sempre $n$ autovalori complessi (alcuni eventualmente coincidenti). Diremo che l'autovalore $\lambda_i$ ha
+molteplicit\`a $m_i$ se \`e soluzione di $P(\lambda)=0$ con molteplicit\`a $m_i$. Dunque, se
+ci sono $k$ autovalori distinti, si avr\`a $\sum_{i=1}^k m_i =n$.
+\vskip5pt
+\noindent
+{\bf Autovettori:} ad ogni autovalore $\lambda_i$ corrisponde almeno un autovettore $x^i$, e lo stesso
+autovettore non pu\`o corrispondere a due autovalori diversi.
+E' possibile inoltre mostrare (vedi gli esercizi che seguono) che  autovettori corrispondenti
+ad autovalori distinti sono linearmente indipendenti.
+Dunque, se gli autovalori sono tutti distinti, ci saranno $n$ autovettori distinti linearmente indipendenti,
+per cui gli autovettori di $A$ sono una base per lo spazio $V$ (in generale {\it non ortonormale}).
+In questo caso si dice che l'operatore $A$ \`e {\it diagonalizzabile}. Se invece ci sono autovalori con
+molteplicit\`a $m > 1$, possono darsi due casi: \\
+1. Per ogni autovalore di molteplicit\`a $m>1$ \`e possibile trovare $m$ autovettori linearmente
+indipendenti. In questo caso gli autovettori di $A$ costituiscono ancora una base per lo spazio e
+l'operatore \`e diagonalizzabile. \\
+2. Per almeno uno degli autovalori di molteplicit\`a $m>1$ non \`e possibile trovare $m$ autovettori
+linearmente indipendenti. In questo caso l'operatore non \`e diagonalizzabile.
+
+\linea
+{\bf Esercizio} (facoltativo): dimostrare che autovettori corrispondenti
+ad autovalori distinti sono linearmente indipendenti seguendo i passaggi elencati.
+\begin{enumerate}
+\item Dimostrare che un
+autovettore $x$ di $A$, corrispondente ad un autovalore $\lambda$, non pu\`o essere combinazione
+lineare di altri autovettori $x^i$ linearmente indipendenti
+corrispondenti ad autovalori $\lambda_i \neq \lambda$. \\
+Suggerimento: scrivere, per assurdo, $x = \sum_i c_i x^i$ e confrontare i due membri dell'uguaglianza
+$Ax=\lambda x$.
+\item Dimostrare che due autovettori corrispondenti ad autovalori distinti non possono essere proporzionali.
+\item Completare la dimostrazione per induzione.
+\end{enumerate}
+
+\newpage
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Calcolare gli autovalori e gli autovettori della matrice 
+$ \bigl(\begin{smallmatrix} 0 & i \\ -i & 0 \end{smallmatrix} \bigr)$.
+\item Calcolare gli autovalori e gli autovettori dell'operatore ${\cal P}_i$.
+\item Si consideri lo spazio dei polinomi di secondo grado $P_2(z)=a+bz+cz^2$ con $c\neq 0$  e l'operatore lineare 
+$A P(z) = \frac{dP}{dz} = b + 2cz$. Calcolare autovalori e autovettori di questo operatore.
+Verificare che non \`e diagonalizzabile. Suggerimento: in questo caso non conviene assolutamente cercare
+di rappresentare $A$ su una base ortonormale. 
+\item Si consideri lo spazio dei polinomi $P_1(\cos \theta,\sin \theta)=f + a \cos\theta + b\sin\theta$ e
+l'operatore lineare $A P(\theta)=P(\frac{\pi}{2}-\theta)$. Calcolare autovalori e autovettori di $A$ e
+verificare che $A$ \`e diagonalizzabile.
+\item Sullo stesso spazio, considerare l'operatore $K$ definito da 
+\begin{equation} \nonumber
+(KP)(\theta)=\frac{1}{2\pi}\int_0^{2\pi} d\psi \cos(\theta-\psi) P(\psi)
+\end{equation}
+Calcolare autovettori ed autovalori di $K$ e verificare che \`e diagonalizzabile. \\
+Suggerimento: utilizzare la relazione $\cos (\theta - \psi)= \cos \theta \cos \psi + \sin \theta \sin \psi$.
+\end{enumerate}
+
+\linea
+{\bf Diagonalizzazione di un operatore e cambiamento di base:} la rappresentazione di un operatore in forma
+matriciale dipende, come abbiamo visto, dalla base che si \`e scelta nello spazio $V$.
+Abbiamo detto che un operatore \`e diagonalizzabile se i suoi autovettori costituiscono una base per lo
+spazio $V$: questo vuol dire che nella base degli autovettori l'operatore $A$ \`e rappresentato da una
+matrice diagonale. Dal momento che un cambiamento di base nello spazio $V$ induce un corrispondente
+cambiamento di coordinate, la diagonalizzazione dell'operatore $A$ corrisponde a un cambiamento di
+coordinate nello spazio $V$.
+
+\linea
+Come caso particolare, possiamo considerare un operatore $A$ i cui autovettori costituiscono
+una base ortonormale dello spazio $V$\footnote{Questa ipotesi in generale non \`e verificata,
+ma lo \`e ad esempio per gli operatori hermitiani, come discuteremo tra breve.}. 
+L'operatore $A$ sar\`a rappresentato da una matrice $A_{ij}$ in una certa base ortonormale $e^i$.
+Il passaggio dalla base $e^i$ alla base $x^i$ degli autovettori di $A$ \`e una trasformazione fra
+basi ortonormali, quindi la matrice $D$ che rappresenta $A$ nella base $x^i$ sar\`a data da
+\begin{equation}
+D = U A U^\dag
+\end{equation}
+dove $U_{ij}=x^i \cdot e^j$. La matrice $D$ \`e diagonale, perch\`e rappresenta $A$ nella base dei
+suoi autovettori: dunque, la matrice $A$ \`e una matrice che pu\`o essere diagonalizzata da una
+matrice unitaria $U$. 
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Verificare che la matrice $U^\dag$ ha come righe le coordinate degli autovettori $x^i$
+nella base $e^i$, cio\`e che $U^\dag_{ij}=(x^i)_j$.
+\item Verificare che la matrice $\bigl( \begin{smallmatrix} \beta & -\alpha \\ \alpha & \beta \end{smallmatrix}
+\bigr)$, $\alpha,\beta \in \mathbb{R}$ e $\alpha \neq 0$, ha autovalori distinti ed autovettori ortogonali pur non essendo hermitiana.
+\end{enumerate}
+
+\newpage
+
+\centerline {\bf Operatori hermitiani}
+
+\linea
+Gli operatori hermitiani, cio\`e tali che $A^\dag=A$, hanno una serie di propriet\`a di notevole
+interesse per la  
+fisica\footnote{Ad esempio, rappresentano le grandezze osservabili in meccanica quantistica.},
+per cui meritano una trattazione approfondita. 
+Ci interessa mostrare due propriet\`a fondamentali:
+\begin{enumerate}
+\item Un operatore hermitiano ha autovalori reali.
+\item Gli autovettori di un operatore hermitiano possono essere scelti in modo da costituire una base
+ortonormale dello spazio $V$.
+\end{enumerate}
+Come abbiamo gi\`a visto, una conseguenza interessante della seconda propriet\`a \`e 
+che un operatore hermitiano pu\`o essere diagonalizzato con una trasformazione unitaria.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Dimostrare che un operatore hermitiano $A$ ha autovalori reali (suggerimento: sia $\lambda$ un
+autovalore e $x$ un autovettore corrispondente. Utilizzare la relazione $x \cdot A x=Ax \cdot x$).
+\item Dimostrare che, se $\lambda$ e $\mu$ sono due autovalori distinti di un operatore 
+hermitiano $A$ e $x$, $y$ sono gli autovettori corrispondenti, si ha $x \cdot y=0$.
+(Suggerimento: utilizzare una relazione simile alla precedente.)
+\item Dimostrare che, se $x$ \`e un autovettore di un operatore hermitiano $A$, il sottospazio ortogonale
+a $x$ \`e invariante sotto l'azione di $A$, cio\`e che, se $x\cdot y=0$, anche $x \cdot Ay=0$.
+\end{enumerate}
+
+\linea
+Per dimostrare\footnote{Per una discussione pi\`u dettagliata si pu\`o consultare un qualunque libro di
+algebra lineare.}
+che gli autovettori di un operatore hermitiano formano una base ortogonale si sfrutta
+la propriet\`a dimostrata nell'esercizio 3. Consideriamo un primo autovalore $\lambda_1$ e un autovettore
+corrispondente $x^1$ che esistono sicuramente.
+Dal momento che l'insieme dei vettori ortogonali a $x^1$ si trasforma in s\`e stesso
+sotto l'azione dell'operatore $A$, possiamo considerare la restrizione dell'operatore $A$ su questo
+sottospazio, che \`e ancora un operatore hermitiano $A^{(2)}$ su uno spazio di dimensione $n-1$. 
+L'operatore $A^{(2)}$ avr\`a almeno un autovalore $\lambda_2$ e un autovettore corrispondente $x^2$ che
+per costruzione \`e ortogonale a $x^1$. Iterando il procedimento si ottengono $n$ autovettori ortogonali
+di $A$ che formano quindi una base.
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Calcolare autovalori e autovettori dell'operatore $A P(\theta) = i \frac{dP}{d\theta}$ sullo
+spazio dei polinomi $P(\theta)=f + a\cos \theta + b\sin \theta$ con il prodotto scalare
+$P \cdot Q = (2\pi)^{-1}\int_0^{2 \pi} d\theta \overline{P(\theta)} Q(\theta)$.
+Mostrare che gli autovettori di $A$ sono ortogonali.
+\item Dimostrare che l'operatore $A P(\theta) = i \frac{dP}{d\theta}$ sullo spazio 
+$P(\theta)=P_N(\cos\theta,\sin\theta)$ \`e hermitiano. \\ Suggerimento: scrivere la matrice che rappresenta
+$A$ e verificare che \`e hermitiana, oppure utilizzare direttamente la definizione di operatore aggiunto
+e integrare per parti.
+\item Dimostrare che l'operatore 
+$(Kf)(x) = \int_a^b dy K(x,y) f(y)$ dove $K(x,y)$ \`e una funzione continua e $f \in V = C[a,b]$ \`e
+hermitiano rispetto al prodotto scalare $f\cdot g = \int_a^b dx \overline{f(x)} g(x)$
+se $K(x,y)=\overline{K(y,x)}$.
+\end{enumerate}
+
+\newpage
+
+\centerline {\bf Spazio vettoriale delle matrici hermitiane}
+
+\linea
+Le matrici hermitiane $n\times n$ formano uno spazio vettoriale reale.
+Infatti, \`e facile vedere che se $A$ e $B$ sono
+due matrici hermitiane anche $a A + b B$ \`e hermitiana se $a$ e $b$ sono coefficienti reali (ma non se
+sono complessi).
+
+\linea
+{\bf Esercizi:}
+\begin{enumerate}
+\item Verificare che la dimensione dello spazio delle matrici hermitiane $n\times n$ \`e $n^2$. \\
+Suggerimento: contare quanti numeri reali servono per specificare completamente una matrice hermitiana
+$n\times n$.
+\item Verificare che le matrici di Pauli
+$\sigma_0=1=\bigl( \begin{smallmatrix} 1 & 0 \\ 0 & 1 \end{smallmatrix} \bigr)$, 
+$\sigma_1=\bigl( \begin{smallmatrix} 0 & 1 \\ 1 & 0 \end{smallmatrix} \bigr)$,
+$\sigma_2=\bigl( \begin{smallmatrix} 0 & -i \\ i & 0 \end{smallmatrix} \bigr)$,
+$\sigma_3=\bigl( \begin{smallmatrix} 1 & 0  \\ 0 & -1 \end{smallmatrix} \bigr)$ 
+sono una base per lo spazio delle matrici hermitiane $2 \times 2$ ortonormale rispetto al
+prodotto scalare $A \cdot B = \frac{1}{2} \text{Tr} A B$.
+\item Dedurre dall'esercizio precedente che ogni matrice $A$ hermitiana $2\times 2$ si pu\`o scrivere come
+$A=\sum_{i=0}^3 a_i \sigma_i$, dove $a_i = \frac{1}{2} \text{Tr} A \sigma_i$.
+\end{enumerate}
+
+
+
+\newpage
+
+
+\centerline{\LARGE \bf Contenuto delle lezioni}
+\vskip 12pt
+\noindent
+\textbf{19/04/04}
+
+\noindent
+Lo spazio lineare astratto e le sue strutture. La struttura algebrica sui
+complessi. La struttura geometrica caratterizzata dal prodotto scalare.
+Definizione di norma e sue proprieta'. Dimostrazione della disuguaglianza
+di Schwartz e della disuguaglianza triangolare. Struttura metrica e
+definizione di distanza. Struttura analitica e defizione di limite di una
+successione. Successioni di Cauchy e condizione di completezza dello
+spazio. Definizione di spazio di Banach e di spazio di Hilbert.
+Isomorfismi ed isometrie tra spazi lineari. Cenni alle rappresentazioni
+di spazi astratti. Discussione di esempi: lo spazio $V_N$ della $N-$ple
+ordinate di numeri complessi, lo spazio dei polinomi di grado 2 di una
+variabile complessa come spazio $V_3$ con calcolo della matrice che
+rappresenta l'operazione di derivata $d/dz$. Definizione dello spazio
+$l_p$. Lo spazio $l_2$ : dimostrazione che e' lineare. Definizione del
+prodotto scalare in $l_2$ e dimostrazione che esiste per ogni coppia di
+vettori.
+\vskip 12pt
+\noindent
+\textbf{21/04/04}
+
+\noindent
+Definizione dello spazio $L_2(a,b)$. Dimostrazione che
+$L_2(a,b)$ e' uno spazio lineare. Definizione del prodotto scalare in
+$L_2(a,b)$ e dimostrazione che esiste per ogni coppia di vettori.
+Distanza tra funzioni di $L_2(a,b)$ ed indistinguibilita' tra funzioni
+che differiscono soltanto su un sottinsieme dell'intervallo $(a,b)$ di
+misura nulla. Cenni al problema della completezza di $L_2(a,b)$ ed
+all'integrale di Lebesgue. Definizione di funzioni ortogonali e di
+funzioni linearmente indipendenti. Indipendenza lineare di $p$ vettori
+$\{v^{(1)},v^{(2)},\cdots ,v^{(p)}\}$ in uno spazio astratto.
+Dimostrazione del criterio numerico det$(v^{(j)},v^{(k)})\neq 0$ 
+per stabilire la loro lineare indipendenza. Metodo di Gram-Schmidt di
+ortonormalizzazione di $p$ vettori libearmente indipendenti (struttura
+triangolare e calcolo esplicito). Definizione di dimensione di uno spazio
+lineare nel caso finito-dimensionale. Definizione di base di uno spazio
+lineare finito-dimensionale. Espansione di un generico vettore in una
+base. Il problema del calcolo delle componenti di una vettore in una base
+generica. Definizione di metrica associata ad una base e sue proprieta'
+nel caso finito-dimensionale. Definizione di base ortonormale e
+espressione della metrica associata a questa base. Calcolo 
+delle componenti di un generico vettore in una base ortonormale.
+Espressione del prodotto scalare $(v,u)$ in funzione delle componenti dei
+due vettori $v$ e $u$. Espressione della norma $\parallel v\parallel$ del
+vettore $v$ in funzione delle sue componenti.
+\vskip 12pt
+\noindent
+\textbf{28/04/04}
+
+\noindent
+Definizione di sottospazio finito--dimensionale di uno spazio di Hilbert e della distanza tra un generico vettore $u$ e questo sottospazio. Dimostrazione della disuguaglianza di Bessel. Definizione di base di uno spazio lineare con dimensione infinita. Definizione di sottospazio infinito--dimensionale con esempi. Definizione di spazio di Hilbert separabile. Definizione di limite forte di una successione di vettori. Definizione di limite debole di una successione di vettori. Distinzione tra limite forte e limite debole in uno spazio infinito--dimensionale. Dimostrazione che l'esistenza del limite forte implica quella del limite debole. Esempio di esistenza del limite debole ma non di quella del limite forte. Rappresentazione di un vettore generico $u$ in una base ortonormale $\{e^{(n)}\}_{n=1}^{\infty}$ in uno spazio di Hilbert e convergenza della serie $u=\sum_{n=1}^{\infty} u_n e^{(n)}$. Costruzione di un isomorfismo tra lo spazio di Hilbert e lo spazio $l_2$ mediante una base ortonormale dello spazio di Hilbert. Ortonormalizzazione di Gram--Schmidt delle potenze $\{x^n\}_{n=0}^{\infty}$ nello spazio $L_2(-1,1)$ e polinomi di Legendre.
+\vskip 12pt
+\noindent
+\textbf{30/04/04}
+
+\noindent 
+Insieme delle funzioni lineari $\mathcal{H}\rightarrow \mathcal{\hat{H}}$ definite su uno spazio lineare
+$\mathcal{H}$ a valori in un altro spazio lineare $\mathcal{\hat{H}}$ e loro struttura di spazio lineare. Funzioni lineari limitate e definizione di norma di una funzione. Funzioni continue e funzioni limitate e loro equivalenza. Dominio di definizione di una funzione lineare. Esempi di dominio coincidente con l'intero spazio $\mathcal{H}$ e di dominio ovunque denso in $\mathcal{H}$. Definizione di nucleo di una funzione lineare e di funzione inversa. Dimostrazione che condizione necessaria e sufficiente che la funzione inversa esista e' che il nucleo contenga solo il vettore nullo. Forme lineari e funzionali lineari.
+\vskip 12pt
+\newpage
+
+\noindent
+\textbf{05/05/04}
+
+\noindent 
+Spazio delle forme lineari definite su $V_N$ come spazio lineare duale $V^{\ast}_N$. Costruzione dell'isomorfismo tra $V_N$ e $V^{\ast}_N$. Base ortonormale dello spazio duale $V^{\ast}_N$ come duale di una data base ortonormale di $V_N$. Espansione di una forma nella base duale. Norma di una forma lineare e sua espressione mediante l'isomorfismo con $V_N$. Funzionali lineari come forme su uno spazio infinito-dimensionale. Funzionali limitati e continui. Teorema di Fisher--Ritz della rappresentazione di un funzionale lineare (senza dimostrazione ). Esempi di funzionali limitati e non limitati su uno spazio di Hilbert e sullo spazio $L_2(-1,1)$. Definizione di operatore lineare. Operatori limitati, compatti e non limitati. Definizione di prodotto di operatori lineari e loro algebra non commutativa. Definizione di commutatore e di anti--commutatore di due operatori lineari. 
+
+\vskip 12pt
+\noindent
+\textbf{07/05/04}
+
+\noindent
+Regole algebriche per il calcolo di commutatori di operatori. Regola di Leibnitz ed identita' di Jacobi. Operatori integrali in $L_2(a,b)$ e loro analogia con le matrici come operatori su $V_N$ e su $l_2$. Definizione di nucleo di un operatore integrale su $L_2(a,b)$. Operatori di moltiplicazione ed operatori differenziali di ordine $M$ su $L_2(a,b)$. Algebra degli operatori differenziali e regole di calcolo dei loro commutatori. 
+
+
+
+\vskip 12pt
+\noindent
+\textbf{14/05/04}
+
+\noindent 
+Definizione di operatore Hermitiano coniugato e suo dominio di definizione nel caso di spazi lineari infinito--dimensionali. Operatori limitati Hermitiani ed operatori non limitati Hermitiani ed autoaggiunti. Esempi di operatori non limitati su $L_2(a,b)$  Hermitiani ma non autoaggiunti.
+ 
+
+\vskip 12pt
+\noindent
+\textbf{19/05/04}
+
+\noindent 
+Esempi in meccanica quantistica di operatori differenziali non limitati e Hermitiani. Operatori differenziali con condizioni al contorno di Dirichelet e di periodicita'. Operatori di Sturm--Liouville regolari e singolari.
+Verifica esplicita dell'Hermitianita' degli operatori di Sturm--Liouville regolari. Dominio di definizione di un operatore di Sturm--Liouville regolare con condizioni al contorno di Dirichelet, di Neumann e di periodicita' e dimostrazione che e' autoaggiunto.
+\vskip 12pt
+\noindent
+\textbf{21/05/04}
+
+\noindent 
+Il problema di Sturm--Louville come problema agli autovalori. Soluzione di un problema di Sturm--Liouville per costruire una base ortonormale in $L_2(a,b)$. Costruzione esplicita di una base ortonormale in $L_2(c,d)$ a partire da una base ortonormale nota in $L_2(a,b)$. Basi ortonormali negli spazi $L_2(-1,1)$, $L_2(0,+\infty)$ e $L_2(-\infty,+\infty)$. I polinomi ortogonali di Legendre: il corrispondente problema di Sturm--Liouville, sue autofunzioni ed autovalori, la funzione generatrice, la formula di Rodriguez, la relazione di ricorrenza.
+\vskip 12pt
+\noindent
+\textbf{26/05/04}
+
+\noindent 
+I polinomi ortogonali di Laguerre: il corrispondente problema di Sturm--Liouville, sue autofunzioni ed autovalori, la funzione generatrice, la formula di Rodriguez, la relazione di ricorrenza. I polinomi ortogonali di Hermite: il corrispondente problema di Sturm--Liouville, sue autofunzioni ed autovalori, la funzione generatrice, la formula di Rodriguez, la relazione di ricorrenza.  La base ortonormale di Fourier: il corrispondente problema di Sturm--Liouville, calcolo delle sue autofunzioni ed autovalori, Costruzione della base di Fourier in $L_2(a,b)$. Calcolo esplicito del limite per $a\rightarrow -\infty$ e $b\rightarrow +\infty$ dell' espansione in serie di Fourier di una funzione di $L_2(a,b)$. Definizione di trasformata ed antitrasformata di Fourier di una funzione di $L_2(-\infty,+\infty)$. Dimostrazione che la trasformata di Fourier lascia il prodotto scalare invariante. 
+\vskip 12pt
+\noindent
+\textbf{28/05/04}
+
+\noindent 
+La trasformata di Fourier nello spazio $L_1(-\infty,+\infty)$. Esempi di funzioni che appartengono allo spazio $L_1(-\infty,+\infty)$ ma non allo spazio $L_2(-\infty,+\infty)$ e viceversa. Trasformazione delle proprieta' di parita' e di realta' di una funzione di $L_2(-\infty,+\infty)$ con la trasformazione di Fourier. Definizione di prodotto di convoluzione e sua trasformazione di Fourier. Trasformazione di Fourier di operatori lineari integrali e differenziali su $L_2(-\infty,+\infty)$.
+
+
+\vskip 12pt
+\noindent
+\textbf{09/06/04}
+
+\noindent 
+Definizione dello  spazio funzionale di Schwartz. Funzionali lineari continui definiti sullo spazio di Schwartz. Successioni convergenti di funzioni nello spazio di Schwartz. Funzionali regolari e loro rappresentazione. Esempi in fisica di funzionali non regolari: meccanica impulsiva, densita' di carica (o di massa) di una particella puntiforme. Definizione del funzionale derivata di un funzionale lineare regolare. Definizione della trasformata di Fourier di un funzionale regolare. Definizione di funzione generalizzata o distribuzione come limite di una successione di funzionali regolari. Successioni equivalenti. Definizione della distribuzione di Dirac e sua rappresenrtazione come limite di successioni di funzionali regolari. Esempi espliciti di tali successioni.  
+
+
+\vskip 12pt
+\noindent
+\textbf{11/06/04}
+
+\noindent
+Distribuzione di Dirac e uso del suo simbolo $\delta (x-x_0)$. Proprieta' di realta' e parita' della distribuzione di Dirac. Proprieta' di calcolo con la distribuzione di Dirac. Derivate della distribuzione di Dirac. Trasformata di Fourier della distribuzione di Dirac e sua rappresentazione come integrale di Fourier. Primitiva della distribuzione di Dirac e definizione di distribuzione di Heaviside. Esempi di uso della distribuzione di Heaviside nel calcolo differenziale su funzioni discontinue. 
+
+
+\vskip 12pt
+\noindent
+\textbf{16/06/04}
+
+\noindent 
+La distribuzione di Dirac nello spazio delle funzioni discontinue. Definizione della trasformazione di Fourier della distribuzione di Heaviside attraverso la regolarizzazione dell' integrale di Fourier.  Studio della parte reale e della parte immaginaria della trasformata di Fourier della distribuzione di Heaviside. La distribuzione "valor principale" e le distribuzioni $\delta^{\pm}(x-x_0)$. Derivazione delle formule di Plemelij. Connessione tra l'operatore unita' nello spazio $L_2(a,b)$ e la distribuzione di Dirac e suo uso nella relazione di completezza di una base ortonormale.  Uso della distribuzione di Dirac nella risoluzione di equazioni differenziali lineari omogenee e non omogenee. Applicazione al moto dell'oscillatore armonico: definizione e calcolo della funzione di Green ritardata. 
+
+
+\vskip 12pt
+\noindent
+\textbf{18/06/04}
+
+\noindent
+Il problema del transiente per l'oscillatore armonico forzato. Definizione e calcolo della funzione di trasferimento per mezzo della funzione di Green ritardata. Soluzione esplicita  del problema del transiemte e trasformata di Fourier. Richiami di meccanica analitica nella formulazione di Hamilton e parentesi di Poisson: moto di una particella in un potenziale sulla retta. Riformulazione di questo problema nella meccanica quantistica nella rappresentazione di Schr\"{o}dinger. Equazione di Schr\"{o}dinger e sue soluzioni stazionarie. Equazione integrale per le soluzioni stazionarie con energia positiva ottenuta con la funzione di Green ritardata dell'oscillatore armonico. Definizione dei coefficienti di riflessione e trasmissione e loro espressione integrale implicita. Espressione dei coefficienti di riflessione e trasmissione nell'approssimazione di Born.  
+  
+
+
+\newpage
+\centerline{\LARGE \bf Contenuto delle Esercitazioni ed Esercizi d'esame}
+\vskip 12pt
+\noindent
+
+
+\centerline{\LARGE \bf Esercitazione I}
+\centerline{Distribuita il 23/04/2004, correzione il 26/04/2004}
+
+\begin{enumerate}
+\item Mostrare che, se $f(x)=x^n$ e $g(x)=\frac{df}{dx}$ sono
+definite in $L_2[-1,1]$, si ha $(f,g)=0$.
+\item Ortonormalizzare le funzioni $f(x)=e^{-x}$ e $g(x)=x e^{-x}$
+in $L_2[0,\infty)$.
+\item Calcolare i primi tre polinomi di Legendre $P_0(x)$ , $P_1(x)$ e $P_2(x)$ ortogonalizzando
+le funzioni $1$, $x$ e $x^2$ in $L_2[-1,1]$ e ricordando che $(P_n,P_n)=2/(2n+1)$.
+\item Trovare una funzione $f(x)$ ortogonale in $L_2[0,\pi]$
+a $a(x)=x$ e $b(x)=\cos x$.
+\item Siano 
+$u= \left\{ \left( \frac{i}{4} \right)^n \right\}_{n=1}^{\infty}$
+e
+$v= \left\{ \frac{(-1)^n}{n!} \right\}_{n=1}^{\infty}$ in $l_2$.
+Calcolare $|u|^2$ e $(u,v)$.
+\end{enumerate}
+
+\vskip10pt
+
+\centerline{\LARGE \bf Soluzioni Esercitazione I}
+\begin{enumerate}
+\item $(f,g) = \int_{-1}^1 dx x^n n x^{n-1} = 0$.
+\item  Usando
+il metodo di ortogonalizzazione di Gram-Schmidt:
+$h_1 = f$ e $\ \ h_2 = g - \frac{(f,g)}{(f,f)} f $ sono ortogonali. Poich\`{e} $(f,f) = \int_0^\infty dx \, e^{-2x} = \frac12$; $\ \ (g,g) = \int_0^\infty dx \, x^2 e^{-2x}=\frac14$;
+$\ \ (f,g)=\int_0^\infty dx \, x e^{-2x} = \frac14$ si ha $h_2= \left( x - \frac12 \right) e^{-x}$.
+Dato che $(h_2,h_2)=\frac18$ si ottiene quindi che le due funzioni $e_1 = \sqrt{2} h_1$, $e_2 = 2 \sqrt{2} h_2$ sono ortonormali come richiesto.
+\item Seguendo la stessa procedura dell'esercizio precedente si ottiene $P_0(x)=\,1$,
+$P_1(x)=\,x$ e $P_2(x)=\frac12 \left(3x^2 -1\right)$.
+\item Cercando ad esempio $f(x)$ nella forma $f(x) = c_0+c_1\,x+c_2\,x^2$, si risolvono le due equazioni
+$(f,a) = \frac{\pi^2}{12}( 6c_0+4\pi c_1+3\pi^2 c_2)\,= 0 $ e
+$(f,b) = -2(c_1+\pi c_2) =\,0$. Il coefficiente $c_0$ pu\`o essere scelto a piacere purch\`e non nullo
+(ad esempio, imponendo $(f,f)=1$).
+\item $|u|^2 = \sum_{n=1}^\infty \frac1{16^n} = \frac1{1-\frac1{16}}-1=\frac1{15}$;
+$ \ \ (u,v) = \sum_{n=1}^\infty \frac{i^n}{4^n n!} = e^{i/4}-1= \cos \frac14 -1 +i \sin \frac14$.
+\end{enumerate}
+
+\newpage
+
+\centerline{\LARGE \bf Esercitazione II}
+\centerline{Distribuita il 30/04/2004, correzione il 3/5/2004}
+
+\begin{enumerate}
+\item Calcolare $\exp \Big( i \alpha \sigma_2 \Big)$, dove 
+$\sigma_2=\bigl( \begin{smallmatrix} 0 & -i \\ i & 0 \end{smallmatrix} \bigr)$
+e $\alpha \in \mathbb{R}$.
+\item Calcolare $\tanh A$ dove $A=\bigl( \begin{smallmatrix} 1 & -2 \\ \frac{1}{2} & -1 \end{smallmatrix} \bigr)$ (suggerimento: calcolare $A^2$).
+\item Calcolare al terzo ordine in $\epsilon$ la matrice $\exp \Big( i \epsilon (\sigma_2 - \sigma_3 ) \Big)$ utilizzando le propriet\`a delle matrici di Pauli.
+\item Se $A_{ij}$ sono gli elementi di matrice della matrice $n\times n$, mostrare che ${\cal F}_{ij}(A)=A_{ij}$ \`e un funzionale lineare
+sullo spazio delle matrici $n\times n$.
+Dato il prodotto scalare 
+$(A,B)=\text{Tr} A^\dag B$, identificare il vettore $F_{ij}$
+tale che ${\cal F}_{ij}(A)=(F_{ij},A)$.
+\item Mostrare che ${\cal F}(P) = \int_0^{2\pi} d\theta \cos \theta \frac{d P(\theta)}{d\theta}$
+\`e un funzionale lineare sullo spazio dei polinomi trigonometrici 
+$P(\theta)= a_0 + \sum_{n=1}^N (a_n \cos n\theta + b_n \sin n \theta)$.
+\item Dato il funzionale ${\cal F}(P)$ definito nell'esercizio precedente, 
+e dato il prodotto
+scalare \\ $(P,Q)=\frac{1}{2\pi} \int_0^{2\pi} d\theta \overline{P(\theta)}
+Q(\theta)$, trovare il vettore $F$ tale che ${\cal F}(P)=(F,P)$.
+\end{enumerate}
+
+\vskip10pt
+
+\centerline{\LARGE\bf  Soluzioni Esercitazione II}:
+\begin{enumerate}
+\item Usando $(\sigma_2)^2 = 1$ si ha $(\sigma_2)^{2n}=1$ e
+$(\sigma_2)^{2n+1}=\sigma_2$.
+\begin{equation}\nonumber
+e^{i\alpha\sigma_2} = \sum_{n=0}^\infty \frac{(i\alpha \sigma_2)^n}{n!} =
+\sum_{n=0}^\infty \frac{(i\alpha)^{2n}}{(2n)!} +
+\sum_{n=0}^\infty \frac{(i\alpha)^{2n+1}}{(2n+1)!} \sigma_2 
+ = \cos \alpha
++ i \sin \alpha \, \sigma_2 = \begin{pmatrix} \cos \alpha & \sin \alpha \\ -\sin \alpha & 
+\cos\alpha \end{pmatrix}
+\end{equation} 
+\item Si verifica facilmente che $A^2 = 0$ da cui $A^n = 0$ per $n\geq 2$. Dunque
+$\tanh A = A + O(A^3) = A$.
+\item Usando l'anticommutativit\`a delle matrici $\sigma$ si ha
+$(\sigma_2 - \sigma_3)^2 = 2 - \{\sigma_2,\sigma_3\} = 2$ 
+e quindi $(\sigma_2 - \sigma_3)^3=2(\sigma_2 - \sigma_3)$. Dunque
+\begin{equation}\nonumber
+e^{i\epsilon(\sigma_2-\sigma_3)}=1+i\epsilon(\sigma_2-\sigma_3)-\epsilon^2
+-\frac{i\epsilon^3}{3}
+(\sigma_2-\sigma_3) + O(\epsilon^4) = \begin{pmatrix} 1-i\epsilon-\epsilon^2 + \frac{i\epsilon^3}{3} & 
+\epsilon- \frac{\epsilon^3}{3} \\
+-\epsilon+ \frac{\epsilon^3}{3} &  1+i\epsilon-\epsilon^2 - \frac{i\epsilon^3}{3}
+\end{pmatrix} + O(\epsilon^4)
+\end{equation}
+\item La linearit\`a di ${\cal F}_{ij}$ si mostra facilmente.
+Il vettore $F_{ij}$ ha componenti $\big(F_{ij}\big)_{kl}=\delta_{ki}\delta_{lj}$, 
+ovvero le componenti sono tutte
+nulle tranne la componente $\big(F_{ij}\big)_{ij}=1$.
+\item La linearit\`a di ${\cal F}$ segue facilmente dalle propriet\`a di linearit\`a dell'integrale
+e della derivata.
+\item Integrando per parti si ha ${\cal F}(P)=\frac1{2\pi}\int_0^{2\pi} d\theta \, \sin \theta P(\theta)=
+(\sin\theta,P(\theta))$. Dunque $F=\sin \theta$.
+\end{enumerate}
+
+
+
+
+
+
+\newpage
+
+
+
+\centerline{\LARGE \bf Esercitazione III}
+\centerline{(Esercizi di preparazione per l'esonero del 12/05/2004)}
+\centerline{Distribuita il 7/5/2004, correzione il 10/5/2004}
+\vskip10pt
+Nel seguito, le matrici $\sigma_i$ sono le matrici di Pauli, e con
+``polinomio trigonometrico $P(\theta)$ di grado $N$'' intendiamo una funzione della forma
+$P(\theta)=f_0 + \sum_{n=1}^N (a_n \cos n \theta + b_n \sin n \theta)$.
+Il prodotto scalare di due polinomi trigonometrici \`e definito da: 
+$(P,Q)= \frac{1}{2\pi} \int_0^{2\pi} d\theta \overline{P(\theta)} Q(\theta)$.
+
+\begin{enumerate}
+\item Calcolare al quarto ordine in $\epsilon$ la matrice 
+$A_\epsilon=[1-i \epsilon (\sigma_1 + \sigma_3)]^{-1}$.
+\item Calcolare 
+$\cos^3 (\frac{\pi}{2} A)$, dove $A= \frac{1}{2} + \frac{1}{2} \sigma_1$.
+\item Trovare il polinomio trigonometrico $F(\theta)$ tale che il funzionale
+${\cal F}(P)=\frac{1}{2\pi} \int_0^{2\pi} \sin 3\theta 
+\frac{d^2 \cos \theta P(\theta)}{d\theta^2}$ si rappresenta come ${\cal F}(P)=(F,P)$.
+\item Calcolare autovalori ed autovettori dell'operatore 
+$(KP)(\theta) = \int_0^{2\pi} d \phi [\sin(2 \theta - \phi) + \sin(2 \phi -\theta)]
+P(\phi)$
+dove $P(\theta)$ \`e un polinomio trigonometrico di grado 2.
+\item Siano $v^{(1)}$, $v^{(2)}$ e $v^{(3)}$ i vettori di una base ortormale dello spazio $V_3$
+e sia $A$ l'operatore Hermitiano ed a traccia nulla tale che $A v^{(1)}= v^{(2)}$ e $A^2 v^{(1)}= v^{(1)}+ v^{(2)}+ v^{(3)}$ . Determinare la matrice $M$ che rappresenta $A$ in questa base.
+\item Sia definito su $L_2(-\pi,\pi)$ il funzionale $F(f)=\int_{-\pi}^\pi dx\sin ^2(x) f(x)$. Calcolare la norma $ \| F\|$ ed almeno due funzioni di $L_2(-\pi,\pi)$ per le quali $ F(f)=0$. 
+\item Determinare i valori del parametro reale $a$ per i quali la funzione $f(x)=\{\exp[-(1+a)x]\}/(1-ax^2)$ appartiene ad $L_2(0,+\infty)$
+\item Determinare i valori del parametro reale $a$ per i quali la funzione $f(x)=\sin(ax)/(1+ax^2)$ appartiene ad $L_2(-1,1)$.
+\item Calcolare $p=(u,Bu)$ sapendo che in una base ortonormale $\{e^{(n)}\}, n=1,2,...,\infty$ dello spazio di Hilbert $\mathcal{H}$ si ha $u=\sum_{n=1}^{\infty} (1/2)^n e^{(n)}$ e $B e^{(n)}=(n/4) e^{(n)}+(n-1) e^{(n-1)}$ per $ n=1,2,...,\infty $.
+\end{enumerate}
+
+\vskip10pt
+
+\centerline{\LARGE \bf Soluzioni Esercitazione III}
+\begin{enumerate}
+\item $A_\epsilon = 1-2\epsilon^2 + 4 \epsilon^4 +i\epsilon(1-2\epsilon^2) (\sigma_1+\sigma_3) +O(\epsilon^5)$.
+\item Poich\`e $A= U^{\dag}\,\bigl( \begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix} \bigr)\,U$ con $U=\frac{1}{\sqrt 2}\bigl( \begin{smallmatrix} 1 & 1 \\ 1 & -1 \end{smallmatrix} \bigr)$, si ha $\cos^3(\frac{\pi}{2} A)=U^{\dag}\,\cos^3(\frac{\pi}{2}\bigl( \begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix} \bigr))\,U=U^{\dag}\,\bigl( \begin{smallmatrix} 0 & 0 \\ 0 & 1 \end{smallmatrix} \bigr)\,U=\frac12 (1-\sigma_1)$. 
+\item La soluzione si trova integrando due volte per parti.
+\item Sia $P(\theta)=f_0 + a_1 \cos(\theta) +a_2 \cos(2\theta)+ b_1 \sin(\theta) + b_2\sin(2\theta)$, allora l'equazione agli autovalori si scrive $\pi[b_2\cos(\theta)-b_1\cos(2\theta) -a_2 \sin(\theta)+ a_1 \sin(2\theta)=\lambda P(\theta)$. Risolvendo si trova che $\lambda =0$ \`e semplice con autofunzione $P(\theta)=1$, $\lambda=\pi$ \`e doppio con autofunzioni $P(\theta)= \cos(\theta) +\sin(2\theta)$ e $P(\theta)=\cos(2\theta) - \sin(\theta)$, $\lambda= -\pi$ \` e doppio con autofunzioni  $P(\theta)= \cos(\theta) -\sin(2\theta)$ e $P(\theta)=\cos(2\theta) + \sin(\theta)$.
+\item Sapendo che $M_{ij}=(v^{(i)}, Av^{(j)}), \text{Tr}M=0$ e $M_{ij}=\overline{M}_{ji}$, si trova $M=\begin{pmatrix} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & -1 \end{pmatrix}$.
+\item Poich\`e $|F(f)|\leq||f||\,\sqrt{\int_{-\pi}^{\pi}\,dx\,\sin^2(x)}$ si ha $||F||= \sqrt{\int_{-\pi}^{\pi}\,dx\,\sin^2(x)}=\sqrt{\pi}$. Dalla formula trigonometrica $\sin^2(x)=\frac12 (1-\cos(2x))$ e ricordando la base ortogonale di Fourier, si ha $F(\sin(x))=0$ e $F(\cos(x))=0$.
+\item Per avere convergenza all'infinito deve essere $a \geq -1$. Inoltre se $a >0$ la funzione ha due
+poli in $x=\pm 1/\sqrt{a}$ che danno luogo a singolarit\`a non integrabili. Dunque deve essere
+$-1\leq a \leq0$.
+\item Per $a\geq 0$ la funzione non ha poli nell'intervallo $-1\leq x \leq1$ e l'integrale converge.
+Per $a<0$ la funzione ha due poli in $x=\pm 1/\sqrt{|a|}$. I poli si trovano all'interno dell'intervallo
+chiuso $[-1,1]$ per $a \leq -1$ e danno luogo a singolarit\`a non integrabili.  Dunque deve essere $a>-1$. Inoltre $f(x) \in L_2(-1,1)$ anche per i valori $a_n=-n^2 \pi^2$ per $n=\pm1,\, \pm2,\,\cdots$.
+\item Le componenti di $u$ nella base $e^{(n)}$ sono date da $u_n = 2^{-n}$. Per calcolare le componenti $(Bu)_n$
+di $Bu$ osserviamo che
+\begin{equation}\nonumber
+Bu = \sum_{n=1}^\infty u_n Be^{(n)} = \sum_{n=1}^\infty \frac1{2^n} \left[ \frac{n}{4} e^{(n)}
++ (n-1) e^{(n-1)} \right] =  \sum_{n=1}^\infty \frac34 \frac{n}{2^n} e^{(n)}
+\end{equation}
+dunque $(Bu)_n = \frac34  \frac{n}{2^n}$ e $p=\sum_{n=1}^\infty u_n (Bu)_n =
+\frac34 \sum_{n=1}^\infty n 4^{-n}=\frac34 \frac49 = \frac13$. La somma
+$\sum_{n=1}^\infty n 4^{-n} = \frac49$ si calcola ricordando che $\frac1{1-x}= \sum_{n=0}^\infty x^n$
+e derivando $\frac{1}{(1-x)^2}=\frac{d}{dx}\frac1{1-x}= \sum_{n=1}^\infty n x^{n-1}$ da cui $\sum_{n=1}^{\infty}nx^n = \frac{x}{(1-x)^2}$.
+\end{enumerate}
+
+
+
+
+
+
+\newpage
+
+
+
+\centerline{\LARGE \bf Esercitazione IV}
+\centerline{(Esercizi di preparazione per l'esonero del 12/05/2004)}
+\centerline{Distribuita il 10/5/2004, correzione l'11/5/2004}
+\vskip10pt
+
+\begin{enumerate}
+\item Siano $v^{(1)}$, $v^{(2)}$ e $v^{(3)}$ 
+i vettori di una base ortormale dello spazio $V_3$
+e sia $M$ l'operatore lineare
+tale che $M v^{(1)}= 2 v^{(2)} + v^{(3)}$,
+$M^2 v^{(1)}= 3 v^{(2)}+ 2 v^{(3)}$ e $M^3 v^{(1)}= 2 v^{(2)}+ 3 v^{(3)}$.
+Calcolare lo spettro di $M$.
+\item Sia $K(x,y) = 3 e^{-x-y} \Big[ e^{-px} + e^{-py} \Big]$ il nucleo
+dell'operatore integrale $K$ che agisce su $L_2(0,\infty)$.
+Calcolare il valore del parametro positivo $p$ per cui $\text{Tr} K = 1$.
+\item Calcolare la traccia $T=\text{Tr}B$ e il determinante $D=\det B$
+della matrice $B=F(A)$ con $F(z)=[\sin (\pi z/2)]/(1+z)$ e
+$A = 3 + \sqrt{3} \sigma_1 + \sigma_2$.
+\item Sia $M$ la matrice hermitiana $3 \times 3$ il cui polinomio
+caratteristico \`e $P(z)=-z^3 + 3,5 z^2 + 12,5 z - 42$. Calcolare la traccia
+$\alpha = \text{Tr} (1 + M)$ ed il determinante $\beta = \text{Det} (1+M)$.
+\item Siano dati il vettore delle matrici di Pauli $\vec{\sigma} = (\sigma_1,\sigma_2,\sigma_3)$, il vettore $\vec{a}=(3,4,0)$ e la matrice 
+$A=\vec{a} \cdot \vec{\sigma}$. Calcolare gli autovalori $\mu_{\pm}$ e gli  autovettori $v^{(\pm)}$ della
+matrice $M = \Big[ 1 + A \exp (i \pi A) \Big]^{-1}$.
+\item Sia ${\cal P}$ il proiettore che proietta su un sottospazio di $V_N$
+di dimensione $n<N$, e $g(z)=(1-z)/[(4+z) \cosh z]$. Determinare l'operatore
+$G=g({\cal P})$ e calcolare la sua traccia $T=\text{Tr} G$.
+\item Si consideri lo spazio delle successioni
+$u = \{ u_n \}_{n=-\infty}^\infty$
+col prodotto scalare $(u,v)=\sum_{n=-\infty}^{\infty} \overline{u}_n v_n$ e
+sia dato l'operatore di traslazione $T$ definito da $(T u)_n = u_{n+1}$.
+{\it a)} Calcolare la matrice che rappresenta $T$; {\it b)} dato il vettore
+$u =  \{ 2^{-|n|} \}_{n=-\infty}^\infty$, calcolare $(u,Tu)$;
+{\it c)} Mostrare che l'operatore $T$ \`e unitario, cio\`e che $T T^\dag = 1$.
+\item Trovare due funzioni $a(x)$ e $b(x)$ tali che $[ a(x) D , b(x) D] = D$,
+dove $D=\frac{d}{dx}$.
+\end{enumerate}
+\centerline{\LARGE \bf Soluzioni Esercitazione IV}
+\vskip10pt
+
+\begin{enumerate}
+\item Poich\`e $M v^{(1)}= 2 v^{(2)} + v^{(3)}$, $M v^{(2)}= 4 v^{(2)} + v^{(3)}$, $M v^{(3)}= -5 v^{(2)}$ si trova $M=\begin{pmatrix} 0 & 0 & 0 \\ 2 & 4 & -5 \\ 1 & 1 & 0 \end{pmatrix}$ e quindi i tre autovalori sono $\lambda=0$, $\lambda=2+i$ e $\lambda=2-i$.
+\item L'operatore $K$ \`e separabile di rango $2$, $K(x,y)=a(x)\,b(y)+b(x)\,a(y)$ con $a(x)=3\exp[-(1+p)x]\,,\,b(x)=\exp(-x)$. L'equazione agli autovalori $Kf=\lambda f$ per $\lambda\neq 0$ diventa l'equazione agli autovalori per la matrice $2\times 2$ $\bigl( \begin{smallmatrix} (b,a)&(b,b)\\(a,a)&(a,b)\end{smallmatrix}\bigr)$ e quindi Tr$K=2(a,b)=\frac{6}{2+p}$ che implica $p=4$.
+\item Gli autovalori di $A$ sono $\lambda_1=5$ e  $\lambda_2=1$. Quindi $T=F(5) + F(1)= \frac23, D=F(5)\,F(1)=\frac{1}{12}$.
+\item  Ricordando che $P(z)=\text{Det}(M-z\,1)$ si ha $\beta = P(-1)$. Inoltre si nota che $\alpha = \text{Tr}(1+M)=\text{Tr}(1) + \text{Tr}(M) = 3+ \text{Tr}(M)$ e poich\`e $P(z)= -(z-\lambda_1)(z-\lambda_2)(z-\lambda_3)=-z^3+z^2 \text{Tr}(M) + \cdots$, si ha Tr$(M)=3,5$ e quindi $\alpha= 6,5$.
+\item Gli autovalori $\alpha_{\pm}$ e gli autovettori $v^{(\pm)}$ della
+matrice $A$ sono $\alpha_{\pm}=\pm |\vec {a}|$ e $v^{(\pm)}=\bigl(\begin{smallmatrix}a_1-ia_2\\ \pm |\vec{a}|-a_3\end{smallmatrix}\bigr)$ per cui gli autovalori ed autovettori della matrice $M$ sono $\mu_{+} = -\frac14, \mu_{-}=\frac16, v^{(\pm)}=\bigl(\begin{smallmatrix}3-4i\\ \pm 5 \end{smallmatrix}\bigr)$.
+\item Gli autovalori di ${\cal P}$ sono $1$ con molteplicit\`a $n$ e $0$ con molteplicit\`a $N-n$ per cui $G=g({\cal P})= g(1) {\cal P} + g(0)(1-{\cal P})= \frac14(1-{\cal P})$ e Tr$G=\frac14(N-n)$.
+\item {\it a}) Poich\`e $(Tu)_n= \sum_{-\infty}^{+\infty} T_{nm} u_m$ si ha $T_{nm}=\delta_{m\,n+1}$. {\it b}) $(u,Tu)=\sum_{-\infty}^{+\infty}\overline{u}_n \,u_{n+1}=\frac12 \sum_{0}^{+\infty} \frac{1}{4^n} +2  \sum_{1}^{+\infty} \frac{1}{4^n}=\frac43 $. {\it c}) $(TT^{\dag})_{nk}= \sum_{m=-\infty}^{+\infty} T_{nm} (T^{\dag})_{mk}= \sum_{m=-\infty}^{+\infty} T_{nm} T_{km}= \sum_{m=-\infty}^{+\infty} \delta _{m\,n+1} \delta_{m\,k+1}=\delta_{nk}$.
+\item $[a(x) D\,,\,b(x) D]=[a(x)b'(x)-b(x) a'(x)] D$. Quindi, per esempio, $a(x)=1, b(x)=x$.
+\end{enumerate}
+
+
+\newpage
+
+
+\centerline{\LARGE \bf Esercitazione V}
+\centerline{Distribuita il 14/5/2004, correzione il 17/5/2004}
+\vskip10pt
+
+\begin{enumerate}
+\item Dimostrare che l'operatore ${\cal D} =e^{-V(x)} D e^{V(x)}$ \`e uguale all'operatore $D + V'(x)$ dove $D=d/dx$ e $V(x)$ \`e una funzione arbitraria in $C_1$.
+\item Dimostrare che se $f(x)$ \`e una funzione analitica in $x$ 
+per $\forall x \in \mathbb{R}$, si ha, per $L$ non nullo, $e^{L D} f(x) = f(x+L)$.
+\item Utilizzando il risultato e le ipotesi dell'esercizio precedente, dimostrare che l'operatore $e^D e^{V(x)}$ \`e uguale all'operatore $e^{V(x+1)} e^D$.
+\item Dimostrare che $e^{\epsilon D}e^{\epsilon V(x)} = 
+e^{\epsilon (D + V(x)) + \frac{\epsilon^2}{2} V'(x)} + O(\epsilon^3)$.
+\item Siano $f_1(x)$, $f_2(x)$ e $f_3(x)$ tre funzioni ortonormali e
+sia $K(x,y) = f_2(x) f_1(y) + f_1(x) f_2(y) + f_3(x) f_2(y) + f_2(x) f_3(y)$
+il nucleo dell'operatore $K$.
+Siano $g_1(x),\cdots,g_n(x),\cdots$ una base del sottospazio ortogonale
+al sottospazio generato da $f_1(x)$, $f_2(x)$ e $f_3(x)$.
+Calcolare autovalori ed autovettori di $K$.
+\item Costruire esplicitamente una base di autovettori di $K$ definito
+nell'esercizio precedente nel caso in cui lo spazio vettoriale 
+\`e $L_2[-\pi,\pi]$ e $f_1(x) =\frac{1}{\sqrt{2\pi}}$, $f_2(x)= \frac{1}{\sqrt{\pi}} \sin(2x)$,
+$f_3(x)= \frac{1}{\sqrt{\pi}} \cos(x)$.
+\item Si consideri lo spazio delle successioni
+$u = \{ u_n \}_{n=-\infty}^\infty$
+col prodotto scalare $(u,v)=\sum_{n=-\infty}^{\infty} \overline{u}_n v_n$ e
+siano dati l'operatore di traslazione $T$ definito da $(T u)_n = u_{n+1}$
+e l'operatore di ``inversione'' $I$ definito da $(I u)_n = u_{-n}$.
+{\it a)} Mostrare che $T$ e $I$ sono unitari e che $T I = I T^{-1}$; 
+{\it b)} Scrivere le matrici $T_{nm}$ e $I_{nm}$ che rappresentano $T$
+e $I$.
+\end{enumerate}
+
+\newpage
+
+\centerline{\LARGE \bf Soluzioni Esercitazione V}
+\vskip10pt
+
+\begin{enumerate}
+\item Applicando l'operatore ${\cal D}$ ad una generica funzione differenziabile $f(x)$ si ha ${\cal D}f(x) =e^{-V(x)} D e^{V(x)} f(x)= e^{-V(x)}[ e^{V(x)} f'(x) + V'(x) e^{V(x)} f(x) ] = f'(x)+V'(x) f(x)= (D+V'(x))\,f(x)$, c.v.d.
+\item Si ha 
+$e^{LD} f = \sum_{n=0}^\infty \frac{L^n}{n!} D^n f(x) =
+\sum_{n=0}^\infty \frac{L^n}{n!} f^{(n)}(x)$.
+L'ultima espressione \`e lo sviluppo di Taylor di $f$ di centro $x$ e raggio
+$L$, che converge per  $L\neq 0$,  essendo $f(x)$ analitica in tutto l'asse reale, e vale $f(x+L)$,
+c.v.d.
+\item Si ha, per una qualunque
+funzione di prova $f(x)$, $e^D (e^{V(x)} f(x)) = 
+e^{V(x+1)}f(x+1) = e^{V(x+1)} e^D f(x)$, da cui 
+$e^D e^{V(x)} = e^{V(x+1)} e^D$, c.v.d.
+\item Espandere gli esponenziali in potenze di $\epsilon$ e verificare che: 
+$e^{\epsilon D} e^{\epsilon V(x)} - e^{\epsilon\{[D+V(x)] + \frac{\epsilon}{2} V'(x)\}} = 
+O(\epsilon^3)$. Usare l'uguaglianza $DV(x) = V'(x) + V(x)D$. 
+\item L'operatore $K$ \`e separabile di rango 3. L'equazione agli autovalori $Ku=\lambda u$ ha le soluzioni: due autovalori semplici $\lambda_{\pm}=\pm \sqrt {2}$ con autofunzioni $u^{(\pm)}= f_1(x)\pm \sqrt {2} f_2(x)+f_3(x)$, l'autovalore $\lambda =0$ con molteplicita' infinita e autofunzioni $u_0(x)=f_1(x)-f_3(x)$ e le funzioni di base $g_n(x)$ per 
+$n=1, 2, \cdots$. 
+\item Una base ortonormale (quella di Fourier!) di $L_2[-\pi,\pi]$ \`e data da
+$\frac{1}{\sqrt{2\pi}}$, $ \frac{1}{\sqrt{\pi}} \sin(nx)$,
+$ \frac{1}{\sqrt{\pi}} \cos(nx)$ per $n=1,2,\cdots$. Quindi la base delle autofunzioni di $K$ \`e $u_0(x)=\frac{1}{\sqrt{2\pi}}-  \frac{1}{\sqrt{\pi}} \cos(x) $, $u^{(\pm)}=\frac{1}{\sqrt{2\pi}}\pm \sqrt{\frac{2}{\pi}} \sin(2x) +  \frac{1}{\sqrt{\pi}} \cos(x) $, mentre le funzioni $g_n(x)$ sono le funzioni $c^{(n)}(x)=\frac{1}{\sqrt{\pi}} \cos(nx)$ per $n=2,3,4, \cdots$, $s^{(n)}(x)=\frac{1}{\sqrt{\pi}} \sin(nx)$ per $n=1,3,4, \cdots$.
+\item {\it a}) Per mostrare che $T$ e $I$ sono unitari \`e sufficiente mostrare che
+conservano il prodotto scalare ($(u,T^\dag T v)=(Tu,Tv)= (u,v)$).
+Si ha $(Tu,Tv) = \sum_{n=-\infty}^\infty \overline{u}_{n+1} v_{n+1}=
+ \sum_{m=-\infty}^\infty \overline{u}_m v_m=(u,v)$ (porre $m=n+1$) e 
+ $(Iu,Iv) = \sum_{n=-\infty}^\infty \overline{u}_{-n} v_{-n}=
+ \sum_{m=-\infty}^\infty \overline{u}_m v_m=(u,v)$ (porre $m=-n$).
+Inoltre, poich\`e si ha $(TIu)_n = u_{-n-1}$, applicando due volte $TI$ si ottiene  $(TITIu)_n=u_{-(-n-1)-1}=u_n$ per cui 
+$TITI = 1$, il che implica $T^{-1}=ITI$. Poich\`e $I^2=1$ ne segue $IT^{-1}=TI$  c.v.d.
+{\it b}) $T_{nm} = \delta_{m\,n+1}$, $I_{nm}=\delta_{-n\,m}$. 
+\end{enumerate}
+
+\newpage
+
+
+\centerline{\LARGE \bf Esercitazione VI}
+\centerline{Distribuita il 21/5/2004, correzione il 24/5/2004}
+\vskip10pt
+
+\begin{enumerate}
+\item L'oscillatore forzato $x(t)$ soddisfa l'equazione $\ddot x (t)
++ x(t) = a \sin (\omega t)$. Calcolarne la soluzione generale.
+\item Sia $\vec{\sigma} = (\sigma_1,\sigma_2,\sigma_3)$ il vettore delle
+matrici di Pauli e $\vec{\omega}=(2,1,-2)$. Calcolare il vettore 
+$v(t)= ( v_1(t),v_2(t))$ che risolve l'equazione differenziale 
+$\frac{dv}{dt} = i \vec\omega \cdot \vec\sigma v$ con la condizione iniziale
+$v(0)=(1,0)$.
+\item Calcolare la soluzione generale dell'equazione $\frac{d^2f}{dx^2}
++ \frac{1}{x}\frac{df}{dx} = 3$.
+\item Calcolare la soluzione generale dell'equazione $\frac{d^2f}{dx^2}
+- \frac{2x}{1+x^2} \frac{df}{dx} = 1$.
+\item Dati gli operatori differenziali $D_1 = \frac{d}{dx} - \tanh x$ e
+$D_2 = \frac{d}{dx} - 1$, calcolare la soluzione generale dell'equazione
+$D_1 D_2 f(x) = 0$.
+\end{enumerate}
+
+\vskip20pt
+
+\centerline{\LARGE \bf Soluzioni Esercitazione VI}
+\vskip10pt
+
+\begin{enumerate}
+\item La soluzione generale dell'equazione omogenea \`e
+$x_0(t) = c_1 \sin t + c_2 \cos t$. Una soluzione particolare si cerca
+della forma $x_p(t) = A \sin \omega t$; sostituendo nell'equazione si
+trova $A=\frac{a}{1-\omega^2}$. Quindi, per $|\omega|\neq 1$, la soluzione
+generale \`e 
+$x(t) = c_1 \sin t + c_2 \cos t + \frac{a}{1-\omega^2} \sin \omega t$.
+Per $|\omega|=1$ l' espressione precedente diverge e una soluzione particolare
+si cerca nella forma $x_p(t) = A t \cos t$. Sostituendo si trova $A=-a/2$
+e la soluzione generale \`e
+$x(t) = c_1 \sin t + c_2 \cos t - \frac{a}{2} t \cos t$.
+\item Gli autovalori ed autovettori della matrice $\vec{\omega}\cdot \vec{\sigma}= \omega_1 \sigma_1+\omega_2 \sigma_2 +\omega_3 \sigma_3$ sono (vedi Esercitazione IV, esercizio 5) $\omega_{\pm}=\pm |\vec{\omega}|$ e $v^{(\pm)}= \bigl(\begin{smallmatrix}\omega_1-i\omega_2\\ \pm|\vec{\omega}|-\omega_3\end{smallmatrix}\bigr)$. Sviluppando la soluzione $v(t)$ nella base ortogonale $\{v^{(+)}, v^{(-)}\}$ si ha $v(t)= v_{+}(t) v^{(+)} + v_{-}(t) v^{(-)}$ da cui l'equazione diventa $\frac{d}{dt}v_{+}(t) v^{(+)} + \frac{d}{dt}v_{-}(t) v^{(-)}=i\omega_+v_{+}(t) v^{(+)} + i\omega_- v_{-}(t) v^{(-)}$ e quindi $\frac{d}{dt}v_{\pm}(t)= \pm i |\vec{\omega}| v_{\pm}(t)$ la cui soluzione generale \`e $v_{\pm}(t)=\exp( \pm i |\vec{\omega}| t) v_{\pm}(0)$. Ponendo $\vec{\omega}=(2,1,-2)$ e $v_{+}(0) v^{(+)} + v_{-}(0) v^{(-)}=(1,0)$ si ottiene $v_1(t)=\cos(3t) -\frac{2i}{3} \sin(3t)$ e $v_2(t)=-\frac13 (1-2i)\sin(3t)$.
+
+\item Ponendo $g=f'$ si ottiene per $g$ l' equazione del primo ordine  $g'+g/x = 3$ , la cui soluzione generale \`e 
+$g(x)=c_1/x + 3x/2$. Dunque si ha 
+$f(x) = c_2 + \int^x dx' \ g(x')= c_2 + c_1 \log x + 3x^2/4$.
+\item Ponendo $g=f'$ si ottiene per $g$ l' equazione del primo ordine $g'-\frac{2x}{1+x^2}g = 1$, la cui soluzione generale \`e 
+$g(x)=c_1 (1+x^2) + (1+x^2) \arctan x$. Dunque si ha 
+$f(x) = c_2 + \int^x dx' \ g(x')= c_2 + c_1 (x+ x^3/3) + 
+\int^x dx' \ (1+x'^2) \arctan x'$. L'ultimo integrale si fa per parti, $f(x)=c_2+c_1(x+\frac{x^3}{3})\arctan x -\frac{x^2}{6} -\frac13 \log(1+x^2)$.
+\item Ponendo $g(x)=D_2 f(x)$ si ottiene per $g(x)$ l' equazione del primo ordine  $g' - g \tanh x = 0$ la cui soluzione generale \`e
+$g(x) = c_1 \cosh x $. L'equazione per $f$
+\`e $f' - f = g$. Una soluzione dell'omogenea \`e $f(x)=e^x$.
+Una soluzione particolare si cerca nella forma $f(x) = \alpha(x) e^x$ per
+cui $\alpha'(x) = e^{-x} g(x)$. Si ottiene quindi
+$f(x) = e^x [ c_2 + \int^x dx' \ e^{-x'} g(x') ]= c_1(xe^x-\frac12 e^{-x})+c_2 e^x$. 
+\end{enumerate}
+
+\newpage
+
+\centerline{\LARGE \bf Esercitazione VII}
+\centerline{Distribuita il 28/5/2004, correzione il 31/5/2004}
+\vskip10pt
+
+\centerline{\large \bf Operatori lineari}
+
+\begin{enumerate}
+\item Calcolare autovalori ed autovettori dell'operatore integrale il cui
+nucleo \`e dato da $K(x,y)=x+y$ in $L_2(-1,1)$.
+\item Trovare la soluzione dell'equazione 
+$F(x) + \int_{-1}^1 dy \ (x+y)^2 F(y) = 7x$.
+\item Dati gli operatori $H_1=-D^2 + e^x$ e $H_2=-D^2 - e^{-x}$
+trovare tutte le funzioni $f \in L_2(-1,1)$ tali che $[H_1,H_2] f = 0$.
+\item Dati i vettori $u = (1,1,i)$ e $v=(1,-1,1)$ e l'operatore
+$A=u v^\dag$, calcolare traccia e determinante di
+$B = (1+A) \cosh ( \pi A)$.
+\item Espandere $f(x)=x^2 e^{-x/2}$ nella base di Laguerre 
+$f^{(n)}(x) =  e^{-x/2} L_n(x)$.
+\item Trovare autovalori ed autofunzioni di $A=-i \frac{d}{dx} + \sin x$
+in $L_2(-\pi,\pi)$ con $f(-\pi)=f(\pi)$.
+\item Trovare autovalori ed autofunzioni di $B=-i \frac{d}{dx} + x^2$
+in $L_2(-\pi,\pi)$ con $f(-\pi)=f(\pi)$.
+\end{enumerate}
+
+\centerline{\large \bf Trasformate di Fourier}
+
+\vskip10pt
+Calcolare la trasformata di Fourier 
+$\hat{f}(k) = \int_{-\infty}^\infty \frac{dx}{\sqrt{2\pi}} f(x) e^{-ikx}$
+delle seguenti funzioni:
+\begin{enumerate}
+\item $f(x)=\exp \Big(- x^2 / L^2 \Big)$. 
+Calcolare inoltre $\langle x \rangle$, $\langle x^2 \rangle$, 
+$\langle k \rangle$, $\langle k^2 \rangle$ e studiare l'andamento di
+$\langle x^2 \rangle \langle k^2 \rangle$ in funzione di $L$ (usare le definizioni $\langle x^n \rangle=(\int_{-\infty}^{\infty}dx \,x^n \,|f(x)|^2)/(\int_{-\infty}^{\infty}dx \,|f(x)|^2), 
+\\ \langle k^n \rangle=(\int_{-\infty}^{\infty}dk \,k^n \,|\hat{f}(k)|^2)/(\int_{-\infty}^{\infty}dk \,|\hat{f}(k)|^2)$. 
+\item $f(x)=\exp \Big(- |x| / L \Big)$.
+\item $f(x)= \left( 1 - \frac{|x|}{L} \right)$ per $x\in [-L,L]$ e $f(x)=0$
+altrove.
+\item $f_1(x)=x \exp \Big(- x^2 / L^2 \Big)$ e 
+$f_2(x)=x^2 \exp \Big(- x^2 / L^2 \Big)$ 
+(suggerimento: usare $x e^{-ikx}= i \frac{d}{dk}e^{-ikx}$).
+\end{enumerate}
+
+\newpage
+
+
+\centerline{\LARGE \bf Soluzioni Esercitazione VII}
+\vskip10pt
+
+\centerline{\large \bf Operatori lineari}
+\vskip10pt
+Utilizziamo come prodotto scalare in $L_2[-1,1]$ l'espressione
+$(f,g) = \int_{-1}^1 dx \overline{f(x)} g(x)$.
+
+\begin{enumerate}
+\item Ricordando
+che $P_0(x)=1$ e $P_1(x)=x$ sono i primi due polinomi di Legendre, si ha che
+ l'operatore $K$ ha la forma $K f = (P_1,f) + x (P_0,f)=(P_1,f)P_0 +  (P_1,f)P_1$. Quindi
+tutti i polinomi di Legendre $P_n(x)$ con $n \geq 2$ sono autofunzioni
+di $K$ con autovalore nullo. Le due autofunzioni corrispondenti agli
+autovalori non nulli sono combinazioni lineari di $P_0$ e $P_1$.
+La matrice $M$ che rappresenta $K$ in questo sottospazio \`e data da
+$M=\bigl( \begin{smallmatrix} 0 & 2/3 \\ 2 & 0 \end{smallmatrix} \bigr)$
+i cui autovalori sono $\lambda_\pm = \pm 2/\sqrt{3}$.
+Le autofunzioni corrispondenti sono $f_\pm(x) = P_0(x) \pm \sqrt{3} P_1(x)
+= 1 \pm\sqrt{3} x$. 
+\item Si ha $F(x) + x^2 (1,F) + 2x (x,F) + (x^2,F) = 7x$. Si vede quindi
+che $F(x)$ deve essere una combinazione lineare di $1$, $x$, $x^2$.
+Cerchiamo quindi $F$ della forma $F(x)= a + b x + c x^2$.
+Sostituendo questa espressione nella equazione e calcolando i prodotti scalari
+si ottiene
+$a + bx + c x^2 = 7x - \left(\frac{2}{3} a + \frac{2}{5} c \right)
+- 2x \left( \frac{2}{3} b \right) - 
+x^2 \left( 2 a + \frac{2}{3} c \right)$.
+Uguagliando a zero i coefficienti di $1$, $x$, $x^2$ si ottiene $a=c=0$
+e $b=3$.
+\item Si ha $[H_1,H_2] = [D^2, e^x] + [D^2, e^{-x}] = 
+[D^2, 2\cosh x] = 4 \sinh x D + 2\cosh x$.
+L'equazione per $f$ diventa $4 \sinh x f' + 2\cosh x f =0 $ la cui
+soluzione generale \`e $f(x) = A (\sinh x)^{-1/2}$.
+\item Due autovalori di $A$ sono nulli 
+e corrispondono al sottospazio ortogonale
+a $v$, mentre il terzo autovalore \`e $(v,u)=i$ e corrisponde all'autovettore
+$u$. Due autovalori di $B$ sono uguali a $1$ e il terzo \`e dato da
+$(1+i)\cosh(\pi i) = -1-i$. Quindi $\text{Tr}B = 1-i$ e $\det B = -1-i$.
+\item Ricordando che i primi tre polinomi di Laguerre sono dati da
+$L_0 = 1$, $L_1 = 1-x$, $L_2 = \frac{1}{2} (x^2 -4x+2)$, si ha
+$f(x) = 2 f^{(2)}(x) - 4 f^{(1)}(x) + 2 f^{(0)}(x)$.
+\item La soluzione generale di $-i f' + \sin x f = \lambda f$ \`e
+$f(x) = A \exp [ i (\lambda x + \cos x)]$. Imponendo la condizione 
+$f(-\pi)=f(\pi)$ si ottiene la condizione $\lambda = k \in Z$, per cui
+le autofunzioni sono $f_k(x) = \exp [ i (k x + \cos x)]$ con autovalore
+$\lambda=k$.
+\item La soluzione generale di $-i f' + x^2 f = \lambda f$ \`e
+$f(x) = A \exp [ i (\lambda x - x^3/3)]$. Imponendo la condizione 
+$f(-\pi)=f(\pi)$ si ottiene la condizione $\lambda = \frac{\pi^2}{3} + k$,
+$k \in Z$, per cui le autofunzioni sono 
+$f_k(x) = \exp \left[ i \left(k x + \frac{\pi^2}{3} x -
+\frac{x^3}{3}\right)\right]$ con autovalore
+$\lambda=k + \frac{\pi^2}{3}$.
+\end{enumerate}
+\centerline{\large \bf Trasformate di Fourier}
+\vskip10pt
+\begin{enumerate}
+\item $\hat{f}(k)=\frac{L}{\sqrt{2}}\exp(-\frac{L^2}{2}k^2)$ (ricordare che $\int_{-\infty}^{+\infty} dz\,e^{-z^2}=\sqrt{\pi}$).
+\item $\hat{f}(k)=\sqrt{\frac{2}{\pi}} L/(1+L^2 k^2)$.
+\item $\hat{f}(k)=\sqrt{\frac{2}{\pi}} [1-\cos(kL)]/(Lk^2)$.
+\item $\hat{f}_1(k)=-\frac{iL^3}{\sqrt{8}} k \exp(-\frac{L^2}{4} k^2)$, $\hat{f}_2(k)=\frac{L^3}{\sqrt{8}} (1-\frac{L^2}{2} k^2) \exp(-\frac{L^2}{4} k^2)$.
+\end{enumerate}
+
+\newpage
+
+
+\centerline{\LARGE \bf Esercitazione VIII}
+\centerline{Distribuita il 31/5/2004, correzione il 4/6/2004}
+\vskip10pt
+
+\begin{enumerate}
+\item Calcolare la soluzione $F(x)$ dell'equazione integrale
+$F(x) + \int_{-\pi}^{\pi} dy \sin(x-2y) F(y) = 3 \sin(2x)$.
+\item Data la matrice $2\times 2$ 
+$T(x) = x + \frac{1}{4} ( \sigma_1 - \sigma_2 )$, determinare
+i valori reali di $x$  per i quali la serie 
+$S(x) = \sum_{n=1}^\infty \frac{1}{n} [T(x)]^n$ converge e 
+scrivere la rappresentazione spettrale di $S(x)$.
+\item Siano dati i vettori (colonna)
+$a=(1,0,0,1)$, $b=(1,0,i,0)$, $c=(-1,0,i,0)$ e $d=(-1,0,0,1)$ e
+la matrice $A = a b^\dag + c d^\dag$. 
+Calcolare traccia e determinante di $B = \sin(\pi \cosh 2\pi i A )$.
+\item Sia dato su $L_2[-\pi,\pi]$ l'operatore integrale $K$ di nucleo
+$K(x,y) = \sin(x-y)$. Calcolare il nucleo dell'operatore $A = 1-\cosh K$
+(suggerimento: usare la rappresentazione spettrale).
+\item Trovare la rappresentazione spettrale della matrice $F=(1-M)(1+M)^{-1}$
+dove 
+$M=\bigl( \begin{smallmatrix} 0 & -1 & 1 \\ 
+-1 & 0 & 1 \\ 1 & 1 & 0 \end{smallmatrix} \bigr)$.
+\item Data la matrice $M$ dell'esercizio precedente e il vettore 
+$w=(0,\alpha,1)$,
+discutere la convergenza della soluzione di $v - \lambda M v = w$ in
+serie di potenze di $\lambda$ al variare del parametro $\alpha$.
+\item Calcolare la trasformata di Fourier della funzione 
+$G(x) = \frac{d^2}{dx^2} \exp( -|\frac{x+a}{L}| )$ in $L_2(-\infty,\infty)$.
+\item Siano $a(x)$ e $b(x)$ due funzioni di $L_2(-\pi,\pi)$ la cui
+espansione nella base di Fourier \`e 
+$a(x)=\sum_{n=-\infty}^\infty 4^{-|n|} e^{inx}$
+e $b(x) = \sum_{n=0}^{\infty} \cos (nx) / n! \ $;
+calcolare il prodotto scalare $(a,b)$.
+\item Dato l'operatore integrale $(Kf)(x)=\int_{-\pi}^\pi dy \ K(x,y) f (y)$
+con $K(x,y)=\sin x \sin y + \lambda \cos x \cos y$. Determinare i
+valori del parametro $\lambda$ per i quali $K^3-3 \pi K^2 + 2 \pi^2 K =0$.
+\item Sia $L = \frac{d}{dx} - \frac{2}{x}$. Trovare la soluzione generale 
+dell'equazione $L^2 f(x) = 5$.
+\item Siano $P_1$, $P_2$ e $P_3$ i proiettori su una base ortonormale di 
+$V_3$. Determinare il vettore $v(t)$ soluzione generale dell'equazione
+$(1+2 P_1 + P_2) \frac{dv}{dt} = (P_1 - 3 P_3) v(t)$.
+\item Sia data la matrice $A=2\sigma_1 + 2 \sigma_2 + \sigma_3$ ed il
+vettore $w=(1-i,1)$. Calcolare la soluzione $v(t)$ dell'equazione differenziale
+$\frac{dv}{dt} = A v(t) + w$ con dato iniziale $v(0)=(1,0)$.
+Discutere il comportamento di $v(t)$ per $t \rightarrow \infty$.
+\item Data la funzione 
+$f(x) = \int_{-\infty}^\infty dy \frac{e^{-|x-y|}}{1+y^2}$, calcolarne la
+trasformata di Fourier $\hat{f}(k)$.
+\item Calcolare l'espressione esplicita del pacchetto d'onda 
+$F(x,t)=\int_{-\infty}^\infty dk \ g(k) e^{i k (x - ct) }$ sapendo che
+$g(k) = e^{- k^2 \sigma^2}$. Discutere il comportamento del pacchetto
+in funzione del tempo.
+\item Trovare la soluzione dell'equazione 
+$F(x)+\lambda \int_{-\infty}^\infty dy \ e^{-|x-y|} F(y) = e^{-|x|}$ 
+per $\lambda >0$
+(suggerimento: scrivere l'equazione per la trasformata di Fourier
+di $F$).
+\end{enumerate}
+
+\newpage
+
+
+\centerline{\LARGE \bf Soluzioni Esercitazione VIII}
+\vskip10pt
+
+\begin{enumerate}
+\item Sviluppando l'integrale l'equazione diventa 
+$F(x) - \cos x \int_{-\pi}^\pi dy \ \sin 2y F(y)
++ \sin x \int_{-\pi}^\pi dy \ \cos 2y F(y) = 3 \sin 2x$, dunque
+la soluzione \`e della forma $F(x) = a \sin x + b \cos x + c \sin 2x$.
+Sostituendo nell'equazione e calcolando i prodotti scalari si ottiene
+$a=0$, $b=3\pi$ e $c=3$.
+\item Gli autovalori di $T(x)$ sono dati da 
+$\lambda_\pm = x \pm \frac{1}{2\sqrt{2}}$. Gli 
+autovettori normalizzati corrispondenti  sono
+$v_\pm = \left(\frac{1+i}{2},\pm \frac{1}{\sqrt{2}} \right)$.
+Per $|z|<1$ si ha $\sum_{n=1}^\infty \frac{z^n}{n} = -\log (1-z)$. 
+Quindi la serie $S(x)$ converge per $|\lambda_\pm|<1$, ovvero
+$|x|<1-\frac{1}{2\sqrt{2}}$, e la rappresentazione
+spettrale di $S(x)$ \`e data da
+$S(x) = -\log(1 - \frac{1}{2\sqrt{2}} -x) v_+ v^\dag_+ -\log(1 + \frac{1}{2\sqrt{2}} -x) v_- v^\dag_-$.
+\item Si ha $A^2 = ab^\dag ab^\dag + ab^\dag c d^\dag +
+ c d^\dag ab^\dag+  c d^\dag  c d^\dag = a b^\dag + c d^\dag = A$
+poich\`e $b^\dag a = d^\dag c = 1$ e $b^\dag c = d^\dag a = 0$.
+Se $A^2 = A$ (A \`e un proiettore)  si ha $B = f(A) = f(0) + [f(1) - f(0)] A$ e quindi
+$B = 0$, da cui $\text{Tr} B = \det B =0$.
+\item L'operatore $K$ ha la forma 
+$K f = \sin x (\cos x, f) - \cos x (\sin x,f)$, dove
+$(f,g)=\int_{-\pi}^{\pi} dx \overline{f}(x) g(x)$.
+Quindi tutte le funzioni ortogonali a $\cos x$ e $\sin x$ sono autovettori
+con autovalore nullo, mentre nel sottospazio generato da
+$\cos x$ e $\sin x$ l'operatore $K$ ha autovalori 
+$\lambda_\pm = \pm i \pi$ e autovettori 
+$v_\pm(x) = \frac{1}{\sqrt{2\pi}} (\cos x \mp i \sin x) =
+\frac{e^{\mp i x}}{\sqrt{2\pi}} $
+(normalizzati ad $1$).
+Dal momento che $1-\cosh 0 = 0$ tutti gli autovettori
+corrispondenti ad autovalori nulli non contribuiscono alla rappresentazione
+spettrale di $A$, il cui nucleo \`e quindi dato da
+$A(x,y) = [1-\cosh (i\pi)] v_+(x) \overline{v_+(y)}
+ + [1-\cosh (-i\pi)]v_-(x) \overline{v_-(y)}
+= \frac{e^{-ix}e^{iy}}{\pi} +  \frac{e^{ix}e^{-iy}}{\pi} =
+\frac{2}{\pi} \cos(x-y) $.
+\item Gli autovalori di $M$ sono $\lambda_1 = -2$ e $\lambda_2=\lambda_3=1$.
+Gli autovalori $\lambda_2$ e $\lambda_3$ non contribuiscono alla 
+rappresentazione spettrale di $F$ perch\`e corrispondono all' autovalore
+nullo di $F$. Quindi $F = \frac{1-\lambda_1}{1+\lambda_1} v^{(1)} v^{(1)\dag} =
+- 3   v^{(1)} v^{(1)\dag}$. E' sufficiente quindi calcolare l'autovettore 
+$v^{(1)} = \frac{1}{\sqrt{3}} (1,1,-1)$.
+\item La soluzione dell'equazione \`e $v=(1-\lambda M)^{-1} w=
+\sum_{i=1}^3 \frac{1}{1-\lambda \lambda_i} v^{(i)} (v^{(i)},w) = \frac{1}{\sqrt{3}} \frac{\alpha -1}{1+2\lambda} v^{(1)} \\
++ \frac{1}{1-\lambda} [(v^{(2)},w) v^{(2)} + (v^{(3)},w) v^{(3)}]$.
+L'autovalore massimo di $M$ \`e $\lambda_1 = -2$ e l'autovettore
+corrispondente \`e $v^{(1)}=\frac{1}{\sqrt{3}} (1,1,-1)$ (vedi esercizio
+precedente). Dunque, se $(v^{(1)},w) = \frac{1}{\sqrt{3}} (\alpha -1 ) \neq 0$, 
+lo sviluppo in serie di potenze di $\lambda$ converge 
+per $|\lambda|<\frac{1}{2}$. Tuttavia, se $\alpha=1$ il termine con 
+$\lambda_1$ non contribuisce e quindi la serie converge 
+nel dominio pi\`u grande $|\lambda|<1$ dato che gli altri due autovalori sono
+$\lambda_2=\lambda_3=1$.
+\item Si ha $\hat{f}(k)=\int_{-\infty}^\infty \frac{dx}{\sqrt{2\pi}}
+e^{-ikx} e^{-|x+a|/L} = \sqrt{\frac{2}{\pi}} L \frac{e^{ika}}{(1+L^2k^2)}$. L'operatore
+$d^2/dx^2$ corrisponde alla moltiplicazione per  $-k^2$ della trasformata di Fourier
+quindi $\hat{G}(k) = - \sqrt{\frac{2}{\pi}} Lk^2 \frac{e^{ika}}{(1+L^2k^2)}$.
+\item Sviluppando le due funzioni $a(x)$ e $b(x)$ nella base ortonormale (di Fourier) degli esponenziali,
+$a(x) = \sum_{n=-\infty}^{+\infty} a_n \frac{e^{inx}}{\sqrt{2\pi}}$ e $b(x) = \sum_{n=-\infty}^{+\infty} b_n \frac{e^{inx}}{\sqrt{2\pi}}$, si ottiene
+$(a,b)=\sum_{n=-\infty}^\infty \overline{a}_n b_n$.
+Essendo  $a_n = \sqrt{2\pi} 4^{-|n|}$ e $b_n =\sqrt{2\pi}( \frac{1}{2 (|n|)!} + \frac{\delta_{n0}}{2})$,
+si ha $(a,b) = 2\pi(2 \sum_{n=1}^\infty \frac{1}{4^n \ 2 \ n!} + 1) =
+2\pi e^\frac14$.
+\item L'operatore $K$ ha infiniti autovalori nulli ed ha due autovettori: 
+$\sin x$ con autovalore $\pi$ e $\cos x$ con autovalore $\lambda \pi$.
+L'operatore $K$ verifica l'equazione data se tutti i suoi autovalori la
+verificano. Poich\`e questa equazione ha le tre radici $0$, $\pi$ e $2\pi$, 
+\`e sufficiente che l'autovalore $\lambda \pi$ sia una di queste radici. Quindi i valori del parametro $\lambda$ devono essere $\lambda = 0, 1, 2$.
+\item Si ponga $Lf(x)=g(x)$. La funzione $g(x)$ soddisfa allora l'equazione del primo ordine $g'(x)-\frac{2}{x} g(x)=5$ la cui soluzione \`e $g(x)=c_1 x^2-5x$. Quindi $f(x)$ soddisfa l'equazione $f'(x)-\frac{2}{x} f(x)=g(x)$ la cui soluzione generale \`e $f(x)= c_2x^2 + c_1x^3-5x^2\log x$.
+\item Ricordando che $1=P_1+P_2+P_3$, l'equazione si scrive banalmente per le componenti del vettore $v(t)$: 
+$3 \frac{dv_1}{dt} = v_1$,
+$2 \frac{dv_2}{dt} = 0$,
+$\frac{dv_3}{dt} = -3 v_3$. Le soluzioni generali sono $v_1(t) = v_1(0) e^{t/3}$, $v_2(t)=v_2(0)$,
+$v_3(t) = v_3(0) e^{-3 t}$ e quindi si ha $v(t)= (e^{t/3} P_1+P_2+e^{-3t}P_3)v(0)$.
+\item Gli autovalori di $A$ sono $\lambda_\pm = \pm 3$ con autovettori
+$v_+=\frac{1}{\sqrt{3}} (1-i,1)$ e $v_-=\frac{1}{\sqrt{3}} (-1,1+i)$.
+La soluzione dell'equazione \`e $v(t) = 
+e^{At} [ v(0) + A^{-1}  w] -A^{-1}w= e^{At} v(0) - A^{-1} (1-e^{At}) w$.
+Osserviamo che $w=\sqrt{3}v_+$, per cui
+$A^{-1} (1-e^{At}) w = \sqrt{3} \lambda_+^{-1} (1-e^{\lambda_+ t }) v_+ =
+\frac{1}{\sqrt{3}} (1-e^{3t}) v_+$.
+Utilizzando la rappresentazione spettrale per il primo termine 
+la soluzione si riscrive come
+$v(t) = e^{\lambda_+ t} v_+ (v_+,v(0)) + e^{\lambda_- t} v_- (v_-,v(0))-
+\sqrt{3} \lambda_+^{-1} (1-e^{\lambda_+ t }) v_+ =
+ e^{3 t} \frac{1-i}{\sqrt{3}} v_+  - e^{-3t} \frac{1}{\sqrt{3}} v_-
+ - \frac{1}{\sqrt{3}} (1-e^{3 t }) v_+$.
+Per $t \rightarrow \infty$ i termini proporzionali a $e^{3t}$ dominano: 
+$v(t) \sim   e^{3t} \frac{2-i}{\sqrt{3}} v_+$.
+\item La funzione $f(x)$ \`e il prodotto di convoluzione delle funzioni $\frac{1}{1+x^2}$ e  $e^{-|x|}$, quindi la sua trasformata di Fourier  \`e il prodotto delle
+trasformate di Fourier di $\frac{1}{1+x^2}$ e di $e^{-|x|}$, che sono
+date rispettivamente da $\sqrt{\frac{\pi}{2}} e^{-|k|}$ e da
+$\sqrt{\frac{2}{\pi}} \frac{1}{1+k^2}$. Quindi
+$\hat{f}(k) = \frac{e^{-|k|}}{1+k^2}$.
+\item $F(x,t)=f(x-ct)$ descrive un'onda con profilo $f(x)$ che si muove con velocit\`a $c$. Il profilo \`e $f(x)=\sqrt{\pi} \exp(-\frac{x^2}{4\sigma^2})$. 
+\item Passando alla trasformata di Fourier l'equazione diventa
+$\hat{F}(k) + \lambda \sqrt{\frac{2}{\pi}} \frac{\hat{F}(k)}{1 + k^2} =
+  \sqrt{\frac{2}{\pi}} \frac{1}{1 + k^2}$, da cui
+$\hat{F}(k) = \sqrt{\frac{2}{\pi}}
+\frac{1}{1+\lambda \sqrt{\frac{2}{\pi}} + k^2} = 
+\sqrt{\frac{2}{\pi}} \frac{1}{\alpha^2 + k^2}$ avendo definito
+$\alpha = \sqrt{ 1+\lambda \sqrt{\frac{2}{\pi}}}>0$.
+Antitrasformando (con un cambio di variabile $k'=k/\alpha$)
+ si ottiene $F(x) = e^{-\alpha |x|}/\alpha$.
+\end{enumerate}
+
+
+\newpage
+
+\centerline{\LARGE \bf Esercitazione IX}
+\centerline{Distribuita e corretta il  14/06/2004}
+\vskip10pt
+
+\begin{enumerate}
+\item Sia data la successione di funzionali regolari $$ F^{(n)}[\phi]=n
+\int_{-\infty}^{+\infty}dx\exp[-n^2(x-1)^2] \phi (x).$$ Calcolare il
+funzionale $F[\phi]=\text{lim}_{n\rightarrow \infty} F^{(n)}[\phi]$ per $\phi
+\in S$ ($S=$ spazio di Schwartz).
+\item Calcolare l'integrale $C=\int_{-7}^4 dx x^2\delta(\sin(x)).$
+\item Calcolare la derivata seconda $g(x)=\frac{d^2}{dx^2} \exp(-2|x|).$
+\item Fare il grafico di $f(t)=\cos(t) [H(t)-H(t-\pi)]$ e calcolare la
+derivata $df(t)/dt.$
+\item Calcolare l'integrale
+$$Z=\int_{-\infty}^{+\infty}dp_1\int_{-\infty}^{+\infty}dp_2
+\exp[-a^2(p_1^2+p_2^2)] \delta(p_1^2+p_2^2-A^2)$$ con $a$ e $A$ reali.
+\item Calcolare la distribuzione corrispondente al simbolo
+$$\Delta(x)=x^2\delta^{(2)}(x-1).$$  
+\end{enumerate}
+\newpage
+
+\centerline{\LARGE \bf Soluzioni Esercitazione IX}
+\vskip10pt
+
+\begin{enumerate}
+
+\item Cambiando variabile d'integrazione $x=1+\frac{y}{n}$ si ha $F^{(n)}[\phi]=\int_{-\infty}^{+\infty}dy\,e^{-y^2} \phi(1+\frac{y}{n})$ per cui \\
+$\text{lim}_{n\rightarrow \infty} F^{(n)}[\phi]=\sqrt{\pi} \phi(1)$ ovvero, simbolicamente, $\text{lim}_{n\rightarrow \infty} n\exp[-n^2(x-1)^2]=\sqrt{\pi} \delta(x-1)$.
+\item Poich\`e $\delta(\sin x)= \sum_{-\infty}^{+\infty}\delta(x-n\pi)$ si ha $C=\sum_{n=-2}^1 \int_{-7}^4 dx x^2 \delta(x-n\pi)= 6\pi^2$.
+\item Poich\`e $\exp(-2|x|)= \exp(-2x) H(x)+\exp(2x) H(-x)$ si ha $\frac{d}{dx} \exp(-2|x|)=-2[\exp(-2x) H(x)-\exp(2x) H(-x)$ e quindi $g(x)=4[\exp(-2x) H(x)+\exp(2x) H(-x)]-4\delta(x)=4\exp(-2|x|)-4\delta(x)$.
+\item $df(t)/dt=-\sin(t)[H(t)-H(t-\pi)]+\delta(t)+\delta(t-\pi)$.
+\item $Z=2\pi\int_0^{\infty} d\rho \rho \exp(-a^2\rho^2)\delta(\rho^2-A^2)=\pi \int_0^{\infty} dx \exp(-a^2x)\delta(x-A^2)=\pi \exp(-a^2A^2)$.
+\item Poich\`e $x^2 \frac{d^2}{dx^2}\delta(x-1)= \frac{d^2}{dx^2} [x^2\delta(x-1)] -4\frac{d}{dx}[x \delta(x-1)] +2\delta(x-1)$ e poich\`e $x\delta(x-1)=\delta(x-1)$, si ottiene $\Delta(x)=\delta^{(2)}(x-1) -4\delta^{(1)}(x-1)+2\delta(x-1)$.
+\end{enumerate}
+
+
+\newpage
+
+\centerline{\LARGE \bf Esercitazione X}
+\centerline{Distribuita e corretta il  21/06/2004}
+
+\vskip10pt
+
+\begin{enumerate}
+\item Calcolare l'integrale $I=\int_0^4dx\cos(\pi x)\delta(x^2+x-2)$ 
+\item Trovare il simbolo $\Delta(x)$ corrispondente alla distribuzione 
+\\$F[\phi]=2\int_{-\infty}^{+\infty}dx[d$sign$(x)/dx]d\phi(x)/dx~,~~
+\phi \in S$
+\item Calcolare il simbolo $\alpha(x)=a(x)\delta^{(1)}(x-1)$ per
+$a(x)\in C^{(1)}$  
+\item Calcolare la trasformata di Fourier di\\ i) $f(x)=[1/(1+x+2x^2)]
+\delta(x+1)$~,~ii) $g(x)=[1/(1+x^2)]\delta^{(1)}(x-2)$
+\item Calcolare la soluzione particolare $x(t)$ pet $t>0$ dell'equazione\\
+$\ddot{x}(t)+x(t)=-3\delta(t^2+2t-3)$ \\ con le condizioni $x(0)=0,
+\dot{x}(0)=1$ 
+\item Calcolare la soluzione generale dell'equazione differenziale\\
+$\ddot{x}(t)+2\dot{x}(t)+10x(t)=3\sin(2t)-3\delta(t-\pi)$
+\item Calcolare la soluzione del problema del transiente:\\
+$\ddot{x}(t)+x(t)=\exp(-2t)[H(t)-H(t-3)]~,~x(t)=0~$per $t< 0$\\
+ovvero calcolare $x(t)$ per $t>3$
+\item Calcolare la soluzione dell'equazione\\
+$d^2f(x)/dx^2+df(x)/dx-2f(x)=4\delta(x)$\\
+che appartiene allo spazio $L_2(-\infty,+\infty)$
+
+\end{enumerate}
+
+\newpage
+
+\centerline{\LARGE \bf Soluzioni Esercitazione X}
+\vskip10pt
+\begin{enumerate}
+\item Poich\`e $\delta(x^2+x-2)=\frac13 \delta(x-1) + \frac13 \delta (x+2)$ si ha $I=-\frac13$.
+\item Poich\`e $\frac{d}{dx} \text{sign}(x)=\frac{d}{dx} [H(x)-H(-x)]=2\delta(x)$ si ha $F[\phi]=4\int_{-\infty}^{+\infty}dx\delta(x)d\phi(x)/dx=-4\int_{-\infty}^{+\infty} dx \delta^{(1)}(x) \phi(x)$ e quindi $\Delta(x)=-4\delta^{(1)}(x)$.
+\item $\alpha(x)=a(x)\frac{d}{dx}\delta(x-1)=\frac{d}{dx}[a(x)\delta(x-1)]- a'(x)\delta(x-1)= a(1)\delta^{(1)}(x-1)-a'(1)\delta(x-1)$.
+\item $f(x)=\frac12 \delta(x+1)\,,\,g(x)=\frac15 \delta^{(1)}(x-2)+\frac{4}{25} \delta(x-2)$ quindi $\hat{f}(k)=\frac{e^{-ik}}{2\sqrt{2\pi}}\,,\,\hat{g}(k)=\frac{e^{2ik}}{25\sqrt{2\pi}}(4-5ik)$.
+\item Poich\`e $\delta(t^2+2t-3)=\frac14 \delta(t-1)+\frac14 \delta(t+3)$ conviene usare la funzione di Green. Si ottiene, per $t\geq 0$, $x(t)=\sin(t)-\frac34 \int_0^t dx \sin(t-x)\delta(x-1)= \sin(t)-\frac34 \sin(t-1) H(t-1)$.
+\item La soluzione generale dell'omogenea \`e $x_0(t)=e^{(-t)}[a\cos(3t)+b\sin(3t)]$. Una soluzione particolare dell'equazione $\ddot{y}(t)+2\dot{y}(t)+10y(t)=3\sin(2t)$ \`e $y(t)=\frac{9}{26} \sin(2t)-\frac{3}{13} \cos(2t)$, mentre una soluzione particolare dell'equazione $\ddot{z}(t)+2\dot{z}(t)+10z(t)=-3\delta(t-\pi)$ \`e $z(t)=e^{-(t-\pi)} \sin(3t) H(t-\pi)$, quindi si ha $x(t)=x_0(t)+y(t)+z(t)=e^{(-t)}[a\cos(3t)+b\sin(3t)]+\frac{9}{26} \sin(2t)-\frac{3}{13} \cos(2t)+e^{-(t-\pi)} \sin(3t) H(t-\pi)$.
+\item Usando la funzione di Green si ha $x(t)=\int_0^t dy\sin(t-y) e^{-2y}[H(y)-H(y-3)]$ quindi per $t>3\,\,\,x(t)=\int_0^3dy e^{-2y}(\sin t \cos y -\cos t \sin y)= A \sin t +B \cos t$ con $A=\int_0^3 dy e^{-2y}\cos y=\frac15 [2+e^{-6} (\sin 3 -2\cos 3)]$ e $B=-\int_0^3 dy e^{-2y} \sin y= \frac15 [-1+e^{-6} (2\sin 3+\cos 3)]$. 
+\item Poich\`e due soluzioni indipendenti dell'equazione omogenea sono $e^x$ e $e^{-2x}$, l'unica soluzione che appartiene a $L_2(-\infty, +\infty)$ \`e $f(x)=-\frac43 [e^x H(-x) + e^{-2x}H(x)]$.
+
+\end{enumerate}
+
+\newpage
+
+
+
+\centerline{\bf MODELLI E METODI MATEMATICI DELLA FISICA}
+
+\centerline{\bf I COMPITO D'ESONERO 12/05/04}
+
+\centerline{A.A. 2003-04 \ \ Prof.\ A.\ DEGASPERIS}
+\vspace{20pt}
+\noindent
+{\bf ATTENZIONE}:
+
+\noindent
+scrivere su ciascun foglio il cognome ed indicare
+\emph{chiaramente} l'inizio e la fine di ogni esercizio.
+\vspace{20pt}
+\noindent
+\begin{enumerate}
+\item Sia $A$ una matrice $4X4$ tale che $A^2=2A+3$. Sapendo che 
+tr$A=8$, calcolare il determinante det$A$.......................[ 7 ] 
+\item Sia $F[f]$ il funzionale continuo definito in
+$L_2(-\infty,+\infty)$
+come $F[f]=\int_{-\infty}^{+\infty}dx\exp(-2x^2)f(x)$. \\ Calcolare
+la sua norma $||F||$..............................................................[ 7 ]
+\item Sia $M$ l'operatore sulle successioni $\{u_n\}_{n=0}^{+\infty}$
+di $l_2$ definito dalla matrice infinita $M_{n
+m}=\frac{1}{3^n2^{m+1}}, n,m\geq0$. Calcolare tutti gli autovalori
+ed almeno due autovettori di $M$.....................................[ 8 ]  
+\item Sia dato l'operatore $D=d/dx$. Trovare la funzione $V(x)$
+tale che $[D^2+V(x)D,D+\tanh x]=0$. ..............................[ 6 ]
+\item Mostrare che l'operatore lineare $U$, $f(x)\rightarrow g(x)=
+Uf(x)=\alpha f(\alpha^2 x)$, con $\alpha \neq 0$ e reale, e' un operatore
+unitario in $L_2(-\infty,+\infty)$ (ovvero
+$(Uf^{(1)},Uf^{(2)})=(f^{(1)},f^{(2)})$ ). ............................[ 7 ]
+
+\end{enumerate}
+
+\noindent IL NUMERO RIPORTATO ALLA FINE DI CIASCUN ESERCIZIO
+E' IL VOTO MASSIMO. IL VOTO TOTALE E' LA SOMMA DEI 5 VOTI
+PARZIALI.
+
+
+
+\newpage
+
+\centerline{\bf MODELLI E METODI MATEMATICI DELLA FISICA}
+\centerline{\bf II COMPITO D'ESONERO   07/06/04}
+\centerline{A.A. 2003-04 \ \ Prof.\ A.\ DEGASPERIS}
+\vspace{20pt}
+\noindent
+{\bf ATTENZIONE}:
+\noindent
+scrivere su ciascun foglio il cognome ed indicare 
+\emph{chiaramente} l'inizio e la fine di ogni esercizio.
+\vspace{20pt}
+\noindent
+\begin{enumerate}
+\item Sia $L>0$ e sia $f(x)=L$ per $0\leq x\leq L$ e $f(x)=0$ per $x<0$ e 
+$x>L$. Calcolare la trasformata di Fourier $\hat{f}(k)$ di
+$f(x)$ e la sua norma $\parallel \hat{f} \parallel$ in
+$L_2(-\infty,+\infty )$...............................................................[ 7 ] 
+\item Calcolare la soluzione generale dell'equazione differenziale\\
+$d^2u(x)/dx^2-u(x)=3\exp(2x) +\exp(-x)$............................[ 7 ]
+\item Calcolare la soluzione $g(x)$ dell'equazione integrale\\
+$g(x)+2\int_{-\pi}^{\pi}dy\cos(x-y)g(y)=1+\sin(x)$...............[ 6 ]  
+\item Sapendo che gli autovalori $\lambda_1$ e $\lambda_2$ ed i
+corrispondenti autovettori $v^{(1)}$ e $v^{(2)}$ della matrice $2X2~~M$
+ sono\\ $\lambda_1=2 , \lambda_2= -1 , v^{(1)}=(1,i) , v^{(2)}=(i,1)$, 
+calcolare gli elementi di matrice $A_{jk}$ della
+ matrice $A=(2\P + M)^{-1} \exp(i\pi M)$...............................[ 7 ]
+\item Sia $H(x)\in L_2(-\infty,+\infty) , D=d/dx$
+e sia $K$ l'operatore integrale definito dal prodotto di convoluzione\\
+ $Kf=\int_{-\infty}^{\infty}dyH(x-y)f(y)=(H\ast f)(x)$.\\
+Mostrare che $[K , D]=0$........................................................[ 7 ]
+\end{enumerate}
+\noindent IL NUMERO RIPORTATO ALLA FINE DI CIASCUN ESERCIZIO
+E' IL VOTO MASSIMO. IL VOTO TOTALE E' LA SOMMA DEI 5 VOTI PARZIALI.
+
+
+
+\newpage
+
+\centerline{\bf MODELLI E METODI MATEMATICI DELLA FISICA}
+
+\centerline{\bf III COMPITO D'ESONERO   23/06/04}
+
+\centerline{A.A. 2003-04 \ \ Prof.\ A.\ DEGASPERIS}
+
+\vspace{20pt}
+\noindent
+{\bf ATTENZIONE}:
+
+\noindent
+scrivere su ciascun foglio il cognome ed indicare
+\emph{chiaramente} l'inizio e la fine di ogni esercizio.
+\vspace{20pt}
+\noindent
+\begin{enumerate}
+\item Calcolare l'integrale
+$A=\int_{-2}^1dx(2x^2+x-1)\delta(\cos(\pi x))$...................[ 7 ] 
+\item Calcolare la soluzione generale $x(t)$ dell'equazione
+differenziale\\
+$d^2x(t)/dt^2+4x(t)=2\cos(2t)-4\delta(t)$.............................[ 7 ]
+\item Calcolare la soluzione $g(x)$ dell'equazione differenziale\\
+$d^2g(x)/dx^2+3dg(x)/dx+2g(x)=4\delta(x)$ che soddisfa le
+condizioni iniziali $g(-1)=0\,\ g_x(-1)=0$.............................[ 6 ]  
+\item Calcolare il simbolo\\ $\Delta(x)=(1+x^2)^{-1}
+\delta(x-2)+\exp(-x^2)\delta^{(1)}(x)$....................................[ 6 ]
+\item Trovare una funzione $f(x)$ limitata, reale, $f(x)=f^{\ast}(x)$ e
+nulla, $f(x)=0$, per $|x|>\pi$, tale che l'equazione differenziale\\
+$d^2\psi(x)/dx^2+4\psi(x)=f(x)$ ammetta una soluzione $\psi(x)$\\ che
+appartiene allo spazio $L_2(-\infty,+\infty)$.........................[ 8 ]
+
+\end{enumerate}
+
+\noindent IL NUMERO RIPORTATO ALLA FINE DI CIASCUN ESERCIZIO
+E' IL VOTO MASSIMO. IL VOTO TOTALE E' LA SOMMA DEI 5 VOTI
+PARZIALI.
+
+\newpage
+
+\centerline{\bf MODELLI E METODI MATEMATICI DELLA FISICA}
+
+\centerline{\bf COMPITO D'ESAME 28/06/04}
+
+\centerline{A.A. 2003-04 \ \ Prof.\ A.\ DEGASPERIS}
+\vspace{20pt}
+\noindent
+{\bf ATTENZIONE}:
+
+\noindent
+scrivere su ciascun foglio il cognome ed indicare
+\emph{chiaramente} l'inizio e la fine di ogni esercizio.
+\vspace{20pt}
+\noindent
+\begin{enumerate}
+\item  Sia $P$ un proiettore Hermitiano, $P=P^{\dagger}, P^2=P$ , che
+proietta i vettori di $V_6$ in un sottospazio di dimensione $3$.
+Calcolare tutti i valori dei due numeri complessi $z_1$ e $z_2$ tali che
+\\$Tr(z_1\P +z_2P)=0$ e $Det(z_1\P +z_2P)=-1$.........................[ 10 ] 
+\item  Calcolare la soluzione $f(x)$ dell'equazione
+integrale\\$f(x)+\int_{-1}^1dyK(x,y)f(y)=2x^3+x$ con
+$K(x,y)=xy(x+y)$...............................[ 9 ]
+\item  Sia $q(t)$ la soluzione dell'equazione\\$\ddot{q}(t)+\pi^2q(t)
+=6\delta(t^2-t-2)$ che soddisfa le condizioni iniziali
+$q(0)=0,\dot{q}(0)=2$. Calcolare $q(2,25)$....................................[ 11 ]
+\item  Sia dato l'operatore differenziale $A=-4d^2/dx^2+3x^4$ che opera
+su $L_2(a,b)$ nel dominio $\{\phi(x)\in
+L_2(a,b):\phi(a)=\phi(b),\pm\phi_x(a)=\phi_x(b)\}$ (condizioni di
+periodicita'). Mostrare che, se $\lambda$ e' un autovalore di $A$,
+allora $\lambda$ e' reale e positivo, $\lambda>0$........................[ 10 ]  
+
+\end{enumerate}
+\vspace{20pt}
+\noindent IL NUMERO RIPORTATO ALLA FINE DI CIASCUN ESERCIZIO
+E' IL VOTO MASSIMO. SVOLGERE L'ESERCIZIO $k$ ,\\($k=1,2,3$), PER IL
+RECUPERO DELL'ESONERO $k$, \\SVOLGERE L'ESERCIZIO 4 PER IL RECUPERO
+DELL'\\ESONERO "ORALE".
+
+
+\end{document}
+
+
+
+

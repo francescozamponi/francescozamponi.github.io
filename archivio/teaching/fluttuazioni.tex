@@ -1,0 +1,269 @@
+\documentclass[aps,pre]{revtex4}
+\usepackage[italian]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsfonts}
+\newcommand{\blankline}{\vskip .3cm}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+% This fixes the margins and page sizes
+%\setlength{\hoffset}{0pt} \setlength{\voffset}{0pt} \setlength{\topmargin}{-20pt}
+%\setlength{\headsep}{30pt} \addtolength{\headsep}{-\headheight}
+%\setlength{\textheight}{9in} \addtolength{\textheight}{-40pt}
+%\setlength{\footskip}{30pt} \setlength{\oddsidemargin}{0pt}
+%\setlength{\textwidth}{6.5in}
+\begin{document}
+
+\title{Tesina per l'esame di dottorato, A.A. 2001/2002} 
+
+\author{Guido Manzi$^1$, Francesco Zamponi$^2$} 
+
+\affiliation{$^1$Dipartimento di Fisica dell'Università di Roma ``Tor Vergata'', $^2$Dipartimento di Fisica dell'Università di Roma ``La Sapienza''} 
+
+
+\maketitle
+
+
+\section{Il problema}
+
+\noindent
+Consideriamo un modello di Ising bidimensionale in una regione quadrata $\Omega$ di lato $L$ con condizioni al bordo $+$ nella parte superiore e $-$ nella parte inferiore. Vogliamo dimostrare che, detta $M$ la magnetizzazione totale, si ha
+\beq
+p(|M|> \alpha L^2) < 
+\begin{cases} 
+e^{- C L} \hspace{1cm} \alpha < m^* \\
+e^{- C' L^2}  \hspace{1cm}  \alpha > m^*
+\end{cases}
+\eeq
+dove $C$ e $C'$ sono costanti dipendenti da $\alpha$ e dalla temperatura, e $m^*$ \`e la magnetizzazione spontanea di equilibrio con condizioni $+$. Tutte le stime che citeremo nel seguito si riferiscono al caso in cui la temperatura \`e sufficientemente bassa e il volume sufficientemente grande.
+
+\section{Idea per la dimostrazione}
+
+\noindent
+Osserviamo che con queste condizioni al bordo si ha $\langle M \rangle = 0$; si avr\`a una linea di separazione $\lambda$ fra due regioni $\theta_+$ e $\theta_-$ in cui la magnetizzazione aspettata sar\`a
+\beq
+\label{M-theta}
+\begin{split}
+&M(\theta_+) \sim m^* |\theta_+| \\
+&M(\theta_-) \sim -m^* |\theta_-|
+\end{split}
+\eeq
+e l'area delle due regioni sar\`a uguale in media.
+L'idea alla base della dimostrazione \`e quindi la seguente: per avere una fluttuazione di $M$ tale che $m^* |\Omega| > M > \alpha |\Omega|$ \`e sufficiente spostare la linea di separazione tra le due regioni in modo che la magnetizzazione totale sia $M$ mantenendo le relazioni (\ref{M-theta}). Il contributo dominante \`e dato quindi dalle configurazioni in cui due regioni (di area diversa) hanno magnetizzazione vicina a quella di equilibrio. La probabilit\`a delle configurazioni di questo tipo \`e dell'ordine della probabilit\`a di avere una fluttuazione della linea di separazione di ordine $L$, stimata da
+\beq
+p(|\lambda| > k L) < C_1 e^{-C_2 L}
+\eeq
+Al contrario, per realizzare una fluttuazione di $M$ tale che $|M| > m^* |\Omega|$ \`e necessario che in almeno una delle due regioni si abbia $|M(\theta)| > m^* |\theta|$. E' quindi possibile utilizzare il lemma che segue stimando separatamente il contributo proveniente dalle fluttuazioni nelle due regioni.
+
+\section{Lemma}
+
+\noindent
+La dimostrazione \`e basata sul seguente lemma: sia $\theta$ una regione di $\Omega$ con condizioni al contorno $+$, tale che {\it v)} $|\theta| > k |\Omega|$ e {\it f)} $|\partial \theta| < |\theta|^{1-\frac{\varepsilon}{2}}$ per qualche $k>0$ e $\varepsilon > 0$. Allora, per $\beta$ e $|\Omega|$ sufficientemente grandi
+\beq
+\label{lemma}
+p(|M(\theta)-m^* |\theta|| > t |\theta|) < e^{-C(t,\beta) |\theta|}
+\eeq
+Ovviamente il lemma \`e valido anche con condizioni al contorno $-$ cambiando segno a $m^*$. Questo lemma \`e analogo al lemma 5.4 di \cite{GMM}, ma \`e valido nel caso $p=1$, dove non sembra necessaria la restrizione sui contorni c-large e al posto dell'ipotesi $|\partial \theta|< k' |\theta|^{1/2}$ si pu\`o richiedere la condizione {\it f)}. \\
+Per dimostrare il lemma consideriamo per prima
+\beq
+p(M(\theta)-m^* |\theta| > t |\theta|) = \frac{1}{Z} \text{$\sum_{\underline \sigma}$}' e^{-\beta H_\theta(\underline \sigma)}
+\eeq
+dove $H_\theta$ \`e l'hamiltoniana ristretta alla regione $\theta$ che comprende anche il termine dovuto alle condizioni al bordo, e $\sum^\prime$ \`e la somma sulle configurazioni tali che $M(\theta)-m^* |\theta| > t |\theta|$. Si ha
+\beq
+\begin{split}
+&p(M(\theta)-m^* |\theta| > t |\theta|) \leq \frac{1}{Z} \text{$\sum_{\underline \sigma}$}' e^{-\beta H_\theta(\underline \sigma) + h [ M_\theta(\underline \sigma) - m^* |\theta| - t |\theta|]} \\ &\leq \frac{1}{Z} \sum_{\underline \sigma} e^{-\beta H_\theta(\underline \sigma) + h [ M_\theta(\underline \sigma) - m^* |\theta| - t |\theta|]} = e^{|\theta| [f(h)-f(0) - f'(0) h - th]}
+\end{split}
+\eeq
+dove abbiamo definito
+\beq
+e^{|\theta| f(h)} =  \sum_{\underline \sigma} e^{-\beta H_\theta(\underline \sigma) + h  M_\theta(\underline \sigma)} = \sum_{\underline \sigma} e^{-\beta H_\theta(\underline \sigma) + h \sum_{i \in \theta} \sigma_i }
+\eeq
+e utilizzato la relazione
+\beq
+m^* = f'(0)
+\eeq
+valida solo per $|\Omega|$ sufficientemente grande e sotto le ipotesi {\it v)} ed {\it f)}. \\
+Utilizzando lo sviluppo di Taylor al primo ordine per $f(h)$ otteniamo
+\beq
+\label{legendre}
+p(M(\theta)-m^* |\theta| > t |\theta|) \leq  e^{|\theta| [\frac{1}{2} f''(\tilde h) h^2 - th]} \hspace{1cm} \tilde h \in [0,h]
+\eeq
+Supponiamo ora che
+\beq
+\label{stimacorrelazione}
+f''(h) < C \text{ per } h \in [0,\bar h]
+\eeq
+Allora possiamo sostituire $f''$ con $C$ all'esponente della (\ref{legendre}) e prendere il minimo su $h$, ottenendo
+\beq
+p(M(\theta)-m^* |\theta| > t |\theta|) \leq  e^{-|\theta|\frac{t^2}{2C}}
+\eeq
+purch\'e $t/C \in [0,\bar h]$. Il caso $M(\theta)-m^* |\theta| < -t |\theta|$ si tratta analogamente, e quindi per completare la dimostrazione del lemma bisogna verificare la validit\`a della (\ref{stimacorrelazione}). Calcolando la derivata seconda di $f$ si ha
+\beq
+\label{stimacorr2}
+f''(h)=\frac{1}{|\theta|} \sum_{(i,j) \in \theta^2} \left[ \langle \sigma_i \sigma_j \rangle_h - \langle \sigma_i \rangle_h \langle \sigma_j \rangle_h \right]
+\eeq
+E' noto \cite{GMM} che per $\beta$ sufficientemente grande, per qualunque valore di $h$  e sotto le ipotesi {\it v)} e {\it f)} le funzioni di correlazione connesse decadono esponenzialmente nella distanza $|i-j|$, e quindi
+\beq
+\sum_{j \in \theta}  \left[ \langle \sigma_i \sigma_j \rangle_h - \langle \sigma_i \rangle_h \langle \sigma_j \rangle_h \right] < C \hspace{1cm} \forall i \in \theta
+\eeq
+Sostituendo quest'ultima relazione nella (\ref{stimacorr2}) si ottiene la (\ref{stimacorrelazione}) per qualunque valore di $h$.
+
+\section{Stima della probabilit\`a di avere una linea di separazione lunga}
+
+\noindent
+Nel seguito sar\`a utile anche la stima che segue, che \`e analoga a quella discussa a lezione (valida per $k > 12$ e condizioni al contorno arbitrarie) ma \`e valida per qualunque valore di $k>1$ con queste particolari condizioni al contorno. L'espressione della probabilit\`a di avere $|\lambda| > kL$ \`e
+\beq
+\label{lunghezza1}
+p(|\lambda|>kL) = \frac{\sum_{|\lambda|>kL,\gamma_i} e^{-\beta(|\lambda|+\sum |\gamma_i|) }}{ \sum_{\lambda,\gamma_i} e^{-\beta(|\lambda|+\sum |\gamma_i|) }}
+ \leq \frac{ Z^+(\Omega) \ \sum_{ |\lambda|>kL}e^{-\beta |\lambda|} }{ \sum_{\lambda} e^{-\beta |\lambda|} \ Z^+(\theta_+|\lambda) Z^-(\theta_-|\lambda) }
+\eeq
+dove al numeratore abbiamo rilasciato il vincolo di compatibilit\`a tra $\lambda$ e $\gamma$. Ora mostriamo che
+\beq
+\label{partizioni}
+Z^+(\Omega) \leq Z^+(\theta_+|\lambda) Z^+(\theta_-|\lambda) e^{|\lambda| C(\beta)}
+\eeq
+Infatti
+\beq
+Z^+(\Omega) = \sum_{\gamma_i} e^{-\beta \sum |\gamma_i|} = \sum_{\gamma_i,\gamma'_j}  e^{-\beta \sum |\gamma_i| - \beta \sum |\gamma'_j| }
+\eeq
+dove $\gamma_i$ interseca $\lambda$ mentre $\gamma'_j$ non la interseca. Rilasciando il vincolo di compatibilit\`a tra $\gamma$ e $\gamma'$ otteniamo
+\beq
+\begin{split}
+Z^+(\Omega) &\leq  Z^+(\theta_+|\lambda) Z^+(\theta_-|\lambda) \sum_{\gamma_i \cap \lambda \neq \emptyset} e^{-\beta \sum |\gamma_i|} \\
+& \leq  Z^+(\theta_+|\lambda) Z^+(\theta_-|\lambda)  \sum_k \frac{1}{k!} \left( \sum_{\gamma_i \cap \lambda \neq \emptyset} e^{-\beta |\gamma|} \right)^k
+\end{split}
+\eeq
+dove nel secondo passaggio abbiamo rilasciato il vincolo di compatibilit\`a fra i $\gamma_i$.
+Stimiamo quindi
+\beq
+\sum_{\gamma_i \cap \lambda \neq \emptyset } e^{-\beta |\gamma|} = \sum_{x \in \lambda} \sum_{\gamma \circ x} e^{-\beta |\gamma|} \leq \sum_{x \in \lambda} \sum_{l=4}^\infty l^2 (3e^{-\beta})^l \leq C(\beta) |\lambda|
+\eeq
+il che completa la dimostrazione della (\ref{partizioni}). Possiamo quindi minorare il denominatore della (\ref{lunghezza1}) usando la stima precedente; otteniamo
+\beq
+p(|\lambda|>kL)  \leq \frac{ Z^+(\Omega) \ \sum_{ |\lambda|>kL}e^{-\beta |\lambda|} }{ Z^+(\Omega) \sum_{\lambda} e^{ (-\beta + C(\beta)) |\lambda|} }
+\eeq
+Il numeratore \`e maggiorato da
+\beq
+ \sum_{ |\lambda|>kL}e^{-\beta |\lambda|} \leq \sum_{l=kL}^\infty (3e^{-\beta})^l < C e^{(-\beta + \log 3)kL}
+\eeq
+Il denominatore invece si minora con
+\beq
+\begin{split}
+&\sum_{\lambda} e^{ (-\beta + C(\beta)) |\lambda|} \geq \sum_{l=L}^{L^2} \delta( \text{esiste } l) e^{ (-\beta + C(\beta))  l} = \\ &e^{ (-\beta + C(\beta))  L} \sum_{l=0}^{L(L-1)}  \delta( \text{esiste } l) e^{ (-\beta + C(\beta))  l} \geq C'  e^{ (-\beta + C(\beta))  L}
+\end{split}
+\eeq
+e infine
+\beq
+p(|\lambda|>kL)  \leq C \exp L \left[ (-\beta + \log 3)k + \beta - C(\beta) \right]
+\eeq
+E` chiaro quindi che la stima funziona per
+\beq
+k > \frac{\beta - C(\beta)}{\beta - \log 3}
+\eeq
+ma dal momento che $C(\beta) \sim e^{-\beta}$ per ogni $k>1$ \`e possibile scegliere $\beta$ abbastanza grande in modo che
+\beq
+\label{lunghezza2}
+p(|\lambda|>kL)  \leq C e^{-C' L}
+\eeq
+
+
+\section{Dimostrazione nel caso $\alpha > m^*$}
+
+\noindent
+Per formalizzare quanto esposto all'inizio riscriviamo
+\beq
+p(M > \alpha |\Omega| ) = \sum_{\lambda} p(M > \alpha |\Omega| \ | \ \lambda \ ) p(\lambda)
+\eeq
+dove $\lambda$ \`e la linea di separazione tra le due fasi.
+Nella somma precedente separiamo tre diversi contributi: \\
+a) entrambe le regioni $\theta_{\pm}$ verificano le ipotesi del lemma (\ref{lemma}) con $k$=$\bar{k}$ e un certo $\varepsilon$. \\
+b) una delle due regioni \`e tale che $|\theta| < \bar k |\Omega|$ ma l'altra regione verifica l'ipotesi {\it f)}. \\
+c) almeno una delle due regioni verifica l'ipotesi {\it v)} ma non verifica l'ipotesi {\it f)} per nessun valore di $\varepsilon$. \\
+Si vede che l'unione dei tre eventi a,b,c, contiene l'evento di cui vogliamo stimare la probabilit\`a. Trattiamo innanzitutto il caso a):
+\beq
+\label{divisione}
+\begin{split}
+p_\lambda(M > \alpha |\Omega| ) &= p_\lambda(M > \alpha |\Omega| \ \ \text{e} \ \  |M_+ - m^* |\theta_+|| > \gamma |\theta_+|) \\
+&+  p_\lambda(M > \alpha |\Omega| \ \ \text{e} \ \ |M_+ - m^* |\theta_+|| \leq \gamma |\theta_+|)
+\end{split}
+\eeq
+Vogliamo mostrare che il secondo evento implica una grande fluttuazione di magnetizzazione nella regione $\theta_-$; infatti, scegliendo $\gamma=\alpha - m^* > 0$, si ha
+\beq
+M_-=M-M_+ > \alpha |\Omega| - (m^* + \gamma) |\theta_+| = \alpha |\theta_-|
+\eeq
+Quindi
+\beq
+\label{stima1}
+\begin{split}
+p_\lambda(M > \alpha |\Omega| ) &\leq p_\lambda( |M_+ - m^* |\theta_+|| > (\alpha - m^*) |\theta_+|) \\
+&+  p_\lambda( |M_- + m^* |\theta_-|| > (\alpha + m^*) |\theta_-|) \\
+&\leq C_1 e^{-C_2 |\theta_+|} + C_3 e^{-C_4 |\theta_-|} \\
+&\leq C_1 e^{-C_2 \bar{k} |\Omega|} + C_3 e^{-C_4 \bar{k} |\Omega|} \leq C_5 e^{-C_6 |\Omega|}
+\end{split}
+\eeq
+Essendo la stima uniforme in $\lambda$, essa vale anche per la somma su tutti i $\lambda$ che verificano l'ipotesi a). \\
+Nel caso b) supponiamo che $|\theta_-| < \bar{k} |\Omega|$. Allora
+\beq
+\begin{split}
+&M_+ - m^*|\theta_+| = M - M_- - m^* |\theta_+| > M - |\theta_-| - m^* |\theta_+| \\ &> (\alpha-\bar{k})|\Omega| - m^* |\theta_+| > (\alpha - \bar k - m^*) |\theta_+|
+\end{split}
+\eeq
+purch\'e $\bar k < \alpha$. Scegliendo poi $\bar{k} < \alpha - m^*$ possiamo applicare il lemma (\ref{lemma}) alla regione $\theta_+$, che per ipotesi verifica la condizione {\it f)}, dal momento che $|\theta_+| > (1-\bar{k})|\Omega|$. Il caso $|\theta_+| < \bar{k} |\Omega|$ si tratta in maniera analoga. La stima \`e ancora uniforme in $\lambda$ per cui tutto il contributo di b) ammette una stima analoga a (\ref{stima1}). \\
+Nel caso c) la frontiera di una delle due regioni \`e tale che
+\beq
+|\partial \theta| = 2L + |\lambda| > |\theta|^{1-\frac{\varepsilon}{2}} \hspace{1cm} \forall \varepsilon
+\eeq
+e inoltre la stessa regione \`e tale che $|\theta|> k |\Omega|$. Quindi
+\beq
+|\lambda| \geq k L^2 - 2 L > C L^2
+\eeq
+per $L$ abbastanza grande e $C$ opportuno.
+A questo punto con una stima del tutto analoga alla (\ref{lunghezza2}) si mostra che
+\beq
+p(|\lambda| \geq C L^2) \leq C_7 e^{-C_8 L^2}
+\eeq
+il che completa la dimostrazione.
+
+
+\section{Dimostrazione nel caso $\alpha < m^*$}
+
+\noindent
+Per controllare le configurazioni in cui la magnetizzazione \`e $\sim m^*$ al di sopra della linea di separazione e $-m^*$ al di sotto, abbiamo bisogno di una stima abbastanza precisa della probabilit\`a che la linea di separazione abbia una lunghezza $|\lambda| > kL$. In particolare vogliamo che questa probabilit\`a sia stimata da $e^{-C L}$ per qualunque $k$, purch\'e $\beta$ sia abbastanza grnade. Avremo quindi bisogno della stima di questa probabilit\`a che abbiamo derivato in precedenza. Scriviamo
+\beq
+p(M > \alpha |\Omega| ) = \sum_{|\lambda| \leq kL} p(M > \alpha |\Omega| \ | \ \lambda \ ) p(\lambda) + \sum_{|\lambda| > kL} p(M > \alpha |\Omega| \ | \ \lambda \ ) p(\lambda)
+\eeq
+per qualche $k > 1$. \\
+Il secondo termine \`e stimato immediatamente maggiorando $ p(M > \alpha |\Omega| \ | \ \lambda \ )$ con 1 e utilizzando la stima (\ref{lunghezza2}). Osserviamo che questo contributo \`e quello dominante dal momento che contiene le  configurazioni in cui la linea di separazione \`e tale che la fluttuazione si realizza mantenendo le relazioni (\ref{M-theta}) e variando il volume delle regioni $\theta_\pm$. \\
+Per controllare il primo termine possiamo invece utilizzare il solito lemma (\ref{lemma}) dal momento che in questo caso sar\`a necessario avere una fluttuazione di magnetizzazione in una delle due regioni per avere $M > \alpha |\Omega|$. Osserviamo in primo luogo che se la linea di separazione ha lunghezza minore di $kL$ l'area delle regioni $|\theta_\pm|$ \`e compresa tra $kL^2 /2$ e $(2-k) L^2 /2$. Inoltre la loro frontiera verifica
+\beq
+|\partial \theta| < kL =k |\Omega|^{1/2}
+\eeq
+Quindi le regioni $|\theta_\pm|$ verificano entrambe le ipotesi del lemma (\ref{lemma}). Separiamo ancora questo caso in due analogamente a quanto fatto in (\ref{divisione}):
+\beq
+\begin{split}
+p_\lambda(M > \alpha |\Omega| ) &= p_\lambda(M > \alpha |\Omega| \ \ \text{e} \ \  |M_- + m^* |\theta_-|| > \gamma |\theta_-|) \\
+&+  p_\lambda(M > \alpha |\Omega| \ \ \text{e} \ \ |M_- + m^* |\theta_-|| \leq \gamma |\theta_-|)
+\end{split}
+\eeq
+Il primo termine come al solito viene maggiorato usando il lemma (\ref{lemma}). L'evento relativo al secondo termine implica che
+\beq
+M_+ = M - M_- > \alpha |\Omega| - (\gamma - m^*) |\theta_-| = (\alpha + m^* - \gamma) |\Omega| + (\gamma - m^*) |\theta_+|
+\eeq
+Scegliamo $\gamma<\alpha + m^*$ in modo che il coefficiente del primo termine sia positivo e usiamo la condizione $|\Omega|>2 |\theta_+| / k $, e otteniamo
+\beq
+M_+ - m^* |\theta_+| > \left[ \frac{2}{k} (\alpha + m^* - \gamma) + \gamma - 2m^* \right] |\theta_+| \geq t |\theta_+|
+\eeq
+scegliendo $k>1$ e $\gamma$ abbastanza piccoli, per cui anche il secondo termine pu\`o essere stimato con il lemma (\ref{lemma}). \\
+Il contributo totale delle configurazioni con $|\lambda|<kL$ \`e stimato da
+\beq
+p(M > \alpha |\Omega| | |\lambda|<kL ) < C_9 e^{-C_{10} |\Omega|}
+\eeq
+per cui si vede che \`e assolutamente trascurabile rispetto al contributo del primo termine. Questo completa la dimostrazione.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{GMM} G.Gallavotti, A.Martin-Lof, S.Miracle-Sol\'e, Lecture Notes in Physics, vol. 20, ed. A.Lenard, Springer-Verlag, 1973, Heidelberg
+
+\end{thebibliography}
+
+\end{document}

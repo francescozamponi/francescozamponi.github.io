@@ -1,0 +1,94 @@
+\documentclass[aps,pre]{revtex4}
+\usepackage[italian]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsfonts}
+\newcommand{\blankline}{\vskip .3cm}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+% This fixes the margins and page sizes
+%\setlength{\hoffset}{0pt} \setlength{\voffset}{0pt} \setlength{\topmargin}{-20pt}
+%\setlength{\headsep}{30pt} \addtolength{\headsep}{-\headheight}
+%\setlength{\textheight}{9in} \addtolength{\textheight}{-40pt}
+%\setlength{\footskip}{30pt} \setlength{\oddsidemargin}{0pt}
+%\setlength{\textwidth}{6.5in}
+\begin{document}
+
+\title{Grandi fluttuazioni nel caso di variabili indipendenti} 
+
+\author{Francesco Zamponi} 
+
+\affiliation{Dipartimento di Fisica dell'Università di Roma ``La Sapienza''} 
+
+
+\maketitle
+
+\section{Teorema del limite centrale}
+
+\noindent
+Consideriamo $N$ variabili $y_i$ indipendenti con distribuzione $p(y_i)$.
+Vogliamo calcolare la distribuzione della variabile $l=N^{-1} \sum_i y_i$ nel
+limite $N \rightarrow \infty$.
+Scriviamo, definendo $dp(y_i)=p(y_i)dy_i$,
+\beq
+p(l)=\int \prod_i dp(y_i) \ \delta \left( \sum_i y_i - N l \right) = \int \prod_i dp(y_i) \int d\lambda e^{\lambda \sum_i y_i - N \lambda l}
+\eeq
+usando la rappresentazione integrale della funzione $\delta$ e ruotando il cammino di integrazione sull'asse immaginario del piano $\lambda$ complesso.
+Definiamo
+\beq
+Z(\lambda) = \int dp(y) e^{\lambda y} = e^{f(\lambda)}
+\eeq
+E' chiaro che $f(0)=0$, $f'(0)=\langle y \rangle=m$, $f''(0)=\langle (y-\langle y \rangle)^2 \rangle = \sigma^2$.
+Otteniamo, per $N \rightarrow \infty$,
+\beq
+\label{sella}
+p(l) = \int d\lambda e^{-N (\lambda l - f(\lambda))} \sim e^{-N (\bar{\lambda} l - f(\bar{\lambda}))} 
+\eeq
+dove $\bar{\lambda}$ \`e definito da $l= f'(\bar{\lambda})$. Assumendo che $\bar{\lambda}$ sia piccolo otteniamo
+\beq
+l \sim f'(0) + f''(0) \bar{\lambda} = m + \sigma^2 \bar{\lambda} \hspace{1cm} \Rightarrow  \hspace{1cm} \bar{\lambda} = \frac{l-m}{\sigma^2}
+\eeq
+e quindi sviluppando nella (\ref{sella}) $f(\lambda) \sim m \lambda + \frac{1}{2} \sigma^2 \lambda$ si ottiene
+\beq
+p(l) \sim e^{ - N \frac{(l-m)^2}{2\sigma^2}}
+\eeq
+Quindi la variabile $l$ ha distribuzione Gaussiana con valor medio $m$ e deviazione standard $\sigma/\sqrt{N}$. Questo risultato \`e valido con la condizione
+\beq
+\bar{\lambda} \ll \frac{\sigma}{\sqrt{N}}
+\eeq
+che assicura che $\bar{\lambda}$ sia molto piccolo nel limite di $N \rightarrow \infty$. 
+
+\section{Grandi deviazioni}
+
+\noindent
+Una grande deviazione si ha se ad esempio $|l - m| > a$ dove $a$ \`e una costante fissata. Infatti abbiamo visto che le fluttuazioni tipiche di $l$ rispetto al suo valor medio sono dell'ordine di $1/\sqrt{N}$ e quindi tendono a $0$ nel limite $N \rightarrow \infty$. Stimiamo quindi la probabilit\`a di una grande fluttuazione con $l - m > a$:
+\beq
+p(l-m > a) = \int_{l-m>a} \prod_i dp(y_i) \leq  \int_{l-m>a} \prod_i dp(y_i) e^{N \lambda (l-m-a)} \leq \int \prod_i dp(y_i) e^{N \lambda (l-m-a)}
+\eeq
+dove la prima maggiorazione \`e valida per ogni $\lambda$ dal momento che l'integrale \`e sulla regione $l-m>a$ e la seconda maggiorazione \`e dovuta al fatto che l'integrando \`e sempre positivo.
+Sostituiamo $l = N^{-1} \sum_i y_i$ e otteniamo
+\beq
+p(l-m>a) \leq e^{N (f(\lambda) - \lambda f'(0) - \lambda a)}
+\eeq
+Ora usiamo lo sviluppo di Taylor $f(\lambda) = f'(0) \lambda + \frac{1}{2} f''(\tilde{\lambda}) \lambda^2$ con $\tilde{\lambda} \in [0,\lambda]$ e otteniamo
+\beq
+p(l-m>a) \leq e^{N (\frac{1}{2} f''(\tilde{\lambda}) \lambda^2 - \lambda a)}
+\eeq
+Se ora assumiamo che $f''(\tilde{\lambda}) < C$ per $\lambda \in [0,\lambda_{max}]$, possiamo maggiorare ancora con
+\beq
+p(l-m>a) \leq e^{N (\frac{1}{2} C \lambda^2 - \lambda a)}
+\eeq
+e dal momento che la stima \`e valida per ogni $\lambda<\lambda_{max}$ possiamo prendere il minimo su $\lambda$ ottenendo
+\beq
+p(l-m>a) \leq e^{-N \frac{a^2}{2C}}
+\eeq
+purch\`e $a/C \in [0,\lambda_{max}]$. La verifica di queste ipotesi dipende essenzialmente dal fatto che la distribuzione $p(y)e^{\lambda y}$ abbia varianza finita per ogni $\lambda$, anche se crescente con $\lambda$. La stima \`e analoga nel caso $l-m < -a$.
+
+
+
+%\begin{thebibliography}{99}
+
+%\bibitem{GMM} G.Gallavotti, A.Martin-Lof, S.Miracle-Sol\'e, Lecture Notes in Physics, vol. 20, ed. A.Lenard, Springer-Verlag, 1973, Heidelberg
+
+%\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,794 @@
+\documentclass[aps,pre,amsmath,amsfonts,floatfix]{revtex4}
+\usepackage[italian]{babel}
+\usepackage[latin1]{inputenc}
+\newcommand{\blankline}{\vskip .3cm}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\ul}{\underline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%  DEFINIZIONI DI FONT    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\font\tenmib=cmmib10
+\font\sevenmib=cmmib10 scaled 800
+\font\titolo=cmbx12
+\font\titolone=cmbx10 scaled\magstep 2
+\font \titolino=cmbx10
+\font\cs=cmcsc10
+\font\sc=cmcsc10
+\font\css=cmcsc8
+\font\ss=cmss10
+\font\sss=cmss8
+\font\crs=cmbx8
+\font\ninerm=cmr9
+\font\ottorm=cmr8
+\textfont5=\tenmib
+\scriptfont5=\sevenmib
+\font\euftw=eufm9 scaled\magstep1
+\font\euftww=eufm7 scaled\magstep1
+\font\euftwww=eufm5 scaled\magstep1
+\font\msytw=msbm9 scaled\magstep1
+\font\msytww=msbm7 scaled\magstep1
+\font\msytwww=msbm5 scaled\magstep1
+\font\msytwwww=msbm4 scaled\magstep1
+\font\indbf=cmbx10 scaled\magstep2
+\font\type=cmtt10
+\def\st{\scriptstyle}
+
+\font\ottorm=cmr8\font\ottoi=cmmi8\font\ottosy=cmsy8%
+\font\ottobf=cmbx8\font\ottott=cmtt8%
+\font\ottocss=cmcsc8%
+\font\ottosl=cmsl8\font\ottoit=cmti8%
+\font\sixrm=cmr6\font\sixbf=cmbx6\font\sixi=cmmi6\font\sixsy=cmsy6%
+\font\fiverm=cmr5\font\fivesy=cmsy5
+\font\fivei=cmmi5
+\font\fivebf=cmbx5%
+
+\def\ottopunti{\def\rm{\fam0\ottorm}%
+\textfont0=\ottorm\scriptfont0=\sixrm\scriptscriptfont0=\fiverm%
+\textfont1=\ottoi\scriptfont1=\sixi\scriptscriptfont1=\fivei%
+\textfont2=\ottosy\scriptfont2=\sixsy\scriptscriptfont2=\fivesy%
+\textfont3=\tenex\scriptfont3=\tenex\scriptscriptfont3=\tenex%
+\textfont4=\ottocss\scriptfont4=\sc\scriptscriptfont4=\sc%
+%\scriptfont4=\ottocss\scriptscriptfont4=\ottocss%
+\textfont5=\tenmib\scriptfont5=\sevenmib\scriptscriptfont5=\fivei
+\textfont\itfam=\ottoit\def\it{\fam\itfam\ottoit}%
+\textfont\slfam=\ottosl\def\sl{\fam\slfam\ottosl}%
+\textfont\ttfam=\ottott\def\tt{\fam\ttfam\ottott}%
+\textfont\bffam=\ottobf\scriptfont\bffam=\sixbf%
+\scriptscriptfont\bffam=\fivebf\def\bf{\fam\bffam\ottobf}%
+%\tt\ttglue=.5em plus.25em minus.15em%
+\setbox\strutbox=\hbox{\vrule height7pt depth2pt width0pt}%
+\normalbaselineskip=9pt\let\sc=\sixrm\normalbaselines\rm}
+\let\nota=\ottopunti%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%         SIMBOLI VARI           %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\a=\alpha \let\b=\beta  \let\g=\gamma  \let\d=\delta \let\e=\varepsilon
+\let\z=\zeta  \let\h=\eta   \let\th=\theta \let\k=\kappa \let\l=\lambda
+\let\m=\mu    \let\n=\nu    \let\x=\xi     \let\p=\pi    \let\r=\rho
+\let\s=\sigma \let\t=\tau   \let\f=\varphi \let\ph=\varphi\let\c=\chi
+\let\ps=\psi  \let\y=\upsilon \let\o=\omega\let\si=\varsigma
+\let\G=\Gamma \let\D=\Delta  \let\Th=\Theta\let\L=\Lambda \let\X=\Xi
+\let\P=\Pi    \let\Si=\Sigma \let\F=\Phi    \let\Ps=\Psi
+\let\O=\Omega \let\Y=\Upsilon
+
+\def\\{\hfill\break} \let\==\equiv
+\let\txt=\textstyle\let\dis=\displaystyle
+
+\let\io=\infty \def\Dpr{\V\dpr\,}
+\def\aps{{\it a posteriori\ }}\def\ap{{\it a priori\ }}
+\let\0=\noindent\def\pagina{{\vfill\eject}}
+\def\bra#1{{\langle#1|}}\def\ket#1{{|#1\rangle}}
+\def\media#1{{\langle#1\rangle}}
+%\def\ie{\hbox{\it i.e.\ }}\def\eg{\hbox{\it e.g.\ }}
+\def\ie{{i.e. }}\def\eg{{e.g. }}
+\let\dpr=\partial \def\der{{\rm d}} \let\circa=\cong
+\def\arccot{{\rm arccot}}
+
+\def\tende#1{\,\vtop{\ialign{##\crcr\rightarrowfill\crcr
+ \noalign{\kern-1pt\nointerlineskip} \hskip3.pt${\scriptstyle
+ #1}$\hskip3.pt\crcr}}\,}
+\def\circage{\lower2pt\hbox{$\,\buildrel > \over {\scriptstyle \sim}\,$}}
+\def\otto{\,{\kern-1.truept\leftarrow\kern-5.truept\to\kern-1.truept}\,}
+\def\fra#1#2{{#1\over#2}}
+
+\def\PPP{{\cal P}}\def\EE{{\cal E}}\def\MM{{\cal M}} \def\VV{{\cal V}}
+\def\CC{{\cal C}}\def\FF{{\cal F}} \def\HHH{{\cal H}}\def\WW{{\cal W}}
+\def\TT{{\cal T}}\def\NN{{\cal N}} \def\BBB{{\cal B}}\def\II{{\cal I}}
+\def\RR{{\cal R}}\def\LL{{\cal L}} \def\JJ{{\cal J}} \def\OO{{\cal O}}
+\def\DD{{\cal D}}\def\AAA{{\cal A}}\def\GG{{\cal G}} \def\SS{{\cal S}}
+\def\KK{{\cal K}}\def\UU{{\cal U}} \def\QQ{{\cal Q}} \def\XXX{{\cal X}}
+
+\def\T#1{{#1_{\kern-3pt\lower7pt\hbox{$\widetilde{}$}}\kern3pt}}
+\def\VVV#1{{\underline #1}_{\kern-3pt
+\lower7pt\hbox{$\widetilde{}$}}\kern3pt\,}
+\def\W#1{#1_{\kern-3pt\lower7.5pt\hbox{$\widetilde{}$}}\kern2pt\,}
+\def\Re{{\rm Re}\,}\def\Im{{\rm Im}\,}
+\def\lis{\overline}\def\tto{\Rightarrow}
+\def\etc{{\it etc}} \def\acapo{\hfill\break}
+\def\mod{{\rm mod}\,} \def\per{{\rm per}\,} \def\sign{{\rm sign}\,}
+\def\indica{\leaders \hbox to 0.5cm{\hss.\hss}\hfill}
+\def\guida{\leaders\hbox to 1em{\hss.\hss}\hfill}
+
+\def\hh{{\bf h}} \def\HH{{\bf H}} \def\AA{{\bf A}} \def\qq{{\bf q}}
+\def\BB{{\bf B}} \def\XX{{\bf X}} \def\PP{{\bf P}} \def\pp{{\bf p}}
+\def\vv{{\bf v}} \def\xx{{\bf x}} \def\yy{{\bf y}} \def\zz{{\bf z}}
+\def\aaa{{\bf a}}\def\bbb{{\bf b}}\def\hhh{{\bf h}}\def\III{{\bf I}}
+
+\def\ul{\underline}
+\def\olu{{\overline{u}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%    LETTERE GRECHE E LATINE IN NERETTO     %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% lettere greche e latine in neretto italico - pag.430 del manuale
+\mathchardef\aa   = "050B
+\mathchardef\bb   = "050C
+\mathchardef\ggg  = "050D
+\mathchardef\xxx  = "0518
+%\mathchardef\hhh = "0511
+\mathchardef\zzzzz= "0510
+\mathchardef\oo   = "0521
+\mathchardef\lll  = "0515
+\mathchardef\mm   = "0516
+\mathchardef\Dp   = "0540
+\mathchardef\H    = "0548
+\mathchardef\FFF  = "0546
+\mathchardef\ppp  = "0570
+\mathchardef\nn   = "0517
+\mathchardef\ff   = "0527
+\mathchardef\pps  = "0520
+%\mathchardef\XXX = "0504
+\mathchardef\FFF  = "0508
+\mathchardef\nnnnn= "056E
+
+\def\ol#1{{\overline #1}}
+
+\def\to{\rightarrow}
+\def\la{\left\langle}
+\def\ra{\right\rangle}
+
+\def\Overline#1{{\bar#1}}
+\let\ciao=\bye
+\def\qed{\raise1pt\hbox{\vrule height5pt width5pt depth0pt}}
+\def\hf#1{{\hat \f_{#1}}}
+\def\barf#1{{\tilde \f_{#1}}} \def\tg#1{{\tilde g_{#1}}}
+\def\bq{{\bar q}}
+%\def\Val{{\bf Val}}
+\def\Val{{\rm Val}}
+\def\indic{\hbox{\raise-2pt \hbox{\indbf 1}}}
+
+\def\RRR{\hbox{\msytw R}} \def\rrrr{\hbox{\msytww R}}
+\def\rrr{\hbox{\msytwww R}} \def\CCC{\hbox{\msytw C}}
+\def\cccc{\hbox{\msytww C}} \def\ccc{\hbox{\msytwww C}}
+\def\NNN{\hbox{\msytw N}} \def\nnnn{\hbox{\msytww N}}
+\def\nnn{\hbox{\msytwww N}} \def\ZZZ{\hbox{\msytw Z}}
+\def\zzzz{\hbox{\msytww Z}} \def\zzz{\hbox{\msytwww Z}}
+\def\TTT{\hbox{\msytw T}} \def\tttt{\hbox{\msytww T}}
+\def\ttt{\hbox{\msytwww T}}
+\def\QQQ{\hbox{\msytw Q}} \def\qqqq{\hbox{\msytww Q}}
+\def\qqq{\hbox{\msytwww Q}}
+
+\def\vvv{\hbox{\euftw v}}    \def\vvvv{\hbox{\euftww v}}
+\def\vvvvv{\hbox{\euftwww v}}\def\www{\hbox{\euftw w}}
+\def\wwww{\hbox{\euftww w}}  \def\wwwww{\hbox{\euftwww w}}
+\def\vvr{\hbox{\euftw r}}    \def\vvvr{\hbox{\euftww r}}
+
+\def\ul#1{{\underline#1}}
+\def\Sqrt#1{{\sqrt{#1}}}
+%\def\Sqrt#1{{{#1}^{\fra{1}{2}}}}
+\def\V0{{\bf 0}}
+\def\defi{\,{\buildrel def\over=}\,}
+\def\lhs{{\it l.h.s.}\ }
+\def\rhs{{\it r.h.s.}\ }
+\def\defin{{\buildrel def\over=}}
+\def\V#1{{\underline#1}}
+\def\Prob{{\rm Prob}}
+
+
+\begin{document}
+
+\title{Meccanica statistica del gas rarefatto}
+
+\author{Francesco Zamponi}
+
+\affiliation{INFM e Dipartimento di Fisica, Universit\`a di Roma ``La Sapienza'', 
+P.le A. Moro 2, 00185 Roma, Italy} 
+
+\date{\today}
+
+\begin{abstract} 
+Si discute in breve la teoria del gas rarefatto attraverso la serie del viriale. 
+Si mostra che, per densità 
+sufficientemente bassa, le funzioni di distribuzione sono funzioni analitiche 
+dei parametri termodinamici e le funzioni di correlazione connesse decadono 
+esponenzialmente. Ne segue che a densità basse esiste un solo stato di Gibbs; 
+in questa situazione l'equazione di stato è ben approssimata dall'equazione 
+di Van der Waals.
+\end{abstract} 
+
+\maketitle
+
+\section{Introduzione}
+
+La {\it serie del viriale} \`e una espansione in serie di potenze della densit\`a $\r$
+nell'intorno di $\r=0$ dove ogni sistema di particelle classico si comporta come un
+gas perfetto. Si ottiene quindi una equazione di stato della forma
+\beq
+\frac{\b P}{\r} = 1 + \sum_{n=2}^\io B_n(T) \r^{n-1} = 1 + B_2(T) \r + B_3(T) \r^2 + \cdots
+\eeq
+e i coefficienti $B_n(T)$ sono detti {\it coefficienti del viriale}. Una espansione analoga
+si ottiene per tutte le funzioni di correlazione del sistema, come discuteremo nel seguito.
+
+La serie del viriale \`e uno degli esempi pi\`u noti di applicazione di tecniche diagrammatiche
+alla meccanica statistica; essa converge per densit\`a sufficientemente basse e temperature
+sufficientemente alte permettendo di definire una regione del diagramma di fase
+(detta del {\it gas rarefatto}) in cui la pressione \`e una funzione analitica di $\r$ e $T$,
+e le funzioni di correlazione decadono esponenzialmente, per cui non ci sono transizioni di
+fase e tutte le propriet\`a del sistema possono essere calcolate con la precisione desiderata
+troncando la serie del viriale a un certo coefficiente.
+
+Nella regione del diagramma di fase dove il sistema diventa liquido la serie del viriale
+sicuramente non converge, per cui un suo troncamento non pu\`o descrivere correttamente
+l'equazione di stato e le funzioni di correlazione. Nonostante questo, \`e possibile
+risommare certe classi di diagrammi della serie del viriale ottenendo equazioni integrali 
+per le funzioni di correlazione (note come equazioni HNC, PY, ecc.) che descrivono in maniera
+accurata le propriet\`a del liquido ad alta densit\`a.
+
+Nel seguito:
+\begin{enumerate}
+\item si introducono le funzioni di correlazione a $n$ punti;
+\item si calcola esplicitamente il primo coefficiente del viriale $B_2(T)$;
+\item si mostra come sia possibile ottenere una stima del raggio di convergenza della
+serie del viriale;
+\item si mostra che la convergenza della serie del viriale implica l'esistenza di un unico
+stato di Gibbs e il decadimento esponenziale delle funzioni di correlazione.
+\end{enumerate}
+Queste note sono tratte da J.~P.~Hansen, I.~R.~McDonald, {\it Theory of simple liquids}
+e da G.~Gallavotti, {\it Statistical Mechanics: A short treatise}.
+
+\section{Funzioni di distribuzione a n particelle}
+
+\subsubsection{Definizione}
+
+Le funzioni di distribuzione a $n$ particelle possono essere definite per induzione. 
+Si considera un sistema di $N$ particelle identiche contenute in un volume V, 
+di hamiltoniana 
+\beq
+H_N(\ul{p},\ul{q})=K_N(\ul{p})+\Phi_N(\ul{q})=\sum_i \frac{p^2}{2m} + \Phi_N(\ul{q})
+\eeq
+e si definisce in primo luogo la loro espressione microscopica, 
+funzione della configurazione $\ul{q}$:
+\begin{itemize}
+\item La funzione di distribuzione a una 
+particella $\rho(r;\ul{q})$, per  $r \in V$, è data da
+\beq
+\rho(r;\ul{q})=\sum_{i}\delta (r-q_i)
+\eeq
+e corrisponde quindi al numero di particelle che sono contenute in un volume 
+infinitesimo $d^3r$ intorno al punto $r$ diviso il volume $d^3r$. \\
+\item La funzione di distribuzione a due particelle $\rho(r_1,r_2;\ul{q})$ 
+è data dalla funzione di distribuzione ad una particella in $r_2$ condizionata 
+al fatto che una particella si trova in un volume $d^3r$ intorno ad $r_1$, dividendo  
+poi per $d^3r_1$:
+\beq
+\rho(r_1,r_2;\ul{q})=\sum_i \delta(r_1-q_i) \sum_{j (\neq i)} \delta(r_2-q_j)= 
+\sum_{i \neq j} \delta(r_1-q_i) \ \delta(r_2-q_j)
+\eeq
+\item La funzione di distribuzione a $n$ particelle è data dalla funzione di 
+distribuzione a una particella nel punto $r_n$ condizionata dal fatto che una 
+particella si trova in $r_1$, una in $r_2$, e così via, per cui
+\beq
+\rho(r_1,\cdots,r_n;\ul{q})=\sum_{i_1\neq i_2 \neq \cdots \neq i_n} \delta(r_1-q_{i_1}) 
+\cdots \delta(r_n-q_{i_n})
+\eeq
+\end{itemize}
+A questo punto, scelta una misura $d\mu$ sullo spazio delle fasi corrispondente 
+a un opportuno insieme statistico, si definisce
+\beq
+\label{mediarho}
+\rho(r_1,\cdots,r_n)=\int d\mu \ \rho(r_1,\cdots,r_n;\ul{q})
+\eeq
+Da questa definizione si vede facilmente che
+\beq
+\int d^3r_1 \cdots d^3r_n \ \rho(r_1,\cdots,r_n) = N(N-1)\cdots(N-n+1) = \frac{N!}{(N-n)!}
+\eeq
+Si possono definire anche le funzioni
+\beq
+g(r_1,\cdots,r_n)=\frac{\rho(r_1,\cdots,r_n)}{\prod_{i=1}^n \rho(r_i)}
+\eeq
+
+\subsubsection{Stati di equilibrio}
+
+Assumiamo che l'energia potenziale abbia la forma
+\beq
+\Phi_N(\ul q)=\frac12 \sum_{i \neq j} \varphi(|q_i-q_j|) + \sum_i \BBB(q_i)
+\eeq
+dove $\varphi(r)$ rappresenta un potenziale di interazione di coppia e
+$\BBB(r)$ rappresenta l'interazione con le pareti del recipiente
+(o, eventualemente, un campo esterno);
+interazioni che coinvolgono un numero arbitrario di particelle (tre,~quattro,~...)
+verranno trascurate nel seguito.\\
+Data una qualunque osservabile del sistema della forma
+\beq
+F(\ul{q})=\sum_i f_1(q_i) + \sum_{i\neq j} f_2(q_i,q_j) + 
+\sum_{i \neq j \neq k} f_3(q_i,q_j,q_k) + \cdots = 
+\sum_{n=0}^{N} \sum_{i_1\neq i_2 \neq \cdots \neq i_n} f_n(q_{i_1},\cdots,q_{i_n})
+\eeq
+come, ad esempio, l'energia potenziale, si potrà scrivere
+\beq
+F(\ul{q})=\sum_{n=0}^N \int d^3r_1\cdots d^3r_n \ f_n(r_1,\cdots,r_n) \ 
+\rho(r_1,\cdots,r_n;\ul{q})
+\eeq
+per cui
+\beq
+\label{mediaoss}
+\langle F(\ul{q}) \rangle=\int d\mu \ F(\ul{q})=\sum_{n=0}^N \int d^3r_1\cdots 
+d^3r_n \ f_n(r_1,\cdots,r_n) \ \rho(r_1,\cdots,r_n)
+\eeq
+Dunque, note le  funzioni di distribuzione del sistema, sono noti i valori medi di 
+tutte le osservabili del sistema. In questo senso nel limite termodinamico è possibile 
+definire uno {\it stato di equilibrio} come l'insieme delle funzioni di distribuzione 
+che si ottengono facendo il limite con determinate condizioni al bordo ${\cal B}$:
+\beq
+\rho_{(v,\beta,\BBB)}(r_1,\cdots,r_n)=\lim_{N \rightarrow \infty, \frac{V}{N}=v} 
+\rho_{(N,V,\beta,\BBB)}(r_1,\cdots,r_n)
+\eeq
+Dimostreremo che nel gas rarefatto le condizioni al bordo  scompaiono nel limite  
+termodinamico per cui lo stato di equilibrio è unico e non ci sono transizioni di fase.
+
+\subsubsection{Insieme grancanonico}
+
+Conviene discutere la teoria del gas rarefatto nell'insieme grancanonico, 
+la cui funzione di partizione è data da
+\beq
+Z(\beta,\mu,V)=\sum_{N=0}^{\infty} e^{N\beta\mu} \int \frac{d^{3N}p \ d^{3N}q}{h^{3N}N!} 
+e^{-\beta H_N(\ul{p},\ul{q})}=
+\sum_{N=0}^{\infty} z^N \int \frac{d^{3N}q}{N!} e^{-\beta \Phi_N(\ul{q})}
+= \sum_{N=0}^{\infty} z^N Z_N(\beta,V)
+\eeq
+dove $\lambda=\frac{h}{\sqrt{2m\pi T}}$ è detta {\it lunghezza d'onda termica} e 
+$z=\frac{e^{\beta\mu}}{\lambda^3}$ è detta {\it attività}.
+Quindi le funzioni di distribuzione sono date da
+\beq
+\label{funzdistr}
+\begin{split}
+\rho(r_1,\cdots,r_n)&=\frac{1}{Z(\beta,\mu,V)}\sum_{N=0}^{\infty}e^{N\beta \mu} 
+\int \frac{d^{3N}p \ d^{3N}q}{h^{3N}N!} e^{-\beta H_N(\ul{p},\ul{q})} 
+\sum_{i_1 \neq i_2 \neq \cdots \neq i_n} \delta(r_1-q_{i_1}) \cdots \delta(r_n-q_{i_n})\\ 
+&=\frac{1}{Z(\beta,\mu,V)}\sum_{N=n}^{\infty} \frac{N!}{(N-n)!} 
+\frac{e^{N\beta \mu}}{\lambda^{3N}} \int \frac{d^{3(N-n)}q}{N!} 
+e^{-\beta \Phi_N(r_1,\cdots,r_n,q_{n+1},\cdots,q_N)} \\  
+&=\frac{z^n}{Z(\beta,\mu,V)}\sum_{N=0}^{\infty} z^N 
+\int \frac{d^{3N}q}{N!} e^{-\beta \Phi_{N+n}(r_1,\cdots,r_n,q_1,\cdots,q_N)}
+\end{split}
+\eeq
+con la normalizzazione
+\beq
+\int d^3r_1 \cdots d^3r_n \ \rho(r_1,\cdots,r_n) = 
+\left\langle \frac{N!}{(N-n)!} \right\rangle = 
+\frac{\sum_{N=n}^\infty z^N Z_N \frac{N!}{(N-n)!}}{\sum_{N=0}^\infty z^N Z_N}
+\eeq
+Per il gas perfetto si ottiene facilmente
+\beq
+\rho(r_1,\cdots,r_n) \equiv \rho^n=z^n
+\eeq
+Ci aspettiamo quindi che nel limite di bassa densità quest'ultima coincida con l'attività.
+Dalla (\ref{funzdistr}) si vede anche che il primo termine dello sviluppo in serie di
+$\r$ delle funzioni di correlazione \`e dato da
+\beq
+\r(r_1,\cdots,r_n) = \r^n e^{-\b \Phi_n(r_1,\cdots,r_n)}
+\eeq
+dal momento che al primo ordine in $\r$ si ha $Z(\b,\m,V)=1$ e $z=\r$. Si ha quindi
+\beq
+g(r_1,\cdots,r_n) = e^{-\b \Phi_n(r_1,\cdots,r_n)} [ 1 + o(\r) ]
+\eeq
+
+\section{L'equazione del viriale e il coefficiente $B_2(T)$}
+
+Per ottenere una espressione esplicita per il primo coefficiente del viriale,
+osserviamo innanzitutto che, definendo la funzione 
+$C(\ul q) = \sum_i q_i F_i(q)$ ({\it funzione del viriale}), 
+si ha, utilizzando le equazioni del moto $m \ddot q_i(t) = F_i(t)$,
+\beq
+\langle C \rangle =
+\lim_{\t \rightarrow \io} \frac{1}{\t} \int_0^\t dt \, C(\ul q(t))
+= \lim_{\t \rightarrow \io} \frac{1}{\t} \int_0^\t dt \sum_i q_i(t) m \ddot q_i(t) =
+- \lim_{\t \rightarrow \io} \frac{1}{\t} \int_0^\t dt \sum_i m |\dot q_i(t)|^2 =
+- 3 N k_B T
+\eeq
+Separiamo poi il contributo delle forze interne dal termine di bordo; il contributo
+di quest'ultimo \`e direttamente legato alla pressione: infatti, se assumiamo che le
+particelle siano confinate in un cubo di lato $L$ centrato nell'origine e che
+la funzione $\BBB(r)$ sia non nulla solo molto vicino alle pareti, nel limite
+termodinamico possiamo approssimare
+\beq
+\langle \sum_i q_i F^\BBB_i(q) \rangle = 
+3 \langle \sum_i x_i F^\BBB_{xi}(q) \rangle \sim
+6 \frac{L}{2} \langle \sum_i F^\BBB_{xi}(q) \rangle
+= - 3 L ( P L^2 ) = -3 P V 
+\eeq
+dove abbiamo utilizzato il fatto che i contributi per $x,y,z=\pm L/2$ sono uguali per 
+simmetria e che $P L^2 = - \langle \sum_i F^\BBB_{xi}(q) \rangle$, cio\`e che la
+pressione \`e l'area della faccia per la forza totale agente sulla faccia stessa.
+Abbiamo quindi che
+\beq
+\label{viriale1}
+\langle C^{int}(\ul q) \rangle = - 3 N k_B T + 3 PV
+\eeq
+Questa equazione \`e detta {\it equazione del viriale}. Essa pu\`o essere riscritta
+in forma pi\`u semplice osservando che
+\beq
+C^{int}(\ul q) = \sum_i q_i F^{int}_i(\ul q) =
+- \sum_i q_i \ \partial_i \sum_{j(\neq i)} \varphi(|q_i-q_j|) =
+-\frac{1}{2} \sum_{i\neq j} (q_i-q_j) \nabla \varphi(q_i-q_j)
+\eeq
+Si pu\`o quindi applicare a $C^{int}(\ul q)$ l'equazione (\ref{mediaoss}) per $n=2$
+e si ottiene
+\beq
+\begin{split}
+\langle C^{int}(\ul q) \rangle &= -\frac12 \int dr_1 dr_2 \r(r_1,r_2) \, (r_1-r_2) 
+\nabla \varphi(r_1-r_2) =
+-\frac12 \r^2 V \int dr g(|r|) \, r \nabla \varphi(r) \\
+&=-2 \p N \r \int_0^\io dr g(r) \, r^3 \varphi'(r)
+\end{split}
+\eeq
+Inserendo questo risultato nella (\ref{viriale1}) si ha
+\beq
+\frac{\b P}{\r} = 1 + \frac{\b \langle C^{int}(\ul q) \rangle}{3N} =
+1 - \frac{2 \p \b \r}{3} \int_0^\io dr g(r) \, r^3 \varphi'(r)
+\eeq
+da cui si vede che, se l'energia potenziale \`e la somma di interazioni di coppia,
+l'equazione di stato \`e completamente determinata dalla conoscenza della funzione
+di correlazione di coppia $g(r)$. \\
+A partire dall'equazione del viriale si pu\`o ottenere il primo coefficiente della
+serie del viriale $B_2(T)$ ricordando che il primo termine nello sviluppo di $g(r)$
+\`e dato da $\exp[-\b \varphi(r)]$, per cui si ha
+\beq
+B_2(T) = - \frac{2 \p \b}{3} \int_0^\io dr e^{-\b \varphi(r)} \, r^3 \varphi'(r) =
+- 2\p \int_0^\io dr \, r^2 \, \big[ e^{-\b \varphi(r)}-1 \big] =
+- \frac12 \int d^3 r \, f(r)
+\eeq
+dove $f(r)=e^{-\b \varphi(|r|)}-1$. \\
+{\bf Applicazioni:} i) misura sperimentale dei parametri di interazione Lennard-Jones
+(Hansen, $\S$ 4.1);
+ii) la correzione alla pressione per le sfere dure dipende solo dal valore della
+$g(r)$ al contatto (Hansen, $\S$ 2.5); iii) equazione di stato di Van der Waals
+(Gallavotti, $\S$ 5.1).
+
+\section{Le equazioni di Kirkwood e Salsburg}
+
+Ricaviamo adesso una relazione di ricorrenza che permetterà di ottenere uno sviluppo 
+delle funzioni di distribuzione in potenze di $z$. Dal momento che per $z$ piccolo 
+si ha $\rho \sim z$, questo sviluppo equivale a uno sviluppo in serie di potenze 
+della densità.
+Considereremo un potenziale $\Phi_N(\ul{q})$ che verifichi le ipotesi: \\
+$\diamond$ {\it Portata finita}, ovvero $\varphi(q)=0$ per $q>r_0$. \\
+$\diamond$ {\it Stabilità}, ovvero $\Phi_N(\ul{q})>-BN$. \\
+Per semplicit\`a consideriamo un potenziale di bordo nullo all'interno del volume
+$V$ e infinito all'esterno.
+Definiamo inoltre $\Phi_{q_1}(\ul{q} \backslash q_1)=\sum_{i=2}^N \varphi(|q_1-q_i|)$, 
+l'energia  di interazione tra la particella 1 e tutte le altre, e 
+$\ul{r} \equiv (r_1,\cdots,r_n)$. A partire dall'ultima riga della (\ref{funzdistr}), 
+separando $\Phi(\ul{r},\ul{q})=\Phi_{r_1}(\ul{r} \backslash r_1)+\Phi_{r_1}(\ul{q})+
+\Phi(\ul{r} \backslash r_1,\ul{q})$ si ottiene:
+\beq
+\rho(\ul{r})=ze^{-\beta \Phi_{r_1}(\ul{r} \backslash r_1)} \sum_{N=0}^\infty 
+\frac{z^{n+N-1}}{Z \ N!} \int d^{3N}q \ e^{-\beta \Phi(\ul{r} \backslash r_1,\ul{q})} 
+\ \prod_{j=1}^{N} \ e^{-\beta \varphi(|r_1-q_j|)} 
+\eeq
+Nell'ultimo termine si può scrivere, all'interno dell'integrale:
+\beq
+\prod_j e^{-\beta \varphi_{1j}}=\prod_j (e^{-\beta \varphi_{1j}}-1+1)=1+\sum_{m=1}^N 
+\binom{N}{m} \prod_{j=1}^m (e^{-\beta \varphi_{1j}}-1)
+\eeq
+L'ultima uguaglianza ha senso, ovviamente, solo all'interno dell'integrale perché 
+l'integrando rimanente è simmetrico nelle variabili $\ul{q}$.
+Si ottiene quindi, definendo $\rho(\emptyset) \equiv 1$,
+\beq
+\rho(\ul{r})=ze^{-\beta \Phi_{r_1}(\ul{r} \backslash r_1)} \left[ \ \rho(\ul{r} 
+\backslash r_1) + \sum_{N=1}^\infty  \sum_{m=1}^N \frac{z^{n+N-1}}{Z \ m! \ (N-m)!} 
+\int d^{3N}q \ e^{-\beta \Phi(\ul{r} \backslash r_1,\ul{q})} \ \prod_{j=1}^{m} \ 
+\big[ e^{-\beta \varphi(|r_1-q_j|)}-1 \big] \right]
+\eeq
+Conviene a questo punto denominare $\ul{q}'$ le $N-m$ tra le $\ul{q}$ che rimangono 
+libere dall'ultimo termine nell'integrale; ponendo  poi $N'=N-m$ 
+e definendo $f(r)=e^{-\beta \varphi(|r|)}-1$ si ottiene
+\beq
+\rho(\ul{r})=ze^{-\beta \Phi_{r_1}(\ul{r} \backslash r_1)} \left[ \ 
+\rho(\ul{r} \backslash r_1) + \sum_{N'=0}^\infty  \sum_{m=1}^\infty 
+\frac{z^{n+N'+m-1}}{Z} \int \frac{d^{3m}q}{m!} \ \frac{d^{3N'}q'}{N'!} \ 
+e^{-\beta \Phi(\ul{r} \backslash r_1,\ul{q},\ul{q}')} \ 
+\prod_{j=1}^{m} \ f(r_1-q_j) \right]
+\eeq
+e infine, riarrangiando i termini, e utilizzando la (\ref{funzdistr})
+\beq
+\label{KiSa}
+\begin{split}
+\rho(\ul{r})=
+&ze^{-\beta \Phi_{r_1}(\ul{r} \backslash r_1)} \left[ \ \rho(\ul{r} \backslash r_1) + 
+\sum_{m=1}^\infty \int \frac{d^{3m}q}{m!} 
+\left(  \prod_{j=1}^{m} \ f(r_1-q_j) \right)  
+\sum_{N'=0}^\infty \frac{z^{n-1+m+N'}}{Z}\int \frac{ d^{3N'}q'}{N'!} \ 
+e^{-\beta \Phi(\ul{r} \backslash r_1,\ul{q},\ul{q}')} \right] \\
+=&ze^{-\beta \Phi_{r_1}(\ul{r} \backslash r_1)} \left[ \ \rho(\ul{r} \backslash r_1) 
++ \sum_{m=1}^\infty \int \frac{d^{3m}q}{m!} 
+\left(  \prod_{j=1}^{m} \ f(r_1-q_j) \right) 
+\rho(\ul{r} \backslash r_1,\ul{q}) \right]
+\end{split}
+\eeq
+Queste relazioni sono dette {\it equazioni di Kirkwood-Salsburg}; possono essere messe 
+in una forma più compatta definendo il vettore (adimensionale) 
+$\ul{\rho} \equiv \{r_0^{3n} \rho(r_1,\dots,r_n),n \in \mathbb{N}\}$, 
+e il vettore $\ul{\alpha}$ tale che $\alpha(r_1) \equiv 1$ e 
+$\alpha(r_1,\cdots,r_n) \equiv 0, \ n>1$. Si ottiene
+\beq
+\label{eqKS}
+\ul{\rho}=\zeta \ul{\alpha} + \zeta K \ul{\rho}
+\eeq
+dove $\zeta=zr_0^3$ è anch'essa adimensionale e l'operatore $K$ agisce linearmente su 
+un generico vettore $\ul{v}$:
+\beq
+\begin{split}
+\label{K}
+(K\ul{v})(r_1,\cdots,r_n)&=e^{-\beta \Phi_{r_1}(r_2,\cdots,r_n)} \ 
+\left[ \  v(r_2,\cdots,r_n) \ \delta_{n>1} + \sum_{m=1}^\infty 
+\int \frac{d^{3m}q}{m! \ r_0^{3m}}
+\left(\prod_{i=1}^m (e^{-\beta \varphi(r_1-q_i)}-1)\right) \ 
+v(r_2,\cdots,r_n,\ul{q}) \ \right]
+\end{split}
+\eeq
+In questo modo tutte le quantità in gioco sono state rese adimensionali; sarà possibile 
+quindi risolvere iterativamente l'equazione (\ref{eqKS}) ottenendo
+\beq
+\label{serieKS}
+\ul{\rho}=\sum_{p=0}^\infty (\zeta K)^p \ \zeta \ul{\alpha} = \frac{1}{1-\z K} \z \ul\a
+\eeq
+La serie (\ref{serieKS}) converge se $\Vert \z K \Vert < 1$, ovvero se, 
+definendo opportunamente una norma $\Vert \ul{v} \Vert$ sullo spazio $\ul v$, si ha
+$\Vert K \ul{v} \Vert \leq {\cal C}(\beta) \Vert \ul{v} \Vert$ e $\zeta {\cal C}(\beta)<1$.
+
+
+\subsection{Convergenza della serie per attività piccola}
+
+E' naturale definire la norma di un vettore 
+$\ul{v} \equiv  \{v(r_1,\dots,r_n),n \in \mathbb{N}\}$ come
+\beq
+\Vert \ul{v} \Vert \equiv \sup_n \left[ \sup_{r_1,\cdots,r_n} | \ v(r_1,\cdots,r_n) \ |  \ \right]
+\eeq
+Stimiamo quindi $\Vert K \ul{v} \Vert$. 
+Dal momento che $\Phi_N(\ul{r})$ verifica la proprietà di stabilità non potrà essere 
+$\Phi_{r_i}(\ul{r} \backslash r_i) < -2B$ per tutti gli $r_i$. Infatti, se così fosse, 
+si avrebbe $\Phi_N(\ul{r})=\frac{1}{2} \sum_i \Phi_{r_i}(\ul{r} \backslash r_i) < -BN$, 
+il che contraddice  l'ipotesi di stabilità. Scegliamo quindi $r_1$ in modo 
+che $\Phi_{r_1}(\ul{r} \backslash r_1) \geq -2B$; dalla (\ref{K}) si ottiene quindi
+\beq
+\label{stimaK}
+\begin{split}
+|(Kv)(r_1,\cdots,r_n)| &\leq e^{2\beta B} \Vert \ul{v} \Vert \left[ \ 1 + 
+\sum_{m=1}^\infty \int \frac{d^{3m}q}{m! \ r_0^{3m}}
+\prod_{i=1}^m \left|e^{-\beta \varphi(r_1-q_i)}-1\right| \ \right] \\ 
+&= \Vert \ul{v} \Vert \exp \left[ 2\beta B + 
+\int \frac{d^3q}{r_0^3} \left| e^{-\beta \varphi(q)}-1 \right| \right] = 
+{\cal C}(\beta) \Vert \ul{v} \Vert
+\end{split}
+\eeq
+e quindi
+\beq
+\Vert K \ul{v} \Vert \leq {\cal C}(\beta) \Vert \ul{v} \Vert
+\eeq
+La condizione per la convergenza della serie (\ref{serieKS}), $\zeta {\cal C}(\beta)<1$, 
+è quindi
+\beq
+z<\frac{1}{r_0^3 {\cal C}(\beta)}=\frac{1}{r_0^3} e^{-2\beta B} e^{-{\cal I}(\beta)} \ , 
+\ {\cal I}(\beta)=\int \frac{d^3q}{r_0^3} \left| e^{-\beta \varphi(q)}-1 \right| 
+\eeq
+e definisce una regione nel piano $(z,\beta)$ in cui le funzioni di distribuzione 
+possono essere calcolate mediante lo sviluppo (\ref{serieKS}) in potenze di $z$. 
+
+\subsection{Sviluppo in serie di $\rho$}
+
+E' facile verificare che il primo termine della serie di $\rho(r_1,\cdots,r_n)$ \`e dato
+da
+\beq
+\label{primoterminez}
+\rho(r_1,\cdots,r_n) = z^n e^{-\beta \Phi_n(r_1,\cdots,r_n)} + o(z^{n+1})
+\eeq
+come gi\`a abbiamo discusso.
+Infatti, $\alpha(r_1,\cdots,r_n)=0$ per $n > 1$, e
+\beq
+K \ul\alpha = \{ {\cal I}(\beta), e^{-\beta \Phi_2(r_1,r_2)}, 0, 0,\cdots \}
+\eeq
+ha tutte le componenti per $n>2$ nulle.
+E' facile mostrare che, se $v(r_1,\cdots,r_n)$ \`e nullo per $n>p$, allora
+$(K \ul v)(r_1,\cdots,r_n)$ \`e nullo per $n>p+1$ e si ha
+\beq
+(K \ul v)(r_1,\cdots,r_{p+1}) = e^{-\beta \Phi_{r_1}(r_2,\cdots,r_{p+1})} \ 
+v(r_2,\cdots,r_{p+1})
+\eeq
+Si vede quindi per induzione che $K^p \ul\alpha$ ha tutte le componenti nulle
+per $n > p+1$ e che 
+\beq
+(K^p \ul\alpha)(r_1,\cdots,r_{p+1})=e^{-\beta \Phi_{p+1}(r_1,\cdots,r_{p+1})}
+\eeq
+da cui segue la (\ref{primoterminez}).
+Se il sistema è omogeneo, quindi, la densità 
+$\rho \equiv \rho(r)$ è una funzione analitica di $z$ il cui sviluppo comincia 
+dal termine lineare in $z$:
+\beq
+\rho = z + o(z^2)
+\eeq
+ed \`e possibile ottenere uno sviluppo equivalente delle funzioni di 
+distribuzione in serie di potenze della densità --se quest'ultima è 
+sufficientemente piccola-- della forma
+\beq
+\rho(\ul{r})=\rho^n e^{-\beta \Phi_n(\ul{r})}[1 + 
+\rho F_1(\ul{r}) + \rho^2 F_2(\ul{r}) + \cdots ]
+\eeq
+
+\section{Esistenza del limite termodinamico per le funzioni di distribuzione}
+
+La dimostrazione del paragrafo precedente \`e stata fatta supponendo di aver fissato
+un volume $V$ all'interno del quale le particelle sono confinate.
+Abbiamo quindi mostrato che, dette $\ul\r_V$ le funzioni di correlazione nel volume
+$V$, si ha
+\beq
+\label{serieK}
+\ul\r_V = \sum_{p=0}^\infty (\zeta K_V)^p \ \zeta \ul{\alpha} = \frac{1}{1-\z K_V}\z \ul\a
+\eeq
+L'operatore $K_V$ dipende dal volume $V$ solo perch\'e gli integrali in $q$ nella
+(\ref{K}) sono fatti sul volume $V$. \\
+Per $V$ abbastanza grande, la costante $\CC(\b)$ non dipende dal volume $V$ dato che la
+funzione $f(r)=e^{-\b \varphi(|r|)} -1$ si annulla per $|r|> r_0$; quindi per $V$ abbastanza
+grande la serie converge uniformemente in $V$ ed \`e possibile fare il limite termodinamico
+termine a termine nella (\ref{serieK}). Il fatto che la funzione $f(r)$ si annulli
+per $|r|>r_0$ garantisce l'esistenza di questo limite e la sua indipendenza dalla forma del
+contenitore (purch\'e le sue dimensioni lineari vadano all'infinito con la stessa
+velocit\`a nelle tre direzioni spaziali)
+per $V$ grande, il che dimostra l'esistenza del limite termodinamico per le funzioni
+di distribuzione.
+
+L'indipendenza del limite dalle condizioni al bordo pu\`o essere dimostrata nel modo
+seguente. La presenza di un termine di bordo $\BBB(r)$ nell'energia potenziale pu\`o
+essere eliminata ridefinendo l'attivit\`a $z$ come
+\beq
+z(r) = \l^{-3} e^{\b [\m - \BBB(r)]}
+\eeq
+La derivazione delle equazioni di Kirkwood-Salsburg pu\`o essere ripetuta anche se
+l'attivit\`a \`e una funzione del punto; si ottengono ancora le equazioni (\ref{KiSa})
+con $z(r_1)$ al posto di $z$. Assumendo che l'energia di interazione con le pareti
+sia limitata, $\BBB(r) \geq \BBB_0$, si ottiene una stima analoga alla
+(\ref{stimaK}) con $2B \rightarrow 2B + \BBB_0$. Questo garantisce la convergenza della
+serie del viriale anche in presenza di interazione con le pareti; il limite termodinamico 
+pu\`o ancora essere fatto termine a termine nella serie perturbativa e si vede facilmente
+che, se la portata dell'interazione $\BBB(r)$ \`e finita intorno alle pareti, cio\`e se
+$\BBB(r) = 0$ quando la distanza tra $r$ e il bordo del contenitore \`e maggiore di un
+certo $r_\BBB$, il limite non dipende da $\BBB(r)$ ed \`e lo stesso che si ottiene
+per $\BBB(r)=0$. Possiamo quindi affermare che il limite termodinamico non dipende
+dalle condizioni al bordo.
+
+Si noti che una dipendenza residua dalle condizioni al bordo si ha se $\BBB_0 < 0$,
+cio\`e in presenza di una interazione attrattiva con le pareti del contenitore.
+Infatti in questo caso la presenza del termine di bordo diminuisce il raggio di convergenza
+della serie del viriale. Fissato quindi un $\BBB_0 < 0$, si dovr\`a considerare 
+una ``classe'' di condizioni al
+bordo $\BBB_i(r)$ tali che $\BBB_i(r) > \BBB_0$, $\forall i$: per questa ``classe'' 
+si avr\`a indipendenza dal limite termodinamico per $z < z(\BBB_0)$.
+E' chiaro d'altronde che la presenza di una interazione attrattiva troppo forte con le
+pareti del contenitore pu\`o portare a fenomeni di adesione delle particelle alle
+pareti e quindi a situazioni fisiche radicalmente diverse da quelle che si vorrebbero
+descrivere con questo approccio. \\
+{\bf Applicazioni:} (Hansen, $\S$ 4.6) 
+i) stima quantitativa del raggio di convergenza della serie
+del viriale per le sfere dure; ii) equazione di stato di Carnahan-Starling 
+
+\section{Decadimento esponenziale delle funzioni di correlazione}
+
+Infine è possibile dimostrare che in un gas rarefatto le funzioni di correlazione connesse, definite da
+\beq
+\rho_c(\ul{q},\ul{q}')=\rho(\ul{q},\ul{q}')-\rho(\ul{q})\rho(\ul{q}')
+\eeq
+dove $\ul{q}=(q_1,\cdots,q_n)$ e $\ul{q}'=(q'_1,\cdots,q'_{n'})$, tendono a zero esponenzialmente in $d=d(\ul{q},\ul{q}')=\min_{ij}|q_i-q'_j|$.
+
+\subsection{Un lemma}
+
+Dimostriamo innanzi tutto che, se $d > r_0 p$, 
+\beq
+\label{fattorizza}
+K^p\alpha (\ul{q},\ul{q}') - \sum_{p_1+p_2=p-1} K^{p_1}\alpha(\ul{q}) K^{p_2}\alpha(\ul{q}') = 0
+\eeq
+La dimostrazione può essere fatta per induzione; verifichiamo quindi che la (\ref{fattorizza}) sia vera per $p=1$:
+\beq
+K\alpha(\ul{q},\ul{q}')=\alpha(\ul{q})\alpha(\ul{q}')
+\eeq
+Per $n>1$ o $n'>1$ il secondo membro è nullo, e lo è anche il primo, come si verifica facilmente osservando che nella (\ref{K}) compaiono solo le componenti di $\alpha$ con $n>1$, nulle per definizione.
+Per $n=n'=1$ il secondo membro è 1; il primo membro vale invece $e^{-\beta\varphi(q_1-q'_1)}$, dal momento che nella parte tra parentesi quadre è  non nullo solo il primo termine, uguale ad 1. D'altronde per $d>r_0$ il potenziale è nullo e quindi si ottiene l'uguaglianza.
+Dimostriamo poi che se vale la (\ref{fattorizza}) si ha
+\beq
+K^{(p+1)}\alpha (\ul{q},\ul{q}') = \sum_{p_1+p_2=p} K^{p_1}\alpha(\ul{q}) K^{p_2}\alpha(\ul{q}')
+\eeq
+purché $d>r_0(p+1)$. Ovviamente se vale quest'ultima condizione si avrà anche $d>r_0p$. Sviluppando si ha
+\beq
+\begin{split}
+K^{(p+1)}\alpha(\ul{q},\ul{q}') &= e^{-\beta \Phi_{q_1}(\ul{q}\backslash q_1,\ul{q}')} \ [ \  K^p\alpha(\ul{q}\backslash q_1,\ul{q}') \ \delta_{(n+n')>1} \\
+&+\sum_{m=1}^\infty \int \frac{d^{3m}q''}{m!}\prod_{i=1}^m (e^{-\beta \varphi(q_1-q''_i)}-1) \ K^p\alpha(\ul{q}\backslash q_1,\ul{q}',\ul{q}'') \ ] \\
+&= e^{-\beta \Phi_{q_1}(\ul{q}\backslash q_1)} \ [ \  K^p\alpha(\ul{q}\backslash q_1,\ul{q}') \\
+&+\sum_{m=1}^\infty \int \frac{d^{3m}q''}{m!}\prod_{i=1}^m (e^{-\beta \varphi(q_1-q''_i)}-1) \ K^p\alpha(\ul{q}\backslash q_1,\ul{q}',\ul{q}'') \ ]
+\end{split}
+\eeq
+tenendo conto che $n+n'>1$ sicuramente e che $|q_1-q'_i|>r_0 \ \forall i$ per cui $\Phi_{q_1}(\ul{q}\backslash q_1,\ul{q}')=\Phi_{q_1}(\ul{q}\backslash q_1)$.
+Osserviamo ora che a causa del fattore $(e^{-\beta \varphi(q_1-q''_i)}-1)$ gli integrali in $\ul{q}''$ sono su una sferetta di raggio $r_0$ intorno a $q_1$ e quindi $d(\ul{q}\cup \ul{q}'',\ul{q}')>d(\ul{q},\ul{q}')-r_0>r_0p$.
+Conviene ora trattare separatamente il caso $n>1$ e $n=1$.
+\subsubsection{$n>1$}
+In questo caso si può applicare la (\ref{fattorizza}) a entrambi i termini e si  ottiene
+\beq
+\begin{split}
+K^{(p+1)}\alpha(\ul{q}, \ul{q}') &= e^{-\beta \Phi_{q_1}(\ul{q}\backslash q_1)} \sum_{p_1+p_2=p-1} [ \  K^{p_1}\alpha(\ul{q}\backslash q_1) \ K^{p_2}\alpha(\ul{q}') \\
+&+\sum_{m=1}^\infty \int \frac{d^{3m}q''}{m!}\prod_{i=1}^m (e^{-\beta \varphi(q_1-q''_i)}-1) \ K^{p_1}\alpha(\ul{q}\backslash q_1,\ul{q}'') K^{p_2}\alpha(\ul{q}') \ ] \\
+&= \sum_{p_1+p_2=p-1} K^{p_2}\alpha(\ul{q}') \{ e^{-\beta \Phi_{q_1}(\ul{q}\backslash q_1)} [ \  K^{p_1}\alpha(\ul{q}\backslash q_1) \\
+&+\sum_{m=1}^\infty \int \frac{d^{3m}q''}{m!}\prod_{i=1}^m (e^{-\beta \varphi(q_1-q''_i)}-1) \ K^{p_1}\alpha(\ul{q}\backslash q_1,\ul{q}'') \ ] \ \} \\
+&=\sum_{p_1+p_2=p-1} K^{p_1+1}\alpha(\ul{q})  K^{p_2}\alpha(\ul{q}')
+\end{split}
+\eeq
+All'ultima somma manca il termine $K^0\alpha(\ul{q})K^p\alpha(\ul{q}')$ che però è nullo visto che $K^0\alpha(\ul{q})=\alpha(\ul{q})=0$ essendo $n>1$.
+
+\subsubsection{n=1}
+
+In questo caso si ha $\Phi_{q_1}(\ul{q}')=0$ dal momento che $d>r_0$; nel secondo termine si ha $d(\ul{q}',\ul{q}'')>r_0p$ e quindi
+\beq
+\begin{split}
+K^{(p+1)}\alpha(q_1 , \ul{q}') &=  K^p\alpha(\ul{q}') \\
+&+ \sum_{p_1+p_2=p-1} K^{p_2}(\ul{q}') \sum_{m=1}^\infty \int \frac{d^{3m}q''}{m!}\prod_{i=1}^m (e^{-\beta \varphi(q_1-q''_i)}-1) \ K^{p_1}(\ul{q}'') \\
+&=\alpha(q_1) \ K^p\alpha(\ul{q}') + \sum_{p_1+p_2=p-1} K^{p_1+1}(q_1) \ K^{p_2}(\ul{q}') \\
+&=\sum_{p_1+p_2=p}  K^{p_1+1}(q_1) \ K^{p_2}(\ul{q}')
+\end{split}
+\eeq
+usando $\alpha(q_1)=1$, il fatto che il primo termine di $Kv(q_1)$ è nullo per la presenza della $\delta_{n>1}$ e identificando il primo termine col termine mancante nella somma. Questo completa la  dimostrazione della relazione (\ref{fattorizza}).
+
+\subsection{La dimostrazione}
+
+A partire dalla (\ref{fattorizza}) si ottiene immediatamente il decadimento 
+esponenziale delle funzioni di correlazione. Infatti, si ha
+\beq
+\begin{split}
+r_0^{3(n+n')} \Big[ \r(\ul q,\ul q') - \r(\ul q) \r(\ul q') \Big] &=
+\sum_{p=0}^\io \z^{p+1} K^p \ul \a(\ul q,\ul q') - 
+\sum_{p_1=0}^\io \z^{p_1+1} K^{p_1} \ul \a(\ul q)
+\sum_{p_2=0}^\io \z^{p_2+1} K^{p_2} \ul \a(\ul q')\\
+&= \z \ul \a(\ul q,\ul q') + 
+\sum_{p=1}^\io \z^{p+1} \left[  K^p \ul \a(\ul q,\ul q') - 
+\sum_{p_1+p_2=p-1} K^{p_1} \ul \a(\ul q) K^{p_2} \ul \a(\ul q') \right] \\
+&=\sum_{p=[d/r_0]+1}^\io \z^{p+1} \left[  K^p \ul \a(\ul q,\ul q') - 
+\sum_{p_1+p_2=p-1} K^{p_1} \ul \a(\ul q) K^{p_2} \ul \a(\ul q') \right]
+\end{split}
+\eeq
+ricordando che $\a (q_1,\cdots,q_n)=0$ per $n \geq 2$ e che,
+grazie alla relazione (\ref{fattorizza}), il termine fra parentesi \`e nullo
+per $p < d/r_0$.
+L'ultima linea dell'equazione precedente \`e il resto di una serie convergente il cui
+termine $p$-esimo \`e stimato da $[\z \CC(\b)]^p$, per cui si ha
+\beq
+r_0^{3(n+n')} \Big| \r(\ul q,\ul q') - \r(\ul q) \r(\ul q') \Big| \leq
+\AAA [ \z \CC(\b) ]^{d/r_0}
+\eeq
+dove $\AAA$ \`e una opportuna costante, il che mostra che le funzioni di correlazione
+connesse decadono esponenzialmente in $d=\min_{ij} |q_i - q'_j|$.
+
+\begin{thebibliography}{99}
+
+\bibitem{Gallavotti} 
+G. Gallavotti, {\it Statistical mechanichs: A short treatise}, Springer (1999),
+online at {\it http://ipparco.roma1.infn.it}.
+
+\bibitem{Hansen}
+J.P.Hansen, I.R.McDonald, {\it Theory of simple liquids}, Academic Press (1986)
+
+\end{thebibliography}
+
+\end{document}
+
+
