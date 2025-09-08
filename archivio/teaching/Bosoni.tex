@@ -1,0 +1,839 @@
+%\documentclass[a4paper,12pt]{article}
+\documentclass[pre,aps,amsmath,amsfonts,floatfix]{revtex4}
+
+\usepackage[italian]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsfonts}
+\newcommand{\blankline}{\vskip .3cm}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%  DEFINIZIONI DI FONT    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\font\msytw=msbm9 scaled\magstep1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%         SIMBOLI VARI           %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\a=\alpha \let\b=\beta  \let\g=\gamma  \let\d=\delta \let\e=\varepsilon
+\let\z=\zeta  \let\h=\eta  \let\k=\kappa \let\l=\lambda
+\let\m=\mu    \let\n=\nu    \let\x=\xi     \let\p=\pi   
+\let\s=\sigma \let\t=\tau   \let\f=\varphi \let\ph=\varphi\let\c=\chi
+\let\ps=\psi  \let\y=\upsilon \let\si=\varsigma
+\let\G=\Gamma \let\D=\Delta  \let\Th=\Theta\let\L=\Lambda \let\X=\Xi
+\let\P=\Pi    \let\Si=\Sigma \let\F=\Phi    \let\Ps=\Psi
+\let\Y=\Upsilon \let\ee=\epsilon \let\r=\rho \let\th=\theta
+\let\io=\infty
+\def\ie{{i.e. }}\def\eg{{e.g. }}
+
+\def\PP{{\cal P}}\def\EE{{\cal E}}\def\MM{{\cal M}} \def\VV{{\cal V}}
+\def\CC{{\cal C}}\def\FF{{\cal F}} \def\HH{{\cal H}}\def\WW{{\cal W}}
+\def\TT{{\cal T}}\def\NN{{\cal N}} \def\BB{{\cal B}}\def\II{{\cal I}}
+\def\RR{{\cal R}}\def\LL{{\cal L}} \def\JJ{{\cal J}} \def\OO{{\cal O}}
+\def\DD{{\cal D}}\def\AA{{\cal A}}\def\GG{{\cal G}} \def\SS{{\cal S}}
+\def\KK{{\cal K}}\def\UU{{\cal U}} \def\QQ{{\cal Q}} \def\XX{{\cal X}}
+\def\YY{{\cal Y}}\def\ZZ{{\cal Z}}
+
+\def\Re{{\rm Re}\,}\def\Im{{\rm Im}\,}
+
+\def\hh{{\bf h}} \def\HHH{{\bf H}} \def\AAA{{\bf A}} \def\qq{{\bf q}}
+\def\BBB{{\bf B}} \def\XXX{{\bf X}} \def\PPP{{\bf P}} \def\pp{{\bf p}}
+\def\vv{{\bf v}} \def\xx{{\bf x}} \def\yy{{\bf y}} \def\zz{{\bf z}}
+\def\aaa{{\bf a}}\def\bbb{{\bf b}}\def\hhh{{\bf h}}\def\III{{\bf I}}
+\def\uu{{\bf u}}
+
+\def\ul{\underline}
+\def\olu{{\overline{u}}}
+\def\erf{\text{erf}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%    LETTERE GRECHE E LATINE IN NERETTO     %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\to{\rightarrow}
+\def\la{\langle}
+\def\ra{\rangle}
+
+\def\RRR{\hbox{\msytw R}}
+
+\newcommand{\wh}{\widehat}
+\newcommand{\wt}{\widetilde}
+\newcommand{\Tr}{\text{Tr}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% This fixes the margins and page sizes
+%\setlength{\hoffset}{0pt} \setlength{\voffset}{0pt} \setlength{\topmargin}{-20pt}
+%\setlength{\headsep}{30pt} \addtolength{\headsep}{-\headheight}
+%\setlength{\textheight}{9in} \addtolength{\textheight}{-40pt}
+%\setlength{\footskip}{30pt} \setlength{\oddsidemargin}{0pt}
+%\setlength{\textwidth}{6.5in}
+
+\begin{document} 
+
+\title{Condensazione di Bose e superfluidità}
+
+\author{Margherita Marsili, Francesco Zamponi} 
+
+\affiliation{Dipartimento di Fisica dell'Università di Roma "La Sapienza"}
+
+\begin{abstract}
+Raccogliamo qui il materiale preparato per le due lezioni che abbiamo tenuto durante il
+corso di Meccanica Statistica del prof. Di Castro. Le lezioni riguardano i sistemi di
+bosoni non interagenti (gas di Bose) e i meccanismi che danno luogo, in sistemi
+interagenti, alla superfluidità.
+\end{abstract}
+
+\maketitle
+
+\section{Statistiche quantistiche}
+
+In meccanica quantistica lo stato di un sistema di $N$ particelle non interagenti può
+essere specificato tramite i numeri di occupazione di un sistema completo di autoket di
+particella singola. Indichiamo con $\{n_p\}$ l'insieme dei numeri di occupazione. Per
+"definizione" avremo:
+
+\blankline
+ $n_p=0,1$ per un sistema di fermioni
+
+ $n_p=0,1,2.....$ per un sistema di bosoni
+\blankline
+
+\`E evidente che in questo caso ogni scelta degli $\{n_p\}$ corrisponde a uno stato del
+sistema, e le particelle sono a tutti gli effetti indistinguibili, nel senso che non è
+possibile, ad esempio, "colorarle" e distinguere uno stato del sistema da un'altro in
+base allo stato occupato dalla particella "rossa".
+
+In meccanica statistica classica si utilizza invece il cosiddetto "conteggio corretto di
+Boltzmann"; in questo caso le particelle sono considerate distinguibili, nel senso di
+cui sopra. \`E ancora possibile specificare lo stato del sistema tramite i numeri di
+occupazione, per\`o in questo caso lo stato $\{n_p\}$ potrà essere realizzato in
+$\frac{N!}{\prod_pn_p!}$ modi diversi. Il conteggio corretto di Boltzmann consiste nel
+contare gli stati in questo modo dividendo poi per $N!$, ovvero per il numero di modi in
+cui è possibile permutare fra loro le particelle. Dunque a ogni stato $\{n_p\}$
+viene attribuito un peso $p(\{n_p\})=\frac{1}{\prod_pn_p!}$ invece di 1.
+
+
+Vediamo con un esempio che i due modi di contare sono diversi:
+consideriamo due particelle con due stati accessibili, A e B. Le possibili
+configurazioni sono \{0,2\}, \{1,1\}, \{2,0\}. Lo stato \{0,2\} (\{2,0\}) pùo essere
+realizzato in un solo modo, cioè mettendo tutte e due le particelle nello stato A (B).
+Invece lo stato \{1,1\} può essere realizzato in due modi diversi, cioè mettendo la
+particella "rossa" in A e quella "blu" in B  o viceversa. Se ora dividiamo per $N!=2$,
+otteniamo i pesi statistici dei tre stati possibili nel conteggio di Boltzmann:
+\beq 
+p_{\{0,2\}}=p_{\{2,0\}}=1/2;\hspace{1cm} p_{\{1,1\}}=1. 
+\eeq
+Invece nel conteggio di Bose i tre stati hanno lo stesso peso. Da questo esempio è
+chiaro che il problema è nel fatto di dividere tutti i pesi per $N!$, cosa che corregge
+solo in parte l'errore introdotto considerando le particelle distinguibili, lasciando un
+peso relativo fra gli stati dipendente dal numero di modi in cui il singolo stato può
+essere realizzato.
+
+\subsection{Volume nello spazio delle fasi (ensemble microcanonico)}
+
+Consideriamo adesso un sistema isolato di $N$ particelle non interagenti. Supponiamo di
+ripartire gli stati di singola particella in ${\cal K}$ 
+gruppi contenenti $G_i$ stati di energia
+vicina $\varepsilon_i$. Ad esempio, se trattiamo un gas di particelle libere,
+raccoglieremo insieme tutti gli stati con energia vicina e direzioni diverse
+dell'impulso; altrimenti, se c'è un potenziale esterno, possiamo dividere lo spazio in
+cellette su cui il potenziale vari lentamente e considerare le particelle in tutte le
+cellette di energia potenziale $V$ fissata \cite{Gallavotti}. 
+Indichiamo con $\Delta\Gamma_i$ il
+numero di modi in cui possiamo distribuire $N_i$ particelle nel gruppo di stati $G_i$:
+$\Delta\Gamma_i$ corrisponde al volume occupato nello spazio delle fasi del gas calcolato
+nel microcanonico.
+
+Osserviamo che poiché le particelle non interagiscono le loro energie si conserveranno
+separatamente, quindi possiamo supporre che siano distribuite indipendentemente
+all'interno di ogni gruppo, ovvero che
+\beq 
+\Delta\Gamma=\prod_i\Delta\Gamma_i \ .
+\eeq
+L'entropia corrispondente \`e data da $S = \log \Delta\Gamma$.
+Nel conteggio di Boltzmann avremmo $\Delta\Gamma_i=\frac{G_i^{N_i}}{N_i!}$~\cite{LandaV}, 
+perchè dobbiamo
+considerare le particelle distinguibili e poi dividere per $N!$.
+Quindi, definendo $\bar n_i=\frac{N_i}{G_i}$, e sviluppando il coefficiente binomiale 
+utilizzando la formula di Stirling (supponendo sia $G_i$ che $N_i$ grandi), si ha
+\beq
+S_{Boltz} = \sum_i \log \frac{G_i^{N_i}}{N_i!} \sim -\sum_i G_i \bar n_i [ 
+\log \bar n_i - 1 ] \ .
+\eeq
+Per un sistema di fermioni, invece, avremo necessariamente $N_i \leq G_i$ e 
+si tratta di scegliere quali fra i $G_i$ stati sono occupati dalle $N_i$ particelle.
+Dunque si ha $\Delta\Gamma_i = \binom{G_i}{N_i}$ e, per $0 \leq n_i \leq 1$,
+\beq
+S_{Fermi} = \sum_i \log \binom{G_i}{N_i} \sim -\sum_i G_i [\bar n_i \log \bar n_i  
++ (1-\bar n_i) \log (1-\bar n_i) ] \ .
+\eeq
+Nel conteggio di Bose invece il problema è quello di ripartire $N_i$ oggetti identici in
+$G_i$ casse: allora se indichiamo con $\diamond$ gli oggetti e con $\|$ la parete di una
+cassa avremo che $\diamond\diamond\|\diamond\diamond\diamond\|\diamond\ldots$ corrisponderà a
+due oggetti nella prima cassa, tre nella seconda, ecc. Tutte queste configurazioni
+hanno peso 1 e potremo disporre arbitrariamente le pareti della cassa. Dunque abbiamo
+una stringa di $N_i+G_i-1$ simboli in cui possiamo disporre arbitrariamente $G_i-1$ simboli:
+il numero di modi di farlo è $\Delta\Gamma_i =\binom{ N_i+G_i-1 }{ G_i-1 }$.
+Si ha quindi:
+\beq
+S_{Bose}= \sum_i\log
+\binom{ N_i+G_i-1 }{ G_i-1 }
+=-\sum_iG_i[\bar{n}_i\ln\bar{n}_i -(1+\bar{n}_i)\ln(1+\bar{n}_i)] \ .
+\eeq
+Nel limite di alte temperature possiamo aspettarci che i numeri di occupazione degli
+stati siano piccoli ($N_i\ll G_i$, $\bar n_1 \ll 1$), 
+e allora \`e facile vedere che 
+i conteggi di Bose e di Fermi si riducono al conteggio corretto di Boltzmann.
+
+Ora dobbiamo massimizzare $S$ col vincolo
+\beq \begin{split}
+&\sum_iN_i=\sum_iG_i\bar{n}_i=N \ , \\
+&\sum_i\varepsilon_iN_i=\sum_i\varepsilon_iG_i\bar{n}_i=E \ ,
+\end{split}\eeq
+ovvero dobbiamo trovare il punto stazionario di 
+$S - \sum_i G_i \bar{n}_i \beta (\varepsilon_i - \mu)$.
+
+Definiamo un numero $b = 0$ per la statistica di Boltzmann, $b=-1$ per la statistica
+di Fermi e $b=1$ per la statistica di Bose.
+Allora l'equazione del punto stazionario \`e
+\beq
+\frac{\partial S}{\partial \bar n_i} = - G_i \log \frac{\bar n_i}{1 + b \bar n_i} =
+G_i \beta (\varepsilon_i - \mu) \ ,
+\eeq
+da cui si ottiene immediatamente:
+\beq 
+\bar{n}_i= \frac{1}{e^{\beta(\varepsilon_i-\mu)}-b} \ .
+\eeq
+I parametri $\mu$ (potenziale chimico) e $\beta$ (temperatura inversa) andranno determinati 
+imponendo la conservazione dell'energia e del numero di particelle. A bassa temperatura
+($\beta \gg 1$) il termine $b$ pu\`o essere trascurato e tutte le statistiche si riducono
+alla distribuzione di Boltzmann. 
+
+\subsection{Ensemble grancanonico}
+
+\`E possibile ricavare la distribuzione di Bose in maniera molto semplice dalla 
+prescrizione del grancanonico
+\beq 
+Z=\sum_{N=0}^\infty \sum_{[C]}e^{\beta\mu N}e^{-\beta H[C]} \ ,
+\eeq
+dove $C$ indica una generica configurazione del sistema, $H[C]$ è l'energia corrispondente e la somma è estesa a tutte le configurazioni. Se le particelle non interagiscono possiamo specificare lo stato del sistema attraverso i numeri di occupazione degli autostati dell'hamiltoniana di singola particella. Avremo che allo stato specificato da $\{n_p\}$ corrisponde
+\beq 
+E=\sum_p n_p\varepsilon_p \hspace{1cm} N=\sum_pn_p \ .
+\eeq
+Allora
+\beq \label{H} \begin{split}  Z&=\sum_{N=0}^\infty \sum_{\sum n_p=N}
+\exp\{\beta\mu\sum_pn_p-\beta\sum_pn_p\varepsilon_p\}= 
+\\ &=\sum_{\{n_p\}}\exp\{-\beta \sum_pn_p(\varepsilon_p-\mu)\} 
+ =\prod_p \frac{1}{1-e^{-\beta(\varepsilon_p-\mu)}} \end{split} \eeq
+Osserviamo che per garantire la convergenza delle somme in (\ref{H}) è necessario che 
+$\mu<\min_p\varepsilon_p$. Visto che le particelle non interagiscono la funzione di 
+partizione si fattorizza nel prodotto di funzioni di partizione $Z_p$ relative a ciascun 
+livello energetico. Allora
+\beq \label{Omega}
+\Omega=-T\log Z=T \sum_p \log\{1-e^{-\beta(\varepsilon_p-\mu)}\}=\sum_p\Omega_p    
+\eeq
+Otteniamo quindi i numeri di occupazione medi dalla relazione termodinamica
+\beq \bar{n}_p=-\frac{\partial\Omega_p}{\partial\mu}=\frac{1}{e^{\beta(\varepsilon_p-\mu)}-1} \eeq
+Lo stesso calcono conduce alla distribuzione di Fermi se la somma su $n_p$ \`e ristretta
+a $n_p = 0,1$.
+
+\section{Il gas libero}
+
+\subsection{Ensemble grancanonico}
+
+A partire dalla formula (\ref{Omega}) \`e immediato calcolare la funzione di partizione
+grancanonica del gas perfetto. Definiamo l'attivit\`a $z=\exp(\b\m)$ e utilizziamo gli stati
+di onda piana nel volume $V=L^3$ come stati di particella singola, con vettore d'onda
+$k = \frac{2\pi}{L} (n_x,n_y,n_z)$. Nel limite $V\to\io$ si ha $\sum_k \to V \int \frac{d^3 k}{(2\pi)^3}$ 
+e quindi si ha
+\beq\label{OmegaGP0}
+\Omega =  T \sum_{k} \log \{1- z e^{-\b \frac{\hbar^2 k^2}{2m}}\} \sim 
+T V \int \frac{d^3 k}{(2\pi)^3}  \log \{1- z e^{-\b \frac{\hbar^2 k^2}{2m}}\} \ .
+\eeq
+Bisogna per\`o fare attenzione perch\`e il limite continuo \`e lecito solo se i singoli 
+termini nella somma restano finiti. Ricordando che $\mu < \min_p \e_p = 0$, si vede facilmente
+che tutti i termini con $k \neq 0$ sono finiti.
+Invece il termine corrispondente
+a $k=0$ diventa singolare se $z \to 1$, ovvero se il potenziale chimico $\mu \to 0$.
+Conviene quindi isolare il termine ``pericoloso'' e scrivere, passando poi in coordinate sferiche
+per $k$:
+\beq\label{OmegaGP}
+\Omega = T \log(1-z) +\frac{TV}{2 \pi^2} \int_0^\io dk \, k^2 \log \{1- z e^{-\b \frac{\hbar^2 k^2}{2m}}\}
+\ .
+\eeq
+Un'altra ragione per la quale \`e necessario isolare il termine per $k=0$ \`e che nella misura di 
+integrazione $d^3 k = 4\pi k^2 dk$ corrispondente al limite continuo esso ha peso nullo, e quindi
+non ci accorgeremmo di una sua eventuale divergenza per $z\to 1$: in effetti \`e facile vedere
+che il secondo termine nella (\ref{OmegaGP}) rimane finito per $z\to 1$.
+
+La (\ref{OmegaGP}) si pu\`o semplificare espandendo in serie il logaritmo usando
+la formula $\log(1-x) = - \sum_{\ell=1}^\io \frac{x^\ell}{\ell}$. Si ottiene quindi
+\beq\begin{split}
+\Omega &= T \log(1-z) - \frac{TV}{2 \pi^2} \sum_{\ell=1}^\io \frac{z^\ell}{\ell} \int_0^\io dk \, k^2 
+e^{-\b \ell \frac{\hbar^2 k^2}{2m}} \\ &=
+ T \log(1-z) - \frac{TV}{2 \pi^2} \sum_{\ell=1}^\io \frac{z^\ell}{\ell} 
+\left( \frac{m}{\hbar^2 \b \ell}\right)^{3/2} \sqrt{\frac{\pi}2} \\ & =
+ T \log(1-z) - \frac{TV}{\L^3} \sum_{\ell=1}^\io \frac{z^\ell}{\ell^{5/2}}
+=  T \log(1-z) - \frac{TV}{\L^3} g_{5/2}(z)
+ \ ,
+\end{split}
+\eeq
+avendo definito la lunghezza d'onda termica $\L = h/\sqrt{2 \pi m T}$.
+
+Osserviamo che se le particelle fossero fotoni o fononi 
+(oltre alla differente relazione di dispersione e alla degenerazione di spin) si avrebbe
+$\mu = 0$ dal momento che il numero di queste particelle non \`e conservato \cite{LandaV};
+tuttavia in quel caso lo stato a $k=0$ non \`e permesso e quindi l'energia libera rimane
+ben definita a qualunque temperatura. L'ensemble grancanonico \`e quindi appropriato 
+per la descrizione di questi sistemi.
+
+\subsection{Ensemble canonico}
+
+Trattando invece un sistema di particelle, \`e naturale lavorare a densit\`a costante e
+quindi passare al canonico. L'energia libera per unit\`a di volume \`e
+\beq\label{flegendre}
+f = \min_z \left[\frac1V \Omega + T \rho \log z\right] \ ,
+\eeq
+per cui $z(\r,T)$ \`e dato dalla soluzione di
+\beq\label{saddle}
+\r = -\frac{\b}V \frac{\d \Omega}{\d \log z} = \frac1V \frac1{1-z} + \frac{1}{\L^3} 
+\sum_{\ell=1}^\io \frac{z^\ell}{\ell^{3/2}} \ .
+\eeq
+\`E facile vedere che per $z\to 1$ si ha
+\beq
+g_{3/2}(z) - g_{3/2}(1) = 
+\sum_{\ell=1}^\io \frac{z^\ell-1}{\ell^{3/2}} \sim \int_1^\io d\ell \frac{e^{\ell \log z}-1}{\ell^{3/2}} 
+\sim (\log z)^{1/2} \int_{\log z}^\io dy \frac{e^{y}-1}{y^{3/2}}
+\propto \sqrt{1-z} \ ;
+\eeq
+dunque la funzione $g_{3/2}(z)$ ha un limite finito per $z\to 1$ e ci si avvicina come $\sqrt{1-z}$,
+ovvero
+\beq\label{g32exp}
+g_{3/2}(z) = g_{3/2}(1) - C \sqrt{1-z} + \cdots \ .
+\eeq
+Definiamo $z_0(\r,T)$ la soluzione di $\r \L^3 = g_{3/2}(z)$, ovvero della (\ref{saddle}) in cui si
+ignora il primo termine. Per 
+\beq\label{lineaT}
+\r < \r_c(T) = \frac{g_{3/2}(1)}{\L^3} \ ,
+\eeq
+la soluzione di (\ref{saddle}) \`e $z(\r,T)=z_0(\r,T) < 1$ per $V\to\io$, mentre per $\r\geq \r_c$ si ha
+$z \to 1$ per $V\to\io$.
+All'ordine pi\`u basso in $V\to\io$ si ottiene quindi
+\beq
+z(\r,T) = \left\{
+\begin{matrix}
+z_0(\r,T) \ , \hskip40pt & \r < \r_c \ , \\ 
+1 - \left(\frac{\L^3}{C V}\right)^{2/3} \ , \ & \r = \r_c \ , \\
+1 - \frac{1}{V} \frac{1}{\r - \r_c} \ , \hskip15pt & \r > \r_c \ . \\
+\end{matrix}
+\right.
+\eeq
+Sostituendo questa espressione nella (\ref{flegendre}) si ottiene
+\beq\label{frT}
+f(\r,T) = \left\{
+\begin{matrix}
+-\frac{T}{\L^3} g_{5/2}(z_0) + T \r \log z_0 \ , \  & \r < \r_c \ , \\ 
+- \frac{T}{\L^3} g_{5/2}(1) \ , \hskip60pt & \r \geq \r_c \ . \\
+\end{matrix}
+\right.
+\eeq
+Osserviamo che il numero di particelle nello stato fondamentale \`e dato da, per $\r > \r_c$,
+da
+\beq
+\bar n_0(\r) = \frac{1}{1-z(\r)} = V (\r - \r_c) \ ,
+\eeq
+e dunque \`e proporzionale al volume e diverge nel limite termodinamico, come anticipato.
+In particolare, per $\r \to \io$, si trova $\bar n_0 \sim N$ e tutte le particelle sono
+nello stato fondamentale. A $\r=\r_c(T)$ avviene dunque una transizione di fase, caratterizzata
+dal fatto che una frazione finita di particelle si trova nello stato fondamentale.
+Questo fenomeno, detto {\it condensazione di Bose-Einstein},
+provoca una singolarit\`a nelle grandezze termodinamiche ed \`e caratterizzato da una
+lunghezza di correlazione divergente, come vedremo nel seguito. Esso \`e interamente
+dovuto alla statistica quantistica, dal momento che non c'\`e alcuna interazione fra le
+particelle.
+
+\subsection{Ordine della transizione}
+
+Mostriamo ora che le grandezze termodinamiche sono singolari sulla linea di transizione, che
+nel piano $(T,\r)$ \`e data dall'equazione (\ref{lineaT}), che pu\`o
+essere invertita per ottenere
+\beq
+T_c(\r) = \frac{2\pi \hbar^2}{M}\left(\frac{\r}{g_{3/2}(1)}\right)^{2/3} \ .
+\eeq
+Dalla definizione $\r \L^3 = g_{3/2}(z_0)$ e usando la (\ref{g32exp})
+si vede che, quando $\ee \equiv g_{3/2}(1) - \r \L^3 \to 0$, si ha, all'ordine
+dominante
+\beq\label{zeps}
+z_0(\r,T) = 1 - \left(\frac{\ee}{C}\right)^2 \ .
+\eeq
+Se si utilizza la formula (\ref{frT}), ricordando che per definizione di $z_0$ la derivata
+parziale di $f$ rispetto a $z_0$ \`e nulla, si vede facilmente che le derivate prime e seconde
+di $f(\r,T)$ sono continue alla transizione, e la prima singolarit\`a si osserva nelle derivate
+terze. La transizione \`e quindi del terzo ordine nel senso di Ehrenfest \cite{LandaV}.
+
+Calcoliamo ad esempio la singolarit\`a nella derivata terza rispetto a $T$, che rappresenta la
+derivata del calore specifico. Per l'entropia troviamo
+\beq
+s(\r,T) = -\frac{\partial f(\r,T)}{\partial T} = \left\{
+\begin{matrix}
+\frac{5}{2 \L^3} g_{5/2}(z_0) - \r \log z_0 \ , \  & \r < \r_c \ , \\ 
+\frac{5}{2 \L^3} g_{5/2}(1) \ , \hskip50pt & \r \geq \r_c \ , \\
+\end{matrix}
+\right.
+\eeq
+e per il calore specifico
+\beq
+c_V(\r,T) = T \frac{\partial s(\r,T)}{\partial T} = \left\{
+\begin{matrix}
+\frac{15}{4 \L^3} g_{5/2}(z_0) + \frac{3 \r T}{2 z_0} \frac{\partial z_0}{\partial T}  \ , \  & \r < \r_c \ , \\ 
+\frac{15}{4 \L^3} g_{5/2}(1) \ , \hskip50pt & \r \geq \r_c \ . \\
+\end{matrix}
+\right.
+\eeq
+Dallo sviluppo (\ref{zeps}) si vede che $\frac{\partial z_0}{\partial T} = 0$ alla transizione e dunque il
+calore specifico \`e continuo.
+Calcoliamo la singolarit\`a nella derivata di $c_V$. Per $\r \gtrsim \r_c$, eliminando i termini proporzionali
+a $\frac{\partial z_0}{\partial T} = 0$, si vede che
+\beq
+\D c_V'(T) \equiv \left. \frac{\partial c_V}{\partial T} \right|_{T \to T_c^+}
+- \left. \frac{\partial c_V}{\partial T} \right|_{T \to T_c^-} = \frac{3 \r T}{2 z_0} 
+\frac{\partial^2 z_0}{\partial^2 T} \ .
+\eeq
+Dalla definizione di $\ee$ si ha, per $T\to T_c$, $\ee \sim \frac{3 g_{3/2}(1)}2 \frac{T-T_c}{T_c}$ e 
+quindi $\frac{\partial^2 z_0}{\partial^2 T} = - \left( \frac{6 g_{3/2}(1)}{C T_c} \right)^2$ \`e una quantit\`a
+finita. Si vede quindi che la derivata del calore specifico salta verso il basso attraversando $T_c$.
+
+
+
+\section{La matrice densità ridotta a una particella}
+
+Per passare dalla descrizione di un sistema di particelle interagenti abbiamo bisogno di un formalismo adeguato. 
+Definiamo quindi l'insieme delle coordinate delle particelle $\xx = (x_1,\cdots,x_N)$,
+la matrice densità del sistema
+\beq \begin{split}
+&\rho(\xx;\xx')= \la \xx | e^{-\b H} | \xx' \ra = \sum_n e^{-\b E_n} \Psi_n(\xx) \Psi^*_n(\xx') \ , \\
+& Z = \Tr\hat \r = \int d\xx \la \xx | e^{-\b H} | \xx' \ra \ ,
+\end{split}
+\eeq
+e la matrice densità ridotta a una particella
+\beq \begin{split}
+&h_1(x;x')=\frac{N}{Z}\int dx_2\cdots dx_N \rho(x,x_2,\cdots,x_N;x',x_2,\cdots,x_N) \ , \\
+&\la x|\hat{h}_1|x'\ra=h_1(x;x') \ .
+\end{split}\eeq
+Osserviamo che l'operatore $\hat{h}_1$  così definito agisce sullo spazio di Hilbert di particella singola, 
+a differenza  dell'operatore densità che agisce sullo spazio delle $N$ particelle. Osserviamo inoltre che da 
+$\Tr\hat{\rho}=Z$ otteniamo $\Tr\hat{h}_1=N$. Analogamente potremmo definire delle matrici densità ridotte a $p$ 
+particelle \cite{DiCastro}, che non saranno però utili nel seguito.
+
+Consideriamo ora l'operatore associato a una grandezza a una particella
+\beq \hat{A}=\sum_{i=1}^N \hat{A}_i^{(1)} \eeq
+Sappiamo che la media quantistica e statistica di $\hat{A}$ può essere scritta come 
+\beq 
+\begin{split} 
+\la\hat{A}\ra &= \frac1Z \Tr \hat{\rho} \hat{A}
+= \int d\xx d\xx' \la \xx |\hat{\rho}|\xx' \ra \la\xx' | \hat{A} |\xx \ra=\\
+& = \sum_i \int d\xx d\xx'  \la \xx|\hat{\rho}|\xx'\ra \la\xx' |\hat{A}_i^{(1)}|\xx\ra=
+ = \sum_i  \int d\xx d\xx' \la\xx |\hat{\rho}|\xx' \ra 
+\la x'_1|x_1\ra\cdots\la x'_i|\hat{A}^{(1)}|x_i\ra \cdots\la x'_N|x_N \ra \ ,
+\end{split} 
+\eeq
+e siccome tutti i termini sono uguali rinominando le variabili otteniamo
+\beq 
+\begin{split} 
+\la\hat{A}\ra&= \frac{N}{Z}
+\int dxdx'dx_2\cdots dx_N \hat{\rho}(x,x_2,\cdots,x_N;x',x_2,\cdots,x_N)\la x'|\hat{A}^{(1)}|x\ra = 
+\\
+& = \int dxdx' h_1(x;x') \la x'|\hat{A}^{(1)}|x\ra = \Tr \, \hat{h}_1 \hat{A}^{(1)} \ .
+\end{split} \eeq
+Ora siccome $\hat{h}_1$ è un operatore hermitiano (essendo hermitiana anche $\hat{\rho}$) 
+possiamo sempre diagonalizzarlo ottenendo
+\beq    
+\hat{h}_1=\sum_{i=1}^N \bar{n}_i|i\ra\la i| \hspace{1cm} \sum_i\bar{n}_i=N   \ ,
+\eeq
+dove gli $|i\ra$ 
+sono stati di singola particella e l'ultima condizione segue dalla normalizzazione di $h_1$. Allora
+\beq    
+\Tr\, \hat{h}_1\hat{A}^{(1)}=\sum_{i=1}^N \bar{n}_i \la i|\hat{A}^{(1)}|i \ra  \ .
+\eeq
+Dalla formula precedente e dalla normalizzazione di $\hat{h}_1$ possiamo interpretare gli $\bar{n}_i$ come 
+numeri di occupazione medi degli stati $|i\ra$. Questi ultimi sono quindi gli stati di singola particella 
+per i quali la definizione dei numeri medi di occupazione è possibile. Osserviamo che se le particelle sono 
+interagenti non è possibile definire un'hamiltoniana sullo spazio di Hilbert di singola particella e quindi 
+gli autostati dell'operatore $\hat{h}_1$ non saranno autostati dell'energia come nel caso non interagente. 
+%\`E tuttavia possibile (almeno per Fermioni a T=0) definire un'hamiltoniana ``linearizzata'' sullo spazio 
+%di singola particella; se poi si cercano gli autostati dell'hamiltoniana complessiva come prodotti di stati 
+%di tale spazio con un principio variazionale (metodo di Hartree-Fock) si trovano proprio gli autostati di 
+%$\hat{h}_1$ \cite{DiCastro}.
+
+\subsection{Il caso non interagente}
+
+Come esempio calcoliamo ora la matrice $h_1(x;x')$ per un sistema non interagente. 
+In questo caso gli autostati di $h_1$ sono evidentemente le onde piane
+\beq
+|k\ra = \frac{1}{\sqrt{V}} e^{-ikx} \ ,
+\eeq
+e quindi
+\beq 
+\label{A} 
+h_1(x;x')= \frac{1}{V} \sum_k \bar{n}_k e^{ik(x-x')} \ .
+\eeq
+Nel limite termodinamico $V,N\rightarrow\infty$, $\r=cost.$, 
+come discusso in precedenza, la somma in (\ref{A}) diventa un integrale con la sostituzione
+ $\sum_k \rightarrow V \int \frac{d^3k}{(2\pi)^3}$. Isolando il termine $k=0$ come in precedenza,
+si ottiene
+\beq 
+\label{B} 
+h_1(x;x')=\frac{\bar{n}_0}{V}+\int \frac{d^3k}{(2\pi)^3} e^{ik(x-x')} \bar{n}_k
+=\frac{\bar{n}_0}{V}+\phi(|x-x'|) \ .
+\eeq
+Sostituendo a $\bar{n}_k$ la sua espressione dalla distribuzione di Bose è possibile calcolare esattamente 
+l'integrale col metodo dei residui, e si ottiene
+\beq 
+h_1(x;x')=\frac{\bar{n}_0}{V}+\frac{m}{\pi\beta r \hbar^2} e^{-\frac{r}{\xi}} \ ,
+\eeq
+con
+\beq 
+r=|x-x'| \hspace{1cm} \xi=\frac{\hbar}{\sqrt{2m T |\log z|}}  \ .
+\eeq
+Ricordando che dall'equazione (\ref{zeps}) si ha 
+$z \sim 1-A t^2$ per $t=\frac{T-T_c}{T_c}\rightarrow0$ abbiamo 
+$|\log z|\sim At^2$ e $\xi \sim t^{-1}$. 
+Quindi $\xi$ diverge al punto critico e possiamo aspettarci che sia interpretabile come una lunghezza di 
+correlazione. Si può mostrare \cite{Huang} che $\xi$ \`e in effetti la lunghezza di correlazione delle 
+fluttuazioni di densità: per $t>0$, quando nessuno tra gli $\bar{n}_i$ è $O(N)$:
+\beq 
+\begin{split} 
+f_{\rho}(x)&=\la\hat{\rho}(x)\hat{\rho}(0)\ra -\rho^2=\la \hat{\Psi}^+(x)\hat{\Psi}(x)\hat{\Psi}^+(0)\hat{\Psi}(0)\ra
+-\rho^2= \\ 
+&= \frac{1}{V^2} \sum_{p \neq q} e^{i(p-q)x} \bar{n}_p(\bar{n}_q+1) 
+\xrightarrow{V\rightarrow\infty} \left|\frac{1}{V}\sum_p e^{ipx} \bar{n}_p \right|^2   
+\end{split} 
+\eeq
+Quindi la $f_{\rho}(r)$ nel limite termodinamico è il modulo quadro della $\phi(r)$ introdotta nella (\ref{B}), per cui $\xi$ è proprio la lunghezza di correlazione delle fluttuazioni di densità. Osserviamo che l'esponente critico associato è $\nu=1$.
+
+La conseguenza più importante della presenza di un numero di occupazione divergente nel limite termodinamico è però il fatto che 
+\beq 
+\label{C} 
+\lim_{|x-x'|\rightarrow\infty}h_1(x;x')=\frac{\bar{n}_0}{V}=\bar{n}_0 \phi_0(x) \phi^*_0(x')   
+\eeq
+dove $\phi_0(x)=\frac{1}{\sqrt{V}}$ è la funzione d'onda dello stato di particella singola in cui avviene la condensazione.
+
+\subsection{Il caso interagente}
+
+Cerchiamo ora di generalizzare quanto abbiamo fatto al caso interagente. Ci limiteremo tuttavia a enunciare i risultati, la cui dimostrazione è data in \cite{Onsager}. Come abbiamo già osservato, nonostante in questo caso gli autostati dell'hamiltoniana non siano prodotti di funzioni d'onda di particella singola, è comunque possibile definire dei numeri medi di occupazione sugli autostati della matrice densità ridotta a una particella. Aggiungiamo che anche nel caso interagente, se il sistema è omogeneo, $h_1(x;x')=<x|\hat{h}_1|x'>=h_1(x-x')$ e allora $<p|\hat{h}_1|p'>=\tilde{h}(p)\delta(p-p')$, per cui gli autostati di $\hat{h}_1$ sono ancora gli autostati dell'impulso. Enunciamo ora il criterio in una forma ``intuitiva'': diremo che {\it c'è condensazione di Bose se uno degli autostati di $h_1(x;x')$ è o(N) nel limite termodinamico}. Per un sistema omogeneo quindi la condensazione avviene, eventualmente, nello spazio degli impulsi. Tuttavia, anche se $h_1(x;x')$ è calcolabile in linea di principio dalla matrice densità del sistema, può essere difficile in pratica determinarne  gli autostati e gli autovalori. E' quindi comodo trovare una forma equivalente del criterio analoga alla (\ref{C}). In \cite{Onsager} viene appunto mostrato che se assumiamo che
+
+\beq \label{F} \lim_{|x-x'|\rightarrow\infty}h_1(x;x')=\Psi(x)\Psi^*(x') \eeq
+
+il criterio può essere riformulato così:
+
+\beq \label{G} \begin{cases} &\frac{1}{V}\int|\Psi|d^3x\xrightarrow{N,V\rightarrow\infty}l>0 \rightarrow \text{c'è condensazione} \\  &\frac{1}{V}\int|\Psi|d^3x\xrightarrow{N,V\rightarrow\infty}0 \rightarrow \text{non c'è condensazione} \end{cases} \eeq
+
+E' inoltre possibile mostrare che, se c'è condensazione, posto
+
+\beq \bar{n}_{\Psi}=\int|\Psi|^2d^3x \eeq
+
+si ha:
+
+\beq \label{D} \lim_{N\rightarrow\infty} \frac{\bar{n}_0}{\bar{n}_{\Psi}}=1 \eeq
+
+e
+
+\beq \label{E} \lim_{N\rightarrow\infty} \int|a\bar{n}_{\Psi}^{-\frac{1}{2}}\Psi(x)-\phi_0(x)|^2d^3x=0 \eeq
+
+dove $|a|^2\xrightarrow{N\rightarrow\infty}1$, e $\bar{n}_0$ e $\phi_0(x)$ sono l'autovalore e l'autostato di $h_1(x;x')$ in cui avviene la condensazione secondo la formulazione del criterio data all'inizio del paragrafo. Dalle (\ref{D}) e (\ref{E}) deduciamo che nel limite termodinamico
+
+\beq \bar{n}_{\Psi}\sim\bar{n}_0 \hspace{1cm} \frac{1}{\sqrt{\bar{n}_{\Psi}}}\Psi(x)\sim\phi_0(x) \eeq
+
+Dunque, una volta stabilito un modello e calcolata a partire da esso la matrice densità ridotta, ``basterà'' verificare la validità dell'assunzione (\ref{F})
+e del criterio (\ref{G}) per avere anche una buona stima dello stato di particella singola in cui avviene la condensazione e della frazione di condensato. La funzione $\Psi(x)$ può essere presa come parametro d'ordine della transizione di Bose. Osserviamo in conclusione che l'assunzione (\ref{F}) può essere indebolita in
+
+\beq \lim_{|x-x'|\rightarrow\infty}h_1(x;x')=f(x)g(x') \eeq
+
+da cui la (\ref{F}) segue per l'hermiticità di $h_1(x;x')$ e che a $T=0$ l'unico stato che contribuisce alla matrice densità $\hat{\rho}=\frac{1}{Z}e^{-\beta \hat{H}}$ è lo stato di energia più bassa, e quindi per verificare se c'è la condensazione a $T=0$ è sufficiente avere un ipotesi sulla forma dello stato fondamentale.  
+
+\section{Superfluidità}
+
+Negli ultimi paragrafi abbiamo stabilito un criterio che ci permette di verificare se nel modello che supponiamo di aver definito è presente la condensazione di Bose. Questa necessità viene dall'analogia, congetturata per la prima volta da London, tra la condensazione di Bose e il fenomeno, osservato sperimentalmente da Kapitza, della superfluidità dell'$He^4$.
+L'$He^4$ è un bosone di spin 0, dal momento che il nucleo ha spin 0 e gli elettroni si trovano, nello stato fondamentale, in singoletto di spin; è particolarmente stabile sia a livello nucleare che a livello elettronico (l'energia di ionizzazione è di 24.56 eV, contro i 13.6 eV dell'idrogeno).
+La superfluidità consiste nella capacità dell'$He^4$, al disotto di una certa temperatura $T_{\lambda}$, di scorrere in un capillare, per velocità $v<v_c$, senza manifestare alcuna viscosità (sperimentalmente si verifica che $\eta<10^{-11}$ poise, dove, per confronto, la viscosità dell'acqua è di $10^{-2}$ poise).
+Cercheremo in  questo paragrafo di precisare meglio l'insieme di osservazioni sperimentali che hanno portato all'esigenza della formulazione di una teoria della superfluidità, che sarà accennata nei paragrafi successivi.
+
+\subsection{Il diagramma di fase}
+
+Il diagramma di fase dell'$He^4$ è riportato in Fig.1. Le interazioni di Van der Waals tra gli atomi sono particolarmente deboli a causa della elevata stabilità della configurazione elettronica, che causa una polarizzabilità molto piccola, per cui l'$He^4$ rimane liquido, per pressioni minori di 25 atm, fino allo zero assoluto. La linea di separazione tra solido e liquido è orizzontale per $T<T_{\lambda}$; dall'equazione di Clausius-Clapeyron
+
+\beq \frac{dp}{dT}=-\frac{\Delta s}{v_s-v_l} \eeq
+
+deduciamo il liquido e il solido hanno la stessa entropia per unità di massa. Questo fa pensare che l'$He^4$ superfluido, detto He II, sia caratterizzato da una qualche forma di ordine. Osserviamo che questo ordine non può essere di tipo spaziale, per definizione di liquido; possiamo immaginare, usando i risultati del paragrafo precedente, che si tratti di ordine nello spazio degli impulsi. Osserviamo inoltre che il calore specifico, riportato in Fig.2 in funzione della temperatura, ha una debole divergenza (logaritmica?) a T=$T_{\lambda}$.
+
+\subsection{Il modello dei due fluidi di Tisza e l'esperimento di Andronikashvili}
+
+La viscosità di un liquido può essere misurata anche osservando lo smorzamento delle oscillazioni di un pendolo a torsione immerso nel fluido. Da queste misure si trova $\eta \sim 10^{-5}$ poise, risultato differente per ben 6 ordini di grandezza da quello ottenuto osservando lo scorrimento del fluido in un capillare. Per spiegare questa discrepanza, Tisza congetturò, nel 1938, che l'elio superfluido fosse descrivibile in termini di due fluidi `mescolati'. Come vedremo, questa descrizione non è esatta e necessita di una corretta interpretazione, dovuta a Landau. Tuttavia per il momento supponiamo che la densità del fluido sia separabile in una componente `normale' e in una componente `superfluida',  e che a ciascuna di esse sia associata una corrente:
+
+\beq \begin{split} &\rho=\rho_n+\rho_s \\ &J=J_n+J_s  \end{split} \eeq
+
+La componente `normale' ha la viscosità dell'$He^4$ caratteristica della fase non superfluida ($\eta\sim10^{-5}$ poise), mentre quella `superfluida' ha viscosità nulla.
+Andronikashvili, nel 1946, ideò un esperimento per misurare il valore delle due componenti della densità: nell'esperimento, descritto in Fig.3, un pendolo a torsione composto di una serie di piani molto vicini tra loro ($\sim 0.21$ mm) viene fatto oscillare nel fluido. Possiamo suppore che la parte `normale' oscilli insieme col pendolo, a causa della sua maggiore viscosità, mentre la parte `superfluida' possa scorrere liberamente tra i piani e rimanere quindi in quiete. Allora il momento di inerzia complessivo del pendolo sarà della forma
+
+\beq I=I_0+\rho_nf(R,d) \eeq
+
+dove f(R,d) tiene conto della geometria del pendolo. Dalle equazioni della meccanica abbiamo, detta k la costante elastica di richiamo,
+
+\beq t=2\pi\sqrt{\frac{k}{I}}  \eeq 
+
+per cui misurando il periodo t delle oscillazioni del pendolo è possibile misurare, qualora sia valida la congettura di Tisza, la densità `normale'. Il risultato dell'esperimento è riportato in Fig.4; la componente `superfluida' tende a $\rho$ per $T\rightarrow 0$, e tende a 0 per $T\rightarrow T_{\lambda}$. Questo risultato supporta il modello dei due fluidi e lascia pensare che la densità della componente `superfluida' possa essere collegata con il parametro d'ordine della transizione che avviene a $T_{\lambda}$.
+
+\subsection{L'effetto meccanocalorico}
+
+Utilizzando l'apparato descritto in Fig.5 (descrizione nel titolo della figura) si osserva che mentre il recipiente A si svuota attraverso il capillare che lo collega con B, la sua temperatura aumenta leggermente, mentre quella del recipiente B diminuisce. Questo effetto può essere spiegato all'interno del modello di Tisza se supponiamo che l'entropia della componente `superfluida' sia nulla. Infatti essa soltanto fluisce attraverso il capillare, lasciando indietro la componente `normale'. Quindi l'entropia per unità di massa nel recipiente A aumenta, mentre diminuisce nel recipiente B. Sia $\delta M$ la massa di $He^4$ che fluisce da A a B in un certo intervallo di tempo. Riferiamo d'ora in poi tutte le grandezze termodinamiche al recipientre A. Se supponiamo che non ci sia trasporto di entropia associato al flusso di $He^4$ abbiamo $\delta Q=T\delta S=0 $. Sia $s=S/M$. L'energia interna è estensiva e può essere scritta come $U=Mu(s)$ (dal momento che la geometria del sistema fissa il volume del recipiente e non la massa di fluido contenuta al suo interno, conviene usare come variabile M invece di V). Avremo
+
+\beq T=\left(\frac{\partial U}{\partial S}\right)_M=\frac{du}{ds} \eeq
+
+Quindi T non dipende da M ma solo dall'entropia per unità di massa s:
+
+\beq \left(\frac{\partial T}{\partial M}\right)_s =0 \eeq
+
+Allora durante la nostra trasformazione 
+
+\beq \label{meccano} \delta T=\left(\frac{\partial T}{\partial s}\right)_M\delta s+\left(\frac{\partial T}{\partial M}\right)_s\delta M=\left(\frac{\partial T}{\partial s}\right)_M\delta s=\frac{d^2u}{ds^2} \delta s      \eeq
+
+Ricordiamo che
+
+\beq \label{calorico} \left(\frac{\partial T}{\partial s}\right)_M=M\left(\frac{\partial T}{\partial S}\right)_M=M\frac{T}{C_M} \eeq
+
+dove
+
+\beq C_M=T\left(\frac{\partial S}{\partial T}\right)_M=\left(\frac{\delta Q}{\delta T}\right)_M \eeq
+
+è il calore specifico a massa costante. Per come è fatto il nostro apparato sperimentale tenere la massa costante variando T equivale a tenere il volume costante per cui $C_M$ coincide con $C_V$.
+Utilizziamo ora l'ipotesi che $\delta S=0$. Allora
+
+\beq \label{diff} 0=\delta S=M\delta s+s \delta M \rightarrow \delta s=-s\frac{\delta M}{M} \eeq
+
+
+Otteniamo quindi, sostituendo la (\ref{calorico}) e la (\ref{diff}) nella (\ref{meccano}):
+
+\beq \delta T=-\frac{MT}{C_M}s\frac{\delta M}{M}=-\frac{Ts}{C_M}\delta M \eeq
+
+Poichè s, T e M sono tutte quantità positive, otteniamo che un aumento di massa corrisponde a una diminuzione di temperatura e viceversa. Il modello di Tisza spiega dunque l'effetto meccanocalorico se supponiamo che la componente `superfluida' abbia entropia nulla.
+
+\section{Il criterio di Landau}
+
+Cerchiamo adesso di giustificare da un punto di vista microscopico la teoria fenomenologica di Tisza. In generale sappiamo che un sistema quantistico a bassa temperatura può essere descritto conoscendo il suo stato fondamentale e gli stati debolmente eccitati. In generale si assume che gli stati debolmente eccitati siano descrivibili come sovrapposizione di alcune `eccitazioni elementari', definite da una legge di dispersione che ne lega l'energia $\epsilon$ con l'impulso p (vedi \cite{ADG} e \cite{LandaIX} per una discussione dettagliata); queste eccitazioni elementari sono dette quasi-particelle e possono essere considerate, per temperature sufficientemente basse, non interagenti. Il criterio di Landau, formulato nel 1941, lega la proprietà di superfluidità di un sistema con la legge di dispersione delle sue eccitazioni elementari.
+Consideriamo il sistema nel suo stato fondamentale, a T=0, in moto con velocità $\vec{v}$ rispetto a un capillare. Chiamiamo K e K' i sistemi di riferimento in cui, rispettivamente, sono fermi il sistema e il capillare. Per cui il sistema K' si muove rispetto a K con velocità $-\vec{v}$. Se M è la massa totale del fluido, sappiamo che, se il sistema ha impulso $\vec{P}$ ed energia $E=U+P^2/2M$ nel riferimento K, si avrà, nel riferimento K', ricordando che l'energia interna U non dipende dallo stato di moto del sistema (in assenza di campi esterni):
+
+\beq\begin{split} &\vec{P}'=\vec{P}+M\vec{v} \\ &E'=U+\frac{P'^2}{2M}=U+\frac{P^2}{2M}+\frac{1}{2}Mv^2+\vec{P}\vec{v}=E+\frac{1}{2}Mv^2+\vec{P}\vec{v} \end{split}\eeq
+
+Nella situazione iniziale il sistema ha energia e impulso nulli nel riferimento K, mentre ha impulso $M\vec{v}$ e energia $\frac{1}{2}Mv^2$ nel riferimento K'. Perché il moto del fluido possa rallentare, esso deve scambiare energia con il capillare. D'altra parte l'unico modo che ha il fluido per variare la sua energia, trovandosi nel suo stato fondamentale, è di `creare' delle eccitazioni elementari. Supponiamo quindi che nel riferimento K, in cui il sistema è fermo e il capillare si muove con velocità $-\vec{v}$, venga generata per effetto di quest'ultimo una eccitazione elementare di energia $\epsilon$ e impulso p. Allora nel riferimento K' si avrà:
+
+\beq E'=\epsilon+\frac{1}{2}Mv^2+\vec{p}\vec{v} \eeq 
+
+La variazione di energia del sistema nel riferimento K' è quindi
+
+\beq \Delta E'=E'-\frac{1}{2}Mv^2=\epsilon+\vec{p}\vec{v} \eeq
+
+e deve essere negativa se vogliamo che il fluido rallenti e si arresti per effetto dell'interazione con il capillare. La situazione più favorevole è quella in cui l'eccitazione elementare viene creata con impulso antiparallelo a $\vec{v}$. In questo caso si ha
+
+\beq \Delta E'=\epsilon-pv<0 \eeq
+
+ovvero
+
+\beq\label{criterio} \frac{\epsilon}{p}<v \eeq
+
+Concludiamo che per poter rallentare il fluido deve essere possibile creare, per effetto dell'interazione col capillare, una eccitazione elementare che verifica la condizione (\ref{criterio}). Questo implica che deve essere
+
+\beq\label{criterio2} v<min_p\left(\frac{\epsilon(p)}{p}\right) \eeq
+
+Questa condizione viene detta {\it criterio di Landau} \cite{LandaIX}; è verificata per uno spettro lineare del tipo $\epsilon=cp$ per $v<c$, mentre non puo essere mai verificata per lo spettro di particella libera perché il secondo membro della (\ref{criterio2}) è nullo. Troviamo quindi che anche in presenza di condensazione di Bose il gas perfetto non è superfluido.
+Ora a $T \neq 0$ il sistema sarà descritto, nel riferimento K, dallo stato fondamentale e da una certa distribuzione delle quasi-particelle. In generale quindi sarà presente un certo numero di quasi-particelle, che possiamo considerare come un gas libero che si muove come un tutto rispetto allo stato fondamentale. Questo `gas' può ovviamente scambiare energia con le pareti, distruggento delle quasi-particelle o modificandone lo stato, mentre la parte di fluido descritta dallo stato fondamentale continuerà a non poter trasferire energia al capillare creando nuove eccitazioni, e quindi sarà superfluida. Abbiamo così una interpretazione delle componenti `normale' e `superfluida' di Tisza, associate rispettivamente al gas di quasi-particelle e allo stato fondamentale. Sottolineiamo tuttavia che le quasi-particelle sono delle eccitazioni collettive del sistema e non possono essere associate alle vere particelle del sistema. E' possibile solamente identificare una `massa efficace' $M^*$ trasportata dalle quasi-particelle, e una quantità analoga, $M-M^*$ per lo stato fondamentale. Per cui la $\rho_s$ di Tisza sara associata a $\frac{M-M^*}{M}$ e non avrà niente a che vedere con la frazione di particelle che si trovano nello stato fondamentale. Facciamo un esempio: a T=0 non ci sono quasi particelle e quindi $\rho_s=\rho$. tuttavia vedremo da un calcolo esplicito che per un sistema di Bosoni interagenti la frazione di particelle nello stato fondamentale è minore di 1 anche a T=0. Il requisito fondamentale per la superfluidità sembra quindi essere che il criterio di Landau sia soddisfatto. Vedremo che la condensazione tuttavia ha un ruolo importante in quanto in sua presenza lo spettro di un sistema debolmente interagente risulta modificato in modo da soddisfare il criterio di Landau.
+
+\section{Il modello di Bogoliugov}
+
+\section{Quantizzazione della vorticità}
+
+
+\appendix
+
+\section{Path-integral representation for Bosons}
+
+Let us start by the simplest case of an harmonic oscillator. It is represented
+by the usual construction and annihilation operators $\hat a$, $\hat a^\dag$,
+and
+\beq
+\begin{split}
+& [\hat a,\hat a] = [\hat a^\dag,\hat a^\dag] = 0 \ \ \ \ \ [\hat a,\hat a^\dag] = 1 \ , \\
+& H = \hat a^\dag a \ .
+\end{split}
+\eeq
+We can consider a more general Hamiltonian which is a function of $\hat a$, $\hat a^\dag$;
+the most general possibility is
+\beq
+H(\hat a^\dag,\hat a) = \sum_{m,n=0}^\io H_{mn} \, (\hat a^\dag)^m \hat a^n \ ,
+\eeq
+where the monomial are in normal ordering with the operator $a$ coming first. This is always
+possible thanks to the commutation relation above.
+
+The path-integral representation is obtained introducing {\it coherent states}, \ie the
+right eigenvectors of $\hat a$ such that $\hat a |\l\ra = \l |\l\ra$:
+\beq
+|\l \ra = e^{-\frac{|\l|^2}2} \sum_{n=0}^\io \frac{\l^n}{\sqrt{n!}} |n\ra = 
+e^{-\frac{|\l|^2}2} \sum_{n=0}^\io \frac{\l^n}{n!} (\hat a^\dag)^n |0\ra = 
+e^{-\frac{|\l|^2}2} e^{\l \hat a^\dag} |0\ra
+\eeq
+As $\hat a$ is not Hermitian, $\l$ is in general a complex number. Still one can show
+that the states $|\l\ra$ verify the completeness relation; we denote by 
+$\int d\l = \int_{-\io}^\io d \Re \l d \Im \l$. Then it follows
+\beq
+\int \frac{d\l}{\pi} |\l \ra \la \l | = 
+\int \frac{d\l}{\pi} \, e^{-|\l|^2} \sum_{m,n=0}^\io \frac{\bar\l^m \l^n}{\sqrt{m! n!}}
+|m\ra \la n| = \sum_{n=0}^\io |n\ra\la n| = I \ ,
+\eeq
+using
+\beq
+\int \frac{d\l}{\pi} \, e^{-|\l|^2} \bar\l^m \l^n =
+2 \int_0^\io d\r \, \r e^{-\r^2} \r^{m+n} \int_0^{2\pi} \frac{d\th}{2 \pi} e^{i\th (n-m)} =
+\d_{mn} \int_0^\io dt e^{-t} t^n = n! \d_{mn}
+\eeq
+
+Thank to the completeness relation we can write
+\beq\label{Zlambda}
+Z = \Tr e^{-\b H} = \int \frac{d\l}{\pi} \la \l| e^{-\b H} |\l \ra \ .
+\eeq
+
+Now we observe that from $\hat a |\l\ra = \l |\l\ra$ it follows:
+\beq\begin{split}
+&\la \l_1 | (\hat a^\dag)^m \hat a^n | \l_2 \ra = \bar\l_1^m \l_2^n \la \l_1 | \l_2 \ra     \ , \\ 
+&\la \l_1 | H(\hat a^\dag,\hat a) |\l_2 \ra = 
+\sum_{m,n=0}^\io H_{mn} \, \bar\l_1^m \l_2^n \la \l_1 | \l_2 \ra= H(\bar\l_1,\l_2) \la \l_1 | \l_2 \ra\ .
+\end{split}\eeq
+This relation cannot be applied straightforwardly to the operator $e^{-\b H}$ since
+it is not in normal order; still we can write for small $\t$:
+\beq
+\la \l_1 | e^{-\t H} |\l_2 \ra \sim \la \l_1 | 1 - \t H |\l_2 \ra = \la \l_1 | \l_2 \ra
+(1 -\t H(\bar\l_1,\l_2)) \sim \la \l_1 | \l_2 \ra e^{-\t H(\bar\l_1,\l_2)}
+\eeq
+It is also useful to compute
+\beq
+\la \l_1 | \l_2 \ra = e^{-\frac12 (|\l_1|^2 + |\l_2|^2) + \bar\l_1 \l_2} =
+e^{-\frac12 \bar\l_1 (\l_1 -\l_2) -\frac12 \l_2 (\bar\l_2 -\bar\l_1)} \ . 
+\eeq
+
+Now we can use the relation
+\beq
+e^{-\b H} = \lim_{M\to\io} [ e^{-\frac{\b}M H} ]^M
+\eeq
+and defining $\t = \b/M \to 0$ we
+rewrite (\ref{Zlambda}) as
+\beq\begin{split}
+Z &= \lim_{M\to\io} \int \left( \prod_{i=0}^{M-1} \frac{d\l_i}{\pi} \right)
+\la \l_0 | e^{-\t H} |\l_{M-1}\ra \cdots \la \l_2 | e^{-\t H} |\l_{1}\ra\la \l_1 | e^{-\t H} |\l_{0}\ra \\
+&= \lim_{M\to\io} \int \left( \prod_{i=0}^{M-1} \frac{d\l_i}{\pi} \right)
+\exp \left\{ - \sum_{i=0}^{M-1} 
+\left[ \frac12 \bar\l_{i+1} (\l_{i+1} -\l_i) +\frac12 \l_i (\bar\l_i -\bar\l_{i+1}) + \t H(\bar\l_{i+1},\l_i)
+\right]\right\}
+\end{split}
+\eeq
+where we used the periodic boundary condition $\l_M \equiv \l_0$.
+
+The last expression can be formally written as a path integral by introducing a continuous time
+$t = i \tau$ and $\l(t) = \l_i$ with periodic boundary conditions $\l(\b) = \l(0)$; the path measure
+is
+\beq
+\DD \l(t) \equiv \prod_{i=0}^{M-1} \frac{d\l_i}{\pi} \ .
+\eeq
+In the continuum limit we have $\dot \l(t) = (\l_{i+1} - \l_i)/\t$; the first two terms in the action
+are equal integrating by parts and finally
+\beq\label{Zpath}
+Z = \int \DD \l(t) \exp \left\{ - \int_0^\b dt \big[ \bar \l \ \dot \l + H(\bar \l,\l) \big] 
+\right\}
+\eeq
+which is the final result for a single perturbed harmonic oscillator.
+
+The continuum limit is not very nice in the time domain since trajectories are here
+very singular as $\dot \l \sim 1/\t$. It is convenient to move to
+frequency space by introducing Matsubara frequencies $\omega_n = \frac{2\pi}{\b} n$
+and define
+\beq\begin{split}
+&\l_n = \frac{1}{M} \sum_{j=0}^{M-1} \l_j e^{-i \omega_n j \t} =
+\frac{1}{M} \sum_{j=0}^{M-1} \l_j e^{-i \frac{2 \pi n j}{M}} \hskip1cm \Rightarrow
+\hskip1cm
+\l_n = \frac1\b \int_0^\b dt \l(t) e^{-i \omega_n t}
+\ , \\ 
+&\l_i =  \sum_{n=0}^{M-1} \l_n e^{i \omega_n j \t} =
+\sum_{n=0}^{\io} \l_n e^{i \frac{2 \pi n j}{M}}
+\hskip2.6cm \Rightarrow
+\hskip1cm
+\l(t)= \sum_{n=0}^{M-1} \l_n e^{i \omega_n t}
+ \ ,
+\end{split}
+\eeq
+where the last expressions hold in the continuum limit.
+The measure becomes
+\beq
+\DD \l(t) \equiv \prod_{i=0}^{M-1} \frac{d\l_i}{\pi} 
+\hskip1cm
+\to
+\hskip1cm
+\prod_{n=0}^{M-1} \frac{M d\l_n}{\pi} \equiv \DD \l_n \ ,
+\eeq
+and Fourier transforming the action one obtains:
+\beq
+Z = \int \DD \l_n \exp \left\{ - M \sum_{n=0}^{M-1} (1-e^{-i \frac{2 \pi n}M}) |\l_n|^2 - \int_0^\b dt \, H  \ ,
+\right\}
+\eeq
+The continuum limit is now straightforward and coincides with (\ref{Zpath}) in frequency space:
+\beq
+Z = \int \DD \l_n \exp \left\{ - \b \sum_{n=0}^{\io} i \omega_n |\l_n|^2 - \int_0^\b dt \, H  \ ,
+\right\}
+\eeq
+
+
+
+The generalization to a system of $N$ harmonic oscillators is clearly straightforward;
+in this case the operators $\hat a$ have and index $\a = 1,\cdots, N$ but the Hilbert space is
+constructed by applying the operators $\hat a_\a$ to the vacuum independently, therefore
+we can still define the coherent states $|\l_\a \ra$ as above.
+For an Hamiltonian $H(\hat a_\a^\dag, \hat a_\a)$ the path-integral representation is
+\beq
+Z = \int \DD \l_\a(t) \exp \left\{ - \int_0^\b dt \big[ \sum_{\a=1}^N \bar \l_\a \ \dot \l_\a + 
+H(\bar \l_\a,\l_\a) \big] 
+\right\}
+\eeq
+with periodic boundary conditions $\l_\a(\b) = \l_\a(0)$.
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Gallavotti} G. Gallavotti, {\it Meccanica statistica classica}, voce per l'Enciclopedia delle scienze fisiche.
+
+\bibitem{LandaV} L.Landau, E.M.Lif\v{s}its, {\it Fisica Teorica V}, Mir, \S37 e \S40
+
+\bibitem{DiCastro} C.Di Castro, {\it Appunti del corso di Meccanica Statistica} (ufficio dispense)
+
+\bibitem{Huang} K.Huang, {\it Meccanica Statistica}, Zanichelli, esercizio 12.9
+
+\bibitem{Onsager} O.Penrose, L.Onsager, Phys.Rev. 104(1956)576
+
+\bibitem{ADG} Abrikosov, Gorkov, Dzyaloshinski, {\it Methods of quantum field theory in statistical physics}, Dover
+
+\bibitem{LandaIX} L.Landau, E.M.Lif\v{s}its, {\it Fisica Teorica IX}, Mir, Cap. 3
+
+\end{thebibliography}
+
+\end{document}
+
+

@@ -1,0 +1,584 @@
+\documentclass[pre,aps]{revtex4}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%            COMANDI              %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\re}{\text{Re}}
+\newcommand{\im}{\text{Im}}
+\newcommand{\ie}{i.e. }
+\newcommand{\eg}{e.g. }
+\newcommand{\T}{{\rm T}}
+\newcommand{\su}{\sigma^{(1)}}
+\newcommand{\sd}{\sigma^{(2)}}
+\newcommand{\st}{\sigma^{(3)}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%         SIMBOLI VARI           %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\a=\alpha \let\b=\beta  \let\g=\gamma  \let\d=\delta \let\e=\varepsilon
+\let\z=\zeta  \let\h=\eta   \let\th=\theta \let\k=\kappa \let\l=\lambda
+\let\m=\mu    \let\n=\nu    \let\x=\xi     \let\p=\pi    \let\r=\rho
+\let\s=\sigma \let\t=\tau   \let\f=\varphi \let\c=\chi
+\let\ps=\psi  \let\y=\upsilon \let\o=\omega\let\si=\varsigma
+\let\G=\Gamma \let\D=\Delta  \let\Th=\Theta\let\L=\Lambda \let\X=\Xi
+\let\P=\Pi    \let\Si=\Sigma \let\F=\Phi    \let\Ps=\Psi
+\let\O=\Omega \let\Y=\Upsilon
+
+\let\io=\infty
+\let\ul=\underline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{The fluctuation theorem beyond linear response theory \\ and
+an extension to systems with slow dynamics}
+
+\maketitle
+
+{\it Disclaimer: this text was written in 2006: references are not updated and all developments
+in the field after 2006 are not included}
+
+\bigskip
+
+I started this research at the beginning of my PhD under the supervision
+of Giancarlo Ruocco and in collaboration with L.Angelani. 
+Initially we performed molecular dynamics simulations.
+The theoretical results that followed were motivated by these simulations, and were obtained 
+in a series of collaborations with F.Bonetto, L.F.Cugliandolo, G.Gallavotti, A.Giuliani and J.Kurchan.
+In the following I will briefly recall the statement of the
+Gallavotti-Cohen fluctuation theorem and the reasons why it
+attracted much interest in the last decade. 
+Then I will describe our contribution to this subject.
+
+\subsection{The chaotic hypothesis and the fluctuation relation}
+
+The ergodic hypothesis plays a central role in equilibrium statistical mechanics.
+Although very few systems can be proven to be ergodic, most systems behave effectively
+as if they were ergodic. In out of equilibrium statistical physics, it is believed that
+Anosov systems (a particular class of smooth chaotic systems) 
+play the role of ergodic systems in equilibrium statistical physics.
+
+\vskip10pt
+\noindent
+{\it Anosov systems and the fluctuation theorem} - 
+The fluctuation theorem concerns fluctuations of phase space
+contraction in reversible hyperbolic (Anosov) systems. If time evolution is
+described by a differential equation on phase space $M$: $\dot
+x=X(x),\, x\in M$,
+or by a map $S: x\rightarrow S(x)$ of $M$ one defines the {\it phase space
+contraction} as, respectively, $\sigma(x)=-{\rm \,div\,} X(x)$ or
+$\sigma(x)=-\log |\det\partial_x S(x)|$. Reversibility means that there is a
+metric preserving map $I$ of $M$ such that $IS=S^{-1}I$ if $S$ is the
+time evolution over a certain time $t$ ({\it e.g.} $t=1$).
+{\it If the system is Anosov}, that is if $M$ is compact and $S$ is smooth
+and uniformly hyperbolic, see \cite{Ga99,GC95a,GC95b,Ga95c,Ru99}, 
+the points $x$ will have a well defined
+statistics (or Sinai-Ruelle-Bowen distribution) $\mu_{srb}$, \cite{Ru99}, 
+\ie almost all points 
+with respect to the volume measure will evolve in time
+so that {\it all smooth observables} will have a well defined average
+equal to the integral over the SRB distribution. 
+The SRB distribution plays in nonequilibrium statistical mechanics the role
+that the Boltzmann distribution plays in equilibrium.
+Hence, in particular,
+the time average of the function $\sigma(x)$ 
+will be asymptotically given by the spatial average with respect to 
+the SRB distribution. In the case of discrete time maps:
+\beq
+\label{1.1}
+\sigma_+\equiv\lim_{\t\to\io} \frac1\t \sum_{j=0}^{\tau-1} \sigma(S^j(x))
+=\int_M \sigma\;d\mu_{srb} \equiv \langle\; \sigma \;\rangle_{srb}\eeq
+and an analogous relation holds in the continuous time case.
+A general result of Ruelle \cite{Ru99} is that $\s_+ \geq 0$. 
+Ruelle's theorem can be thought as a ``Boltzmann H theorem'' for nonequilibrium
+statistical mechanics. 
+If $\s_+=0$ the system conserves the phase space volume and the SRB distribution
+reduces to the volume measure, \ie the system is in equilibrium.
+In the dissipative case $\sigma_+ > 0$, let (in the discrete time case):
+\beq
+\label{FTC1}
+p(x)=\frac{1}{\tau \sigma_+} \sum_{j=0}^{\tau-1} \sigma(S^j(x))
+\eeq
+(an analogous definition is given 
+in the continuous time case).
+The function $p(x)$ will have average $\langle\; p\;\rangle_{srb} = 1$
+and distribution $\pi_\tau(dp)$ such that
+\beq
+\label{FTC2}
+\pi_\tau(\{p\in \Delta\})= e^{\tau \max_{p\in\Delta}\zeta_\infty(p)+ O(1)}\;,
+\eeq
+where the correction at the exponent is $O(1)$ w.r.t. $\t$ as $\t\to\io$,
+\ie the {\it large deviation function} $\z_\io(p)$ is well defined.
+The {\it Gallavotti-Cohen fluctuation theorem} states that the following 
+fluctuation relation (FR) holds:
+\beq
+\label{FTC3}
+\zeta_\infty(p)=\zeta_\infty(-p)+p \sigma_+ \qquad{\rm for\ all}\ |p|<p^*
+\eeq
+where $\infty> p^*\ge1$ is a suitable (model dependent) constant, defined
+by $\z_\io(p) = -\io$ for $|p|> p^*$. The fluctuation relation was discovered 
+in a numerical simulation in \cite{ECM93} and formulated as a theorem for 
+Anosov systems in \cite{GC95a}.
+
+\vskip10pt
+
+\noindent
+{\it The chaotic hypothesis and physical implications of the FR} - 
+Hyperbolicity is a paradigm 
+for disordered systems similar to the
+small oscillations paradigm used for ordered motions: it does not
+hold exactly in essentially all the physically interesting
+systems. The {\it chaotic hypothesis} \cite{Ga99,GC95a,GC95b,Ga04,Ru04}
+is that nevertheless
+one can assume that chaotic motions 
+(in the sense of motions with at least one positive Lyapunov exponent) 
+exhibit some average properties of truly
+hyperbolic motions. This hypothesis is a natural generalization of 
+the ergodic hypothesis,
+\ie of the assumption that systems of many particles at equilibrium
+are well 
+described on average by the microcanonical (or by the Gibbs) 
+distribution, even if they are not
+really (or they are not proven to be) ergodic.
+A consequence of the chaotic hypothesis is that
+(dissipative) deterministic chaotic reversible 
+motions
+should have fluctuations of phase space contraction verifying Eq.~\ref{FTC3}.
+
+One interesting example of such motions is given by a system of 
+$N$ interacting particles
+in $d$ dimensions subjected to nonconservative forces and kept in a
+stationary state by a {\it reversible mechanical thermostat}.
+It will be defined by a differential equation $\dot x=X_E(x)$ where 
+$x=(\dot{\ul q},\ul q) \in R^{2dN} \equiv M$ ({\it phase space})
+and
+\beq
+\label{INTRO1}
+m \ddot{\ul q} = \ul f(\ul q) + \ul g_E (\ul q) - \ul 
+\theta_E (\dot{\ul q},\ul q)
+\eeq
+where $m$ is the mass of the particles, $\ul f(\ul q)$ describes 
+the internal (conservative)
+forces between the particles and $\ul g_E (\ul q)$ represents 
+the nonconservative
+``external'' force acting on the system. Finally, 
+$\ul \theta_E (\dot{\ul q},\ul q)$ is a
+mechanical force that prevents the system to acquire energy indefinitely: 
+this is why we shall
+call it a {\it mechanical thermostat}.
+Systems belonging to this class are frequently 
+used as microscopic models to describe
+nonequilibrium stationary states induced by the application of a driving force
+(temperature or velocity gradients, electric fields, etc.) on a
+fluid system in contact with a thermal bath, \cite{Ru04}. 
+In this context, the phase space contraction
+rate $\sigma(x)$ has been identified (setting $k_B=1$) 
+with the {\it entropy production rate} \cite{ECM93,Ga99,Ga04,Ru04},
+and the fluctuation relation has been successfully tested in 
+several numerical simulations
+\cite{ECM93,BGG97,BCL98,BPV98,GP99,GRS04,ZRA04a} and
+experiments on granular materials and on turbulent
+flows \cite{CL98,GGK01,CGHLP03,FM04}.
+Having defined the notion of entropy production rate one can 
+define a ``duality'' between 
+fluxes $\ul J = \{ J_i \}$ and forces $\ul E= \{ E_i \}$ using $\sigma(x)$ as a 
+``Lagrangian'' \cite{Ga04}:
+\beq
+\label{Jdef}
+J_i(\ul E,x) = \frac{\partial \sigma(x)}{\partial E_i}
+\eeq
+In the limit $\ul E \rightarrow \ul 0$, {\it i.e.} close to equilibrium, 
+the fluctuation relation
+leads to Onsager's reciprocity and to Green-Kubo's formulas for 
+transport coefficients
+\cite{GR97,Ga96a,Ga96b}:
+\beq
+\label{GK}
+\mu_{ij} \equiv \lim_{\ul E \rightarrow \ul 0} \frac{\langle J_i 
+\rangle_{\ul E}}{E_j} = 
+\int_0^\infty dt \ \langle J_i(t) J_j(0) \rangle_{\ul E=\ul 0}
+\eeq
+The reasons why the fluctuation relation attracted lot of interest is that
+it is a {\it universal} relation (\ie it contains no model dependent parameters)
+that reduces to well known universal relations (the Green-Kubo relations) 
+in the linear response regime.
+Moreover the chaotic hypothesis, that implies the validity of the fluctuation
+relation for reversible systems, is very powerful: it provides an explicit expression
+for the invariant measure describing nonequilibrium stationary states of a large
+class of systems. Thus it is interesting to explore its validity. 
+
+\vskip10pt
+\noindent
+{\it Numerical verification of the chaotic hypothesis} -
+The simplest check of the applicability of the chaotic hypothesis
+is a verification of the fluctuation relation: of course even if the
+check has a positive result this will not ``prove'' the hypothesis but
+it will at least add confidence to it. A rather stringent test of the
+fluctuation relation would be a check which
+{\it cannot be reduced to a kind of Green-Kubo relation}; this  requires
+at least one of the two following conditions to be satisfied \cite{ZRA04a,GGZ05}:
+\begin{enumerate}
+\item the distribution $\pi_\tau(p)$ is distinguishable from a Gaussian, or
+\item deviations from the linear response theory, \ie
+deviations from the Green-Kubo relation, are observed.
+\end{enumerate}
+This is very hard to obtain in numerical simulations of 
+Eq.~\ref{INTRO1} for the following
+reasons:
+\begin{enumerate}
+\item to observe deviations from linearity in Eq.~\ref{GK} one has to
+apply very large forces $E$, then $\sigma_+$ is very large and 
+it becomes very difficult
+to observe the negative values of $p(x)$ that are needed to 
+compute $\zeta_\infty(-p)$ in Eq.~\ref{FTC3};
+\item deviations from Gaussianity in $\pi_\tau(p)$ 
+are observed only for values of $p$ that
+differ significantly (of the order of twice the variance) from $1$ and,
+again, it is very difficult
+to observe such values of $p$.
+\end{enumerate}
+Due to the limited computational resources available in the past decade,
+all numerical computations that can be found in the literature
+on systems described by Eq.~\ref{INTRO1} found that the measured
+distribution $\pi_\tau(p)$ could not be 
+distinguished from a Gaussian distribution
+in the interval of $p$ accessible to the numerical experiment 
+\cite{ECM93,BGG97,BCL98,ZRA04a}. 
+
+\vskip10pt
+
+The purpose of our work (in collaboration with G.~Gallavotti and
+A.~Giuliani) was to test the fluctuation relation, 
+in a numerical simulation
+of a system described by Eq.~\ref{INTRO1}
+(namely, a system of $N=8$ --in $d=2$ dimensions--
+and of $N=20$ --in $d=3$-- Lennard--Jones-like particles perturbed
+by a constant force), for large 
+applied force when deviations from linearity can be observed, and
+the distribution $\pi_\tau(p)$ is appreciably non-Gaussian.
+This was made possible by the large computational power 
+(two clusters of 18 and 32 biprocessor units)
+avalaible in the INFM-Soft research center. However,
+it was still very difficult to reach values of $\tau$ which
+can be confidently regarded as ``close'' to the asymptotic limit 
+$\tau \rightarrow \infty$;
+thus to interpret our results we developed a theory of the $o(1)$ 
+corrections to the function
+$\zeta_\infty(p)$ in order to extract the limiting function 
+$\zeta_\infty(p)$ from the
+numerical data. 
+In order to compute the finite time corrections, 
+we proposed an algorithm which allows to reconstruct the asymptotic 
+distribution function from measurable quantities at finite time, within
+a given precision \cite{GGZ05}. Our theory of the corrections relies on the 
+symbolic representation of the chaotic dynamics, then it is 
+applicable if one accepts the Chaotic Hypothesis.
+Taking into account the latter finite time corrections, 
+we successfully tested the fluctuation relation for 
+non--Gaussian distributions and beyond the
+linear response theory.
+
+Our interpretation of the numerical results is that the 
+chaotic hypothesis can be applied to these
+systems, also very far from equilibrium, and in particular
+the fluctuation relation is 
+verified even in regions where its predictions measurably differ 
+from those of linear response theory.
+
+A big open problem we are left with is trying to understand 
+how the fluctuation relation is modified for values
+of the driving force so high that the attractive set is no more dense in phase
+space. It is expected, \cite{BG97,Ga99b},
+that in such a case 
+$\z_\io(p)-\z_\io(-p)$ is still linear, but the slope is $X\s_+$, with 
+$X$ given by the ratio of the dimension of the attractive set and
+of that of the whole phase space. An estimate of such quantity can be given 
+via the number of negative pairs of exponents in the Lyapunov spectrum.
+Unfortunately negative pairs begin to appear in the Lyapunov spectrum
+only for values of the external force so high that no negative fluctuations
+are observable anymore.
+We hope that future work will address this point. A recently proposed
+algorithm to measure large deviations \cite{GKP05} may be useful
+in this perspective.
+
+
+\subsection{Extension of the fluctuation theorem to driven glassy systems}
+
+The fluctuation theorem has been extended to a Langevin equation by Kurchan \cite{Ku98} and
+to generic Markov processes by Lebowitz and Spohn \cite{LS99}.
+Thus, at present, the fluctuation relation is believed to be a very general relation that characterizes
+the fluctuations of the entropy production in out of equilibrium stationary states; moreover,
+a close connection between the fluctuation relation and the definition of a 
+{\it nonequilibrium temperature} has been conjectured \cite{Ga04,CR04,SCM04,Se98}.
+
+To exploit this connection, one should consider systems such that the nonequilibrium temperature
+is not trivially equal to the ambient temperature; 
+for a system coupled to a single thermal bath, this happens if 
+{\it (i)} the thermal bath has temperature $T$, but the system is not able to equilibrate with
+the bath, and/or if {\it (ii)} the bath itself
+is not at equilibrium, \ie it does not verify the fluctuation-dissipation relation \cite{Cu02}.
+The first situation happens, for example, in glassy systems, that never reach equilibrium with
+the thermal bath; the second situation is realized if one consider the diffusion of a Brownian
+particle in a complex medium (\eg a glass, or a granular) \cite{PM04,Po04,AG04}.
+In this case the medium, which acts as
+a thermal bath with respect to the Brownian particle, is itself out of equilibrium.
+The two situations are closely related as, at least at the mean field level, the problem of 
+glassy dynamics can be mapped in the problem of a single ``effective'' degree of freedom moving 
+in an out of equilibrium environment \cite{Cu02,CK99}, 
+and thus situations {\it (i)} and {\it (ii)} are described
+by the same kind of equation, namely a Langevin equation for a single degree of freedom coupled
+to a complex bath, \ie a bath that does not verify the fluctuation-dissipation theorem.
+Finally, note that the simplest situation where the nonequilibrium temperature is not trivial
+happens when the system is in contact with a certain number of thermal baths at different 
+temperature; the latter can also be seen as a model for a ``complex bath'' \cite{CK99}.
+
+Our aim was then to discuss the validity of the fluctuation relation for the simplest
+possible system realizing one of the situations discussed above, namely a Brownian particle subject
+to a driving force and to a confining potential, and coupled to either a complex (out of equilibrium)
+bath or to $N$ different baths with different temperature.
+We found that:
+\begin{enumerate}
+\item the PDF of the entropy production $\s(t) = W(t)/\Th$, where $W(t)$ is the power dissipated 
+by the external force and $\Th$ is a free parameter with the dimensions of a temperature,
+does not satisfy the fluctuation relation exactly: 
+if the bath acts on a single time scale 
+the fluctuation relation is verified approximately if $\Th$ is
+suitably chosen; if the bath acts on different time scales, 
+the function $[\z_\io(p)-\z_\io(-p)]/\s_+$ may have different slopes corresponding to the
+different temperatures at small $p$ and at large $p$;
+\item if a suitable (frequency dependent)
+{\it effective temperature} is defined as a property of the bath \cite{Cu02}, 
+and if the entropy production rate is defined as the integral over all frequencies $\o$ of the power
+injected by the driving force at frequency $\o$ divided by the effective temperature at the same 
+frequency, the fluctuation relation holds for the complex bath we considered;
+\item The modified fluctuation relation is related, in the linear regime, to
+  the modified Green-Kubo relations in which the effective temperature enters
+  instead of the ambient temperature.
+\end{enumerate}
+Models like the one we discussed have been recently investigated \cite{AG04,PM04,Po04}
+to describe the dynamics of Brownian particles in complex media;
+Brownian particles are often used as probes in order to study the properties 
+of the medium (\eg in Dynamic Light Scattering or Diffusing Wave Spectroscopy experiments).
+Moreover, confining potentials for Brownian particles can be generated using laser beams 
+\cite{Gr03} and experiments on the fluctuations of the power dissipated in such systems
+are currently being performed \cite{AG04,WSMSE02}.
+
+This part of the work is done in collaboration with F.~Bonetto, L.~Cugliandolo and J.~Kurchan 
+and the results have been published in \cite{CKZ?}. The analytical results are in good 
+agreement with the numerical simulations on Lennard--Jones systems that motivated them, 
+performed in collaboration with G.Ruocco and L.Angelani and published in \cite{ZRA04b}.
+
+
+\begin{thebibliography}{99}
+
+
+
+
+%%Fluctuation theorem
+
+\bibitem{Ga99} G.~Gallavotti, {\it Statistical mechanics. A short treatise}
+(Springer Verlag, Berlin, 1999).
+
+\bibitem{GC95a} G.~Gallavotti and E.G.D.~Cohen,
+%{\it Dynamical ensembles in nonequilibrium statistical mechanics},
+Phys.~Rev.~Lett. {\bf 74}, 2694--2697 (1995).
+
+\bibitem{GC95b} G.~Gallavotti, E.~G.~D.~Cohen, 
+%{\it Dynamical
+%ensembles in stationary states}, 
+J.~Stat.~Phys. {\bf 80}, 931--970 (1995).
+
+\bibitem{Ga95c} G.~Gallavotti, 
+%{\it Reversible Anosov maps and large 
+%deviations},
+Mathematical Physics Electronic Journal, MPEJ, {\bf 1}, 1--12 (1995).
+
+\bibitem{Ru99} D.~Ruelle, 
+%{\it Smooth dynamics and new theoretical ideas 
+%in non-equilibrium statistical mechanics}, 
+J.~Stat.~Phys. {\bf 95}, 393--468 (1999).
+
+\bibitem{ECM93} D.~J.~Evans, E.~G.~D.~Cohen, and G.~P.~Morriss,
+%{\it Probability of second law violations in shearing steady states},
+Phys.~Rev.~Lett. {\bf 71}, 2401--2404 (1993).
+
+\bibitem{Ga04} G.~Gallavotti, 
+%{\it Entropy production in
+%  nonequilibrium stationary states: a point of view},
+Chaos, {\bf 14}, 680--690, (2004).
+
+\bibitem{Ru04} D.~Ruelle, 
+%{\it Conversations on nonequilibriun physics with an 
+%extraterrestrial}, 
+Physics Today, May, 48-53 (2004).
+
+\bibitem{BGG97} F.~Bonetto, G.~Gallavotti, and P.~L.~Garrido, 
+%{\it Chaotic principle: an experimental test},
+Physica D {\bf 105}, 226--252 (1997).
+
+\bibitem{BCL98} F.~Bonetto, N.~I.~Chernov, J.~L.~Lebowitz,
+%{\it (Global and local) fluctuations of phase-space contraction
+%in deterministic stationary non-equilibrium},
+Chaos {\bf 8}, 823--833 (1998).
+
+\bibitem{BPV98} L.~Biferale, D.~Pierotti, and A.~Vulpiani,
+%{\it Time-reversible dynamical systems for turbulence},
+J.~Phys.~A:~Math.~Gen. {\bf 31}, 21--32 (1998).
+
+\bibitem{GP99} G.~Gallavotti, F.~Perroni,
+%{\it An experimental test of the local fluctuation theorem in chains of
+%weakly interacting Anosov systems},
+chao-dyn/9909007.
+
+\bibitem{GRS04} G.~Gallavotti, L.~Rondoni, and E.~Segre,
+%{\it Lyapunov spectra and nonequilibrium ensembles equivalence in 2D fluid mechanics},
+Physica D {\bf 187}, 338--357 (2004).
+
+\bibitem{ZRA04a} F.~Zamponi, G.~Ruocco, L.~Angelani,
+%{\it Fluctuations of entropy production in the isokinetic ensemble},
+J.~Stat.~Phys. {\bf 115}, 1655--1668 (2004).
+
+\bibitem{CL98} S.~Ciliberto and C.~Laroche,
+%{\it An experimental test of the Gallavotti-Cohen fluctuation theorem},
+J.~Phys.~IV {\bf 8}, Pr6-215 (1998).
+
+\bibitem{GGK01} W.~I.~Goldburg, Y.~Y.~Goldschmidt, and H.~Kellay,
+%{\it Fluctuation and Dissipation in Liquid-Crystal Electroconvection},
+Phys.~Rev.~Lett. {\bf 87}, 245502 (2001).
+
+\bibitem{CGHLP03}
+S.~Ciliberto, N.~Garnier, S.~Hernandez, C.~Lacpatia, J.-F.~Pinton, 
+and G.~Ruiz~Chavarria, 
+%{\it Experimental test of the Gallavotti-Cohen fluctuation
+%theorem in turbulent flows},
+Physica A {\bf 340}, 240 (2004).
+
+\bibitem{FM04}  K.~Feitosa and N.~Menon,
+%{\it Fluidized Granular Medium as an Instance of the Fluctuation Theorem},
+Phys.~Rev.~Lett. {\bf 92}, 164301 (2004).
+
+\bibitem{GR97} G.~Gallavotti, D.~Ruelle, 
+%{\it SRB states and nonequilibrium statistical mechanics close to
+%  equilibrium}, 
+Comm.~Math.~Phys. {\bf 190}, 279--285 (1997).
+
+\bibitem{Ga96a} G.~Gallavotti, 
+%{\it Extension of Onsager's reciprocity to large fields and 
+%the chaotic hypothesis},
+Phys.~Rev.~Lett. {\bf 77}, 4334--4337 (1996).
+
+\bibitem{Ga96b} G.~Gallavotti,
+%{\it Chaotic hypothesis: Onsager reciprocity and 
+%fluctuation-dissipation theorem},
+J.~Stat.~Phys. {\bf 84}, 899 (1996).
+
+\bibitem{BG97} F.~Bonetto, G.~Gallavotti,
+%{\it Reversibility, coarse graining and the chaoticity principle},
+Comm.~Math.~Phys. {\bf 189}, 263--276, (1997).
+
+\bibitem{Ga99b} G.~Gallavotti, 
+%{\it New methods in nonequilibrium gases and fluids},
+Open Systems and Information Dynamics {\bf 6}, 101--136 (1999).
+
+\bibitem{GGZ05}
+G.~Gallavotti, A.~Giuliani and F.~Zamponi,
+%{\it Fluctuation relation beyond linear response theory}, 
+J.~Stat.~Phys. {\bf 119}, 909 (2005).
+
+\bibitem{GKP05} C.~Giardina, J.~Kurchan and L.~Peliti,
+cond-mat/0511248.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibitem{Ku98} J.~Kurchan, 
+%{\it Fluctuation theorem for stochastic dynamics},
+J.~Phys.~A {\bf 31}, 3719--3729 (1998).
+
+\bibitem{LS99} J.~L.~Lebowitz and H.~Spohn,
+%{\it A Gallavotti--Cohen-Type Symmetry in the Large Deviation 
+%Functional for Stochastic Dynamics},
+J.~Stat.~Phys. {\bf 95}, 333--365 (1999).
+
+\bibitem{SCM04}
+G.~Semerjian, L.~F.~Cugliandolo, and A.~Montanari,
+%{\it On the Stochastic Dynamics of Disordered Spin Models},
+J.~Stat.~Phys {\bf 115}, 493--530 (2004).
+
+\bibitem{CR04}
+A.~Crisanti and F.~Ritort,
+%{\it Intermittency of glassy relaxation and the emergence of a 
+%non-equilibrium spontaneous measure in the aging regime},
+Europhys.~Lett. {\bf 66}, 253--259 (2004).
+
+\bibitem{Se98}
+M.~Sellitto, 
+%{\it Fluctuations of entropy production in driven glasses},
+cond-mat/9809186.
+
+\bibitem{Cu02}
+L.~F.~Cugliandolo, 
+{\it Dynamics of glassy systems},
+in ``Slow relaxation and nonequilibrium dynamics in condensed matter'', 
+Les Houches Session 77, J-L Barrat et al eds., Springer-Verlag, 2002.
+
+\bibitem{AG04}
+B~Abou, F~Gallet,
+%{\it Probing an nonequilibrium Einstein relation in an aging colloidal glass},
+Phys.~Rev.~Lett. {\bf 93}, 160603 (2004).
+
+\bibitem{PM04}
+N.~Pottier, A.~Mauger,
+%{\it Anomalous diffusion of a particle in an aging medium},
+Physica A {\bf 332}, 15--28 (2004).
+
+\bibitem{Po04}
+N.~Pottier,
+%{\it Out of equilibrium generalized Stokes--Einstein relation: 
+%determination of the effective temperature of an aging medium},
+Physica~A {\bf 345}, 472 (2005).
+
+\bibitem{CK99} L.~F.~Cugliandolo and J.~Kurchan, 
+%{\it A scenario for the dynamics in the small entropy production limit},
+Frontiers in Magnetism,
+J.~Phys.~Soc.~Japan {\bf 69}, Suppl.~A, 247--256 (2000).
+
+\bibitem{Gr03}
+D.~G.~Grier, 
+%{\it A revolution in optical manipulation},
+Nature (London) {\bf 424}, 810--816 (2003).
+
+\bibitem{WSMSE02}
+G.~M.~Wang, E.~M.~Sevick, E.~Mittag, D.~J.~Searles, and D.~J.~Evans,
+%{\it Experimental Demonstration of Violations of the Second Law of Thermodynamics for 
+%Small Systems and Short Time Scales},
+Phys.~Rev.~Lett. {\bf 89}, 050601 (2002).
+
+\bibitem{CKZ?}
+F.~Zamponi, F.~Bonetto, L.~F.~Cugliandolo, J.~Kurchan,
+%{\it Fluctuation theorem for a driven Brownian particle coupled to a complex bath},
+J. Stat. Mech. (2005) P09013.
+
+\bibitem{ZRA04b}
+F.~Zamponi, G.~Ruocco and L.~Angelani,
+%{\it Generalized fluctuation relation and effective temperature in a driven fluid},
+Phys.Rev.E {\bf 71}, 020101(R) (2005).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{thebibliography}
+
+\end{document}
