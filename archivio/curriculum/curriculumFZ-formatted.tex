@@ -1,0 +1,299 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}\renewcommand{\sfdefault}{phv}
+\usepackage[margin=2cm,top=1.8cm,bottom=1.8cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+\definecolor{accent}{HTML}{7A1F2B}
+\definecolor{rulegray}{HTML}{B9B2A8}
+\definecolor{datecol}{HTML}{5A5A5A}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
+
+% --- section headings -------------------------------------------------
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{accent}}{}{0pt}{}[{\color{rulegray}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{10pt}{3pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\footnotesize\color{datecol}Francesco Zamponi --- Curriculum vitae --- \thepage}
+
+% --- helpers ----------------------------------------------------------
+\newcolumntype{D}{>{\raggedright\hspace{0pt}\color{datecol}}p{0.20\textwidth}}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.25}
+
+\begin{document}
+
+% ======================= HEADER =======================
+{\color{accent}\rule{\textwidth}{1.2pt}}
+
+\vspace{6pt}
+{\Huge\bfseries Francesco Zamponi}
+
+\vspace{3pt}
+{\large\color{datecol} Associate Professor of Theoretical Physics}
+
+\vspace{6pt}
+{\color{rulegray}\rule{\textwidth}{0.6pt}}
+
+\vspace{6pt}
+\begin{tabularx}{\textwidth}{@{}>{\small}p{0.48\textwidth} >{\small\raggedright\arraybackslash}X@{}}
+Dipartimento di Fisica, Sapienza Università di Roma & Born in Rome (Italy), 23 February 1979 \\
+P.le A.~Moro 2, 00185 Rome, Italy & Phone: +39 06 4991 4288 \\
+\href{https://francescozamponi.github.io/}{francescozamponi.github.io} & E-mail: francesco.zamponi@uniroma1.it \\
+\multicolumn{2}{@{}l}{\small ORCID: \href{https://orcid.org/0000-0001-9260-1951}{0000-0001-9260-1951}} \\
+\end{tabularx}
+
+% ======================= POSITIONS =======================
+\section{Positions}
+
+\begin{tabularx}{\textwidth}{@{}D L@{}}
+09/2023--present & Professore Associato, Dipartimento di Fisica, Sapienza Università di Roma \\
+10/2018--08/2023 & Directeur de Recherche (DR2), CNRS, LPENS, École Normale Supérieure, Paris \\
+10/2018--08/2021 & Professeur associé, Physics Department, École Normale Supérieure, Paris \\
+09/2015--09/2018 & Maître de Conférences associé, Physics Department, École Normale Supérieure, Paris \\
+03/2012--09/2018 & Chargé de Recherche (CR1), CNRS, LPT, École Normale Supérieure, Paris \\
+03/2008--02/2012 & Chargé de Recherche (CR2), CNRS, LPT, École Normale Supérieure, Paris \\
+10/2007--02/2008 & EU Marie Curie Fellowship, LPT, École Normale Supérieure, Paris \\
+10/2006--10/2007 & Post-doc, SPhT Saclay, Paris \\
+10/2005--10/2006 & Post-doc, LPT, École Normale Supérieure, Paris \\
+11/2002--10/2005 & PhD student, Physics Department, Sapienza Università di Roma \newline
+                     {\small Supervisors: Prof.~Giancarlo Ruocco and Prof.~Giorgio Parisi} \\
+01/2002--10/2002 & INFM fellowship, Sapienza Università di Roma \\
+09/1997--12/2001 & Undergraduate studies, Sapienza Università di Roma \\
+\end{tabularx}
+
+% ======================= QUALIFICATIONS =======================
+\section{Degrees and qualifications}
+
+\begin{tabularx}{\textwidth}{@{}D L@{}}
+2023 & Abilitazione Scientifica Nazionale (fascia I), sector 02/D1 (valid until 11/01/2035) \\
+2013 & Abilitazione Scientifica Nazionale (fascia I), sector 02/A2 (valid until 14/04/2033) \\
+2013 & Abilitazione Scientifica Nazionale (fascia I), sector 02/B2 (valid until 11/05/2033) \\
+2012 & Habilitation à diriger des recherches, École Normale Supérieure, Paris \\
+2006 & PhD in Physics, Sapienza Università di Roma \\
+2001 & Laurea in Fisica, cum laude, Sapienza Università di Roma \\
+\end{tabularx}
+
+% ======================= AWARDS AND GRANTS =======================
+\section{Awards, grants and long-term visiting positions}
+
+\begin{tabularx}{\textwidth}{@{}D L@{}}
+2024 & Sapienza Award Horizon Europe, for the MSCA Doctoral Network proposal \emph{Fitness landscapes from molecules to life} (FITMOLIFE) \\
+2024 & Sapienza Progetto di Ricerca Medio, \emph{Stochastic dynamics of biological systems} \\
+2016 & ERC Consolidator Grant, \emph{GlassUniversality} \\
+2016 & Member of the Simons Collaboration \emph{Cracking the Glass Problem} \\
+2014 & PSL$^\star$ University grant, \emph{Jamming: Theory and Experiment}, with O.~Dauchot \\
+2013 & Appointment as regular visiting fellow, Duke University, Durham, NC \\
+2011 & PIR grant of ENS, \emph{Optimization in complex systems} \\
+2010 & MIT-France Seed Fund / MISTI Global Seed Fund grant, \emph{Numerical simulations and quantum algorithms} \\
+2009 & Visiting fellow, Princeton Center for Theoretical Science, Princeton, NJ (09--12/2009) \\
+2009 & BQR grant of ENS, \emph{Fluids and solids at low temperature} \\
+2007 & ``Giorgio Gamberini'' award of Scuola Normale Superiore, Pisa, for a PhD thesis in theoretical physics \\
+2002 & INFM--Sapienza prize for an experimental Laurea thesis \\
+\end{tabularx}
+
+% ======================= SERVICE =======================
+\section{Editorial work, committees and scientific service}
+
+\begin{tabularx}{\textwidth}{@{}D L@{}}
+2025--present & Member of the editorial board, \emph{Journal of Statistical Mechanics: Theory and Experiment}, IOP \\
+2025 & Member of the PE3 Consolidator Grant panel, European Research Council \\
+2021--present & Associate editor, \emph{Journal of Statistical Physics}, Springer \\
+2019--2021 & Elected head of the Statistical Physics group, LPENS, Paris \\
+2015--2016 & Elected member of the Commission interdisciplinaire 51, CNRS \\
+2014 & Member of the selection committee for a Maître de Conférences position, LPT-Orsay \\
+2013 & Member of the AERES visiting committee, LPT-Orsay \\
+2012--2016 & Elected member of the Comité national, Section 02, CNRS \\
+2010--2014 & Member of the scientific committee of the GDR Phenix, CNRS \\
+\end{tabularx}
+
+\subsection{Refereeing}
+\vspace{2pt}
+{\small Nature, Nature Physics, Nature Machine Intelligence, Nature Materials, Nature Communications, PNAS, eLife,
+PLoS Computational Biology, Current Opinion in Genetics \& Development, Physical Review Letters, Physical Review~E,
+Journal of Statistical Physics, Journal of Statistical Mechanics: Theory and Experiment, Journal of Chemical Physics,
+Journal of Physics: Condensed Matter, European Physical Journal~B, Europhysics Letters, Soft Matter, Molecular Physics,
+Physica~A, Journal of Alloys and Compounds, Powder Technology.
+See \href{https://orcid.org/0000-0001-9260-1951}{ORCID} for the full record.}
+
+% ======================= RESEARCH =======================
+\section{Research}
+
+\begin{tabularx}{\textwidth}{@{}D L@{}}
+Research interests & \href{https://francescozamponi.github.io/pagine/research.html}{francescozamponi.github.io/pagine/research.html} \\
+Publications & \href{https://francescozamponi.github.io/pagine/pubblicazioni.html}{francescozamponi.github.io/pagine/pubblicazioni.html} \\
+Talks & \href{https://francescozamponi.github.io/pagine/talks.html}{francescozamponi.github.io/pagine/talks.html} \\
+Software & \href{https://francescozamponi.github.io/pagine/software.html}{francescozamponi.github.io/pagine/software.html} \\
+Events organized & \href{https://francescozamponi.github.io/pagine/events.html}{francescozamponi.github.io/pagine/events.html} \\
+\end{tabularx}
+
+\subsection{Long-term research visits}
+\vspace{2pt}
+{\small Princeton University 2009 (107 days); Sapienza Rome 2011--2014 (93 days over five visits);
+SISSA Trieste 2008--2010 (52 days over four visits); Porto Alegre University 2010, 2011 (22 days);
+MIT Boston 2010, 2011 (19 days); Duke University 2013 (8 days); Weizmann Institute 2013 (5 days);
+Graduate Center, CUNY 2014 (3 days).}
+
+% ======================= TEACHING =======================
+\section{Teaching}
+
+\begin{tabularx}{\textwidth}{@{}D L@{}}
+2023--present & \emph{Meccanica analitica e relativistica}, 60 h, undergraduate, Department of Physics, Sapienza \\
+2023--present & \emph{Modelli matematici per la fisica II}, 56 h, undergraduate, Department of Mathematics, Sapienza \\
+2020--2023 & \emph{Statistical Physics 2: Disordered Systems and Interdisciplinary Applications}, 20 h, with G.~Schehr, ICFP master (M2), ENS Paris \\
+2016--2021 & \emph{Information, inference, networks: from statistical physics to big biological data}, 20 h, with R.~Monasson and S.~Cocco, ICFP master (M2), ENS Paris \\
+2015--2019 & \emph{Mathématiques pour physiciens}, 38 h, with M.~Petrini, L3, ENS Paris \\
+2017 & \emph{Machine learning}, 6 h, with F.~Krzakala and A.~Manoel, CFM, Paris \\
+2011--2016 & \emph{Introduction à la physique numérique}, 12 h, with V.~Croquette, L3, ENS Paris \\
+2008--2012 & \emph{Mécanique statistique} (préceptorat), 16 h, assistant to J.-F.~Joanny, L3, ESPCI Paris \\
+2007--2014 & \emph{Spin glasses}, 20 h, PhD programmes of SISSA Trieste (2007--2010) and Sapienza Rome (2010--2014); short versions at Université Libre de Bruxelles (2010) and University of Porto Alegre (2011). Lecture notes: arXiv:1008.4844 \\
+2004--2007 & \emph{Fisica dei liquidi}, assistant to P.~Tartaglia, undergraduate, Sapienza \\
+2003--2004 & \emph{Metodi matematici della fisica}, assistant to A.~Degasperis, undergraduate, Sapienza \\
+\end{tabularx}
+
+% ======================= SUPERVISION =======================
+\section{Supervision}
+
+\subsection{PhD students}
+\vspace{4pt}
+{\small
+\begin{tabularx}{\textwidth}{@{}>{\hspace{0pt}\color{datecol}}p{0.09\textwidth} p{0.20\textwidth} p{0.20\textwidth} p{0.17\textwidth} >{\raggedright\arraybackslash}X@{}}
+\textbf{Years} & \textbf{Student} & \textbf{Institution} & \textbf{Co-supervisor} & \textbf{Current position} \\[1pt]
+\hline
+2025--28 & Ottavia Schulte & Sapienza Rome & R.~Di Leonardo & \\
+2023--26 & Lorenzo Rosset & ENS Paris & M.~Weigt & \\
+2023--26 & Alya Zeinaty & Sorbonne Université & M.~Weigt & \\
+2023--26 & Luca Del Bono & Sapienza Rome & F.~Ricci-Tersenghi & \\
+2022--26 & Riccardo Cipollini & Sapienza Rome & F.~Ricci-Tersenghi & \\
+2020--23 & Jeanne Trinquier & Sorbonne Université & M.~Weigt & Postdoc, Institut de la Vision, Paris \\
+2020--23 & Matteo Bisardi & ENS Paris & M.~Weigt & Postdoc, Univ.~of British Columbia \\
+2020--23 & Enrico Ventura & Sapienza Rome & G.~Ruocco & Postdoc, SISSA Trieste \\
+2017--20 & Dhruv Sharma & ENS Paris & J.-P.~Bouchaud & Talagent Financial, Boulder, CO \\
+2016--19 & Camille Scalliet & Univ.~Montpellier & L.~Berthier & Permanent, CNRS -- LPENS Paris \\
+2013--16 & Thibaud Maimbourg & ENS Paris & J.~Kurchan & \\
+2012--15 & Corrado Rainone & Sapienza Rome & G.~Parisi & Qualcomm, Amsterdam \\
+2010--13 & Victor Bapst & ENS Paris & G.~Semerjian & Google DeepMind, London \\
+2009--11 & Laura Foini & SISSA Trieste & A.~Gambassi & Permanent, CNRS -- IPhT Paris \\
+\hline
+\end{tabularx}}
+
+\subsection{Post-doctoral researchers}
+\vspace{4pt}
+{\small
+\begin{tabularx}{\textwidth}{@{}>{\hspace{0pt}\color{datecol}}p{0.09\textwidth} p{0.24\textwidth} p{0.22\textwidth} >{\raggedright\arraybackslash}X@{}}
+\textbf{Years} & \textbf{Researcher} & \textbf{Funding} & \textbf{Current position} \\[1pt]
+\hline
+2023--26 & Saverio Rossi & Overheads & Postdoc, Cologne \\
+2021--22 & Sabrina Cotogno & Simons & Researcher, Capgemini Engineering \\
+2020--23 & Simone Ciarella & Simons, ERC & Permanent, Netherlands eScience Center \\
+2020--23 & Felix Mocanu & Simons, ERC & Postdoc, University of Oxford \\
+2020--22 & Giampaolo Folena & Simons, ERC & Postdoc, Spain \\
+2020 & Misaki Ozawa & ERC & Permanent, CNRS -- LiPhy Grenoble \\
+2019 & Davide Facoetti & ERC & Research scientist, Faculty AI \\
+2018--21 & Alessandro Manacorda & ERC & High school teacher, Rome \\
+2018--19 & Anna Paola Muntoni & Simons & Associate Professor, Politecnico di Torino \\
+2017--20 & Harukuni Ikeda & Japanese grant, Simons & Associate Professor, Tokyo University \\
+2017--19 & Dmytro Khomenko & Simons & Postdoc, Poland \\
+2017--18 & Ada Altieri & ERC & Maître de Conférences, Université de Paris \\
+2016--18 & Elisabeth Agoritsas & Simons, ERC & \\
+2015--18 & Beatriz Seoane Bartolomé & Marie Curie fellowship, ERC & Tenure track, UCM Madrid \\
+2012--14 & Yuliang Jin & PSL grant & Permanent, ITP-CAS, Shanghai \\
+2012--14 & Stanislao Gualdi & Crisis Project & Capital Fund Management, Paris \\
+\hline
+\end{tabularx}}
+
+\subsection{Master, Laurea and internship students}
+\vspace{4pt}
+{\small
+\begin{tabularx}{\textwidth}{@{}>{\hspace{0pt}\color{datecol}}p{0.07\textwidth} p{0.26\textwidth} p{0.13\textwidth} >{\raggedright\arraybackslash}X p{0.19\textwidth}@{}}
+\textbf{Year} & \textbf{Student} & \textbf{Stage} & \textbf{Institution} & \textbf{Co-supervisor} \\[1pt]
+\hline
+2026 & Federico Celauro & M2 & Sapienza Rome & F.~Ricci-Tersenghi \\
+2026 & Rapha\"el Decan de Chatouville & M1 & ENS Paris & --- \\
+2026 & Iker Landa-Cunha & M1 & ENS Paris-Saclay & --- \\
+2024 & Guglielmo Mennella & M2 & Sapienza Rome & P.~Charbonneau \\
+2024 & Gabriele Farn\'e & M2 & Sapienza Rome & --- \\
+2024 & Shoichi Yip & M2 & Sapienza Rome & C.~Nizak, M.~Weigt \\
+2024 & Ottavia Schulte & M2 & Sapienza Rome & --- \\
+2023 & Leonardo Di Bari & M2 & Sorbonne Universit\'e & M.~Weigt \\
+2020 & Jeanne Trinquier & M2 & Universit\'e de Paris & M.~Weigt \\
+2020 & Matteo Bisardi & M2 & Universit\'e de Paris & M.~Weigt \\
+2017 & Dhruv Sharma & M2 & ENS Paris & J.-P.~Bouchaud \\
+2017 & Guillaume Nevo & M2 & ENS Paris & J.-P.~Bouchaud \\
+2017 & Steffen Arnold & Internship & ENS Paris & --- \\
+2015 & Matthieu Mangeat & M2 & ENS Paris & --- \\
+2015 & Giancarlo Croce & M1 & ENS Paris & S.~Cocco \\
+2015 & Alexis Poncet & M1 & ENS Paris & E.~Corwin \\
+2014 & Giulia Cencetti & M2 & ENS Paris & --- \\
+2014 & Marcus Cordi & M2 & KTH Stockholm & J.-P.~Bouchaud \\
+2013 & Giulia Carra & M2 & ENS Paris & P.~Charbonneau \\
+2011 & Nicolas Allegra & M2 & Master ``Syst\`emes Complexes'' & A.~Walczak \\
+2011 & Vishal Agarwal & Internship & IIT Guwahati, India & --- \\
+2009 & Indaco Biazzo & Laurea & Sapienza Rome & G.~Parisi \\
+2009 & Hugo Jacquin & M2 & Master ``Syst\`emes Complexes'' & --- \\
+2008 & Francesco Caltagirone & Laurea & Sapienza Rome & G.~Parisi \\
+2004 & Alessio Andronico & Laurea & Sapienza Rome & G.~Ruocco \\
+\hline
+\end{tabularx}}
+
+% ======================= EDUCATION DETAIL =======================
+\section{Education: courses attended}
+
+{\small Courses followed during the undergraduate and PhD studies at the Department of Physics, Sapienza Universit\`a di Roma.}
+
+\vspace{8pt}
+\begin{tabularx}{\textwidth}{@{}D L@{}}
+1997--2000 & Standard courses of the first three years of the undergraduate course in Physics \\
+2000--2001 & \emph{Meccanica statistica} (Statistical Mechanics), Prof.~C.~Di~Castro, 120~h \\
+ & \emph{Fisica dei sistemi disordinati} (Physics of Disordered Systems), Prof.~E.~Marinari, 120~h \\
+ & \emph{Fisica teorica III} (Quantum Electrodynamics), Prof.~N.~Cabibbo, 120~h \\
+ & \emph{Fisica dei solidi} (Solid State Physics), Prof.~L.~Pietronero, 120~h \\
+ & \emph{Fisica delle basse temperature} (Quantum Many-Body Systems), Prof.~C.~Castellani, 120~h \\
+ & \emph{Programmazione orientata agli oggetti} (Object-oriented Programming), Prof.~G.~Organtini, 30~h \\
+2001--2002 & \emph{Metodi matematici della fisica, corso avanzato} (Stochastic Processes), Prof.~G.~Jona-Lasinio, 120~h \\
+ & \emph{Meccanica superiore} (Statistical Mechanics, Dynamical Systems), Prof.~G.~Gallavotti, 120~h \\
+2002--2003 & \emph{Introduzione al modello standard e alle sue estensioni supersimmetriche}, Dr.~E.~Franco and Dr.~L.~Silvestrini, 60~h \\
+ & \emph{Fisica dei sistemi disordinati} (Physics of Disordered Systems, for PhD students), Dr.~A.~Cavagna and Dr.~F.~Ricci-Tersenghi, 60~h \\
+ & \emph{Teoria dei campi} (Field Theory), Prof.~M.~Testa, 80~h \\
+\end{tabularx}
+
+\subsection{Schools and conferences attended}
+\vspace{2pt}
+{\small
+\begin{itemize}[leftmargin=12pt,itemsep=1pt,topsep=2pt]
+\item 8th International Workshop on Disordered Systems, Andalo (Trento), Italy, 12--15 March 2001.
+\item Unifying Concepts in Glass Physics, conference, Accademia dei Lincei, Rome, Italy, 26 February--2 March 2002.
+\item Field Theory and Statistical Mechanics, conference, Department of Physics, Sapienza Rome, Italy, 10--15 June 2002.
+\item Spectroscopic Investigation of the Collective Dynamics in Disordered Systems, summer school, ICTP Trieste, Italy, 17--28 June 2002.
+\item Slow Relaxation and Nonequilibrium Dynamics in Condensed Matter, summer school, \'Ecole de Physique des Houches, France, 1--26 July 2002.
+\item Perspectives in Mathematical Physics, conference, Department of Physics, Sapienza Rome, Italy, 4--7 September 2002.
+\item 9th International Workshop on Disordered Systems, Molveno (Trento), Italy, 10--13 March 2003.
+\item The Physics of Complex Systems (New Advances and Perspectives), summer school, International School of Physics ``Enrico Fermi'', Course CLV, Varenna, Italy, 1--11 July 2003.
+\item Supersymmetry and Matrix Models, XII National Seminar in Theoretical Physics, INFN, Parma, Italy, 1--12 September 2003.
+\item Applications of Random Matrices to Physics, Marie Curie Training Course, \'Ecole de Physique des Houches, France, 6--25 June 2004.
+\item First Latin-American School and Conference on Statistical Mechanics and Interdisciplinary Applications, Havana, Cuba, 28 February--12 March 2005.
+\item Recent Progress in Glassy Physics, workshop, Institut Henri Poincar\'e, Paris, France, 27--30 September 2005.
+\item Jamming, workshop, Aspen Center for Physics, Aspen (CO), USA, 29 July--13 August 2007.
+\end{itemize}}
+
+\end{document}
